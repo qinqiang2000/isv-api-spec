@@ -1,0 +1,2379 @@
+{
+  "apifoxProject": "1.0.0",
+  "$schema": {
+    "app": "apifox",
+    "type": "project",
+    "version": "1.2.0"
+  },
+  "info": {
+    "name": "发票查验接口",
+    "description": "ISV发票查验API，支持10种发票类型的实时查验",
+    "mockRule": {
+      "rules": [],
+      "enableSystemRule": true
+    }
+  },
+  "projectSetting": {
+    "id": "7461123",
+    "auth": {},
+    "securityScheme": {},
+    "gateway": [],
+    "language": "zh-CN",
+    "apiStatuses": [
+      "developing",
+      "testing",
+      "released",
+      "deprecated"
+    ],
+    "mockSettings": {},
+    "preProcessors": [],
+    "postProcessors": [],
+    "advancedSettings": {
+      "enableJsonc": false,
+      "enableBigint": false,
+      "responseValidate": true,
+      "enableTestScenarioSetting": false,
+      "enableYAPICompatScript": false,
+      "isDefaultUrlEncoding": 2,
+      "publishedDocUrlRules": {
+        "defaultRule": "RESOURCE_KEY_ONLY",
+        "resourceKeyStandard": "NEW"
+      },
+      "folderShareExpandModeSettings": {
+        "expandId": [],
+        "mode": "AUTO"
+      }
+    },
+    "initialDisabledMockIds": [],
+    "servers": [
+      {
+        "id": "default",
+        "name": "默认服务",
+        "moduleId": 6572471
+      }
+    ],
+    "cloudMock": {
+      "security": "free",
+      "enable": false,
+      "tokenKey": "apifoxToken"
+    }
+  },
+  "apiCollection": [
+    {
+      "name": "根目录",
+      "id": 71408368,
+      "auth": {},
+      "securityScheme": {},
+      "parentId": 0,
+      "serverId": "",
+      "description": "",
+      "identityPattern": {
+        "httpApi": {
+          "type": "methodAndPath",
+          "bodyType": "",
+          "fields": []
+        }
+      },
+      "shareSettings": {},
+      "visibility": "SHARED",
+      "moduleId": 6572471,
+      "preProcessors": [
+        {
+          "id": "inheritProcessors",
+          "type": "inheritProcessors",
+          "data": {}
+        }
+      ],
+      "postProcessors": [
+        {
+          "id": "inheritProcessors",
+          "type": "inheritProcessors",
+          "data": {}
+        }
+      ],
+      "inheritPostProcessors": {},
+      "inheritPreProcessors": {},
+      "items": [
+        {
+          "name": "发票查验",
+          "id": 71413748,
+          "auth": {},
+          "securityScheme": {},
+          "parentId": 0,
+          "serverId": "",
+          "description": "企业端业务系统通过接口对开具、取得的各类发票发起查验申请，系统根据查验申请反馈查验结果。支持10种发票类型的实时查验。",
+          "identityPattern": {
+            "httpApi": {
+              "type": "methodAndPath",
+              "bodyType": "",
+              "fields": []
+            }
+          },
+          "shareSettings": {},
+          "visibility": "SHARED",
+          "moduleId": 6572471,
+          "preProcessors": [
+            {
+              "id": "inheritProcessors",
+              "type": "inheritProcessors",
+              "data": {}
+            }
+          ],
+          "postProcessors": [
+            {
+              "id": "inheritProcessors",
+              "type": "inheritProcessors",
+              "data": {}
+            }
+          ],
+          "inheritPostProcessors": {},
+          "inheritPreProcessors": {},
+          "items": [
+            {
+              "name": "发票查验",
+              "api": {
+                "id": "383078996",
+                "method": "post",
+                "path": "/isv/invoice-verifications",
+                "parameters": {
+                  "path": [],
+                  "query": [],
+                  "cookie": [],
+                  "header": [
+                    {
+                      "id": "PleQywDimm1",
+                      "name": "Accept-Language",
+                      "required": false,
+                      "enable": true,
+                      "description": "HTTP 标准请求头，使用 IETF BCP 47（如 zh-CN、en-US）指定客户端期望的响应语言。默认 en-US",
+                      "example": "",
+                      "type": "string",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "id": "amC8hRaJPy1",
+                      "name": "Authorization",
+                      "required": true,
+                      "enable": true,
+                      "description": "Bearer <access_token>",
+                      "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+                      "type": "string"
+                    },
+                    {
+                      "id": "bLjpR1kdWQ1",
+                      "name": "X-Request-Id",
+                      "required": true,
+                      "enable": true,
+                      "description": "用于标识一次请求的全局唯一 ID，以支持跨系统的链路追踪与日志关联。推荐格式：req_{timestamp_ms}_{random_8}（毫秒时间戳 + 8 位随机数）",
+                      "example": "req_1701937730123_48210952",
+                      "type": "string"
+                    },
+                    {
+                      "id": "TxIfclLcTo1",
+                      "name": "X-Customer-Id",
+                      "required": true,
+                      "enable": true,
+                      "description": "客户编号；长度：10位，数字",
+                      "example": "",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "auth": {},
+                "securityScheme": {},
+                "commonParameters": {
+                  "query": [],
+                  "body": [],
+                  "cookie": [],
+                  "header": []
+                },
+                "responses": [
+                  {
+                    "id": "168915581",
+                    "code": 200,
+                    "name": "成功",
+                    "headers": [],
+                    "jsonSchema": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "result_code": {
+                          "type": "string",
+                          "title": "结果代码",
+                          "enum": [
+                            "00",
+                            "01",
+                            "02",
+                            "03",
+                            "04"
+                          ],
+                          "x-apifox-enum": [
+                            {
+                              "value": "00",
+                              "name": "成功",
+                              "description": ""
+                            },
+                            {
+                              "value": "01",
+                              "name": "失败",
+                              "description": ""
+                            },
+                            {
+                              "value": "02",
+                              "name": "查无数据",
+                              "description": ""
+                            },
+                            {
+                              "value": "03",
+                              "name": "查验不一致",
+                              "description": ""
+                            },
+                            {
+                              "value": "04",
+                              "name": "此发票非本单位开具或取得",
+                              "description": ""
+                            }
+                          ]
+                        },
+                        "result_message": {
+                          "type": "string",
+                          "title": "返回信息"
+                        },
+                        "verification_data": {
+                          "title": "查验结果信息",
+                          "description": "根据发票类型返回对应的发票数据结构（已自动解压gzip+base64）",
+                          "oneOf": [
+                            {
+                              "$ref": "#/definitions/223576033"
+                            },
+                            {
+                              "$ref": "#/definitions/223576034"
+                            },
+                            {
+                              "$ref": "#/definitions/223576035"
+                            },
+                            {
+                              "$ref": "#/definitions/223576036"
+                            },
+                            {
+                              "$ref": "#/definitions/223576037"
+                            },
+                            {
+                              "$ref": "#/definitions/223576038"
+                            },
+                            {
+                              "$ref": "#/definitions/223576039"
+                            },
+                            {
+                              "$ref": "#/definitions/223576040"
+                            },
+                            {
+                              "$ref": "#/definitions/223576041"
+                            },
+                            {
+                              "$ref": "#/definitions/223576042"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "result_code"
+                      ],
+                      "x-apifox-orders": [
+                        "result_code",
+                        "result_message",
+                        "verification_data"
+                      ]
+                    },
+                    "description": "",
+                    "contentType": "json",
+                    "mediaType": "application/json"
+                  },
+                  {
+                    "id": "161367660",
+                    "code": 401,
+                    "name": "没有权限",
+                    "headers": [],
+                    "jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "errcode": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "errcode",
+                        "description"
+                      ],
+                      "x-apifox-orders": [
+                        "errcode",
+                        "description"
+                      ]
+                    },
+                    "description": "",
+                    "contentType": "json",
+                    "mediaType": "application/json"
+                  }
+                ],
+                "responseExamples": [],
+                "requestBody": {
+                  "type": "application/json",
+                  "parameters": [],
+                  "jsonSchema": {
+                    "type": "object",
+                    "description": "",
+                    "properties": {
+                      "invoice_type": {
+                        "type": "string",
+                        "title": "发票类型",
+                        "description": "2位字符",
+                        "enum": [
+                          "01",
+                          "02",
+                          "03",
+                          "04",
+                          "08",
+                          "10",
+                          "11",
+                          "14",
+                          "15",
+                          "81",
+                          "82",
+                          "85",
+                          "86",
+                          "51",
+                          "61",
+                          "83",
+                          "84",
+                          "87",
+                          "88"
+                        ],
+                        "x-apifox-enum": [
+                          {
+                            "value": "01",
+                            "name": "增值税专用发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "02",
+                            "name": "货物运输业增值税专用发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "03",
+                            "name": "机动车销售统一发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "04",
+                            "name": "增值税普通发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "08",
+                            "name": "增值税电子专用发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "10",
+                            "name": "增值税电子普通发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "11",
+                            "name": "卷式发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "14",
+                            "name": "通行费发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "15",
+                            "name": "二手车销售统一发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "81",
+                            "name": "电子发票（增值税专用发票）",
+                            "description": ""
+                          },
+                          {
+                            "value": "82",
+                            "name": "电子发票（普通发票）",
+                            "description": ""
+                          },
+                          {
+                            "value": "85",
+                            "name": "纸质发票（增值税专用发票）",
+                            "description": ""
+                          },
+                          {
+                            "value": "86",
+                            "name": "纸质发票（普通发票）",
+                            "description": ""
+                          },
+                          {
+                            "value": "51",
+                            "name": "电子发票（铁路电子客票）",
+                            "description": ""
+                          },
+                          {
+                            "value": "61",
+                            "name": "电子发票（航空运输客票电子行程单）",
+                            "description": ""
+                          },
+                          {
+                            "value": "83",
+                            "name": "机动车销售电子统一发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "84",
+                            "name": "二手车销售电子统一发票",
+                            "description": ""
+                          },
+                          {
+                            "value": "87",
+                            "name": "纸质发票（机动车销售统一发票）",
+                            "description": ""
+                          },
+                          {
+                            "value": "88",
+                            "name": "纸质发票（二手车销售统一发票）",
+                            "description": ""
+                          }
+                        ]
+                      },
+                      "invoice_code": {
+                        "type": "string",
+                        "title": "发票代码",
+                        "description": "12位字符，纸质发票类型时必填",
+                        "maxLength": 12
+                      },
+                      "invoice_no": {
+                        "type": "string",
+                        "title": "发票号码",
+                        "description": "20位字符",
+                        "maxLength": 20
+                      },
+                      "invoice_date": {
+                        "type": "string",
+                        "title": "开票日期",
+                        "description": "YYYY-MM-DD格式",
+                        "example": "2025-01-01"
+                      },
+                      "verification_code": {
+                        "type": "string",
+                        "title": "校验码",
+                        "description": "后六位",
+                        "maxLength": 32
+                      },
+                      "invoice_amount": {
+                        "type": "number",
+                        "title": "开票金额",
+                        "description": "整数部分最大18位，保留2位小数"
+                      },
+                      "taxpayer_id": {
+                        "type": "string",
+                        "title": "纳税人识别号",
+                        "description": "20位字符",
+                        "maxLength": 20
+                      }
+                    },
+                    "required": [
+                      "invoice_type",
+                      "invoice_no",
+                      "invoice_date",
+                      "taxpayer_id"
+                    ],
+                    "x-apifox-orders": [
+                      "invoice_type",
+                      "invoice_code",
+                      "invoice_no",
+                      "invoice_date",
+                      "verification_code",
+                      "invoice_amount",
+                      "taxpayer_id"
+                    ]
+                  },
+                  "examples": [
+                    {
+                      "value": "{\n  \"invoice_type\": \"81\",\n  \"invoice_code\": \"5101*****111\",\n  \"invoice_no\": \"00000001\",\n  \"invoice_date\": \"2025-01-01\",\n  \"verification_code\": \"123456\",\n  \"invoice_amount\": 10000.0,\n  \"taxpayer_id\": \"915100************\"\n}",
+                      "mediaType": "application/json",
+                      "description": ""
+                    }
+                  ],
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
+                },
+                "description": "企业端业务系统通过接口对开具、取得的各类发票发起查验申请，系统根据查验申请反馈查验结果。",
+                "tags": [
+                  "发票查验"
+                ],
+                "status": "released",
+                "serverId": "",
+                "operationId": "",
+                "sourceUrl": "",
+                "ordering": 10,
+                "cases": [],
+                "mocks": [],
+                "customApiFields": "{}",
+                "advancedSettings": {
+                  "disabledSystemHeaders": {}
+                },
+                "mockScript": {},
+                "codeSamples": [],
+                "commonResponseStatus": {},
+                "responseChildren": [],
+                "visibility": "INHERITED",
+                "moduleId": 6572471,
+                "oasExtensions": "",
+                "type": "http",
+                "preProcessors": [],
+                "postProcessors": [],
+                "inheritPostProcessors": {},
+                "inheritPreProcessors": {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "socketCollection": [],
+  "docCollection": [],
+  "webSocketCollection": [],
+  "socketIOCollection": [],
+  "responseCollection": [],
+  "schemaCollection": [
+    {
+      "id": 17279714,
+      "name": "根目录",
+      "visibility": "SHARED",
+      "moduleId": 6572471,
+      "items": [
+        {
+          "id": 17496646,
+          "name": "ISV发票查验数据类型",
+          "visibility": "INHERITED",
+          "moduleId": 6572471,
+          "items": [
+            {
+              "name": "医疗机构类型",
+              "displayName": "",
+              "id": "#/definitions/220013573",
+              "description": "",
+              "schema": {
+                "jsonSchema": {
+                  "type": "string",
+                  "enum": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  "x-apifox-enum": [
+                    {
+                      "value": "1",
+                      "name": "综合医院",
+                      "description": ""
+                    },
+                    {
+                      "value": "2",
+                      "name": "中医医院",
+                      "description": ""
+                    },
+                    {
+                      "value": "3",
+                      "name": "专科医院",
+                      "description": ""
+                    },
+                    {
+                      "value": "4",
+                      "name": "社区卫生服务中心（站）",
+                      "description": ""
+                    },
+                    {
+                      "value": "5",
+                      "name": "其他",
+                      "description": ""
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "数字化电子发票-增值税发票数据",
+              "displayName": "",
+              "id": "#/definitions/223576033",
+              "description": "包含发票类型: 81-电子发票(增值税专用发票), 82-电子发票(普通发票), 85-纸质发票(增值税专用发票), 86-纸质发票(普通发票)",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "paper_invoice_code": {
+                      "type": "string",
+                      "title": "纸质发票代码",
+                      "maxLength": 12
+                    },
+                    "paper_invoice_no": {
+                      "type": "string",
+                      "title": "纸质发票号码",
+                      "maxLength": 20
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "description": "YYYY-MM-DD HH:mm:ss",
+                      "maxLength": 19
+                    },
+                    "invoice_category_code": {
+                      "type": "string",
+                      "title": "发票票种代码",
+                      "maxLength": 2
+                    },
+                    "special_element_type_code": {
+                      "type": "string",
+                      "title": "特定要素类型代码",
+                      "maxLength": 2
+                    },
+                    "is_blue_invoice": {
+                      "type": "string",
+                      "title": "是否蓝字发票",
+                      "enum": [
+                        "Y",
+                        "N"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "Y",
+                          "name": "是",
+                          "description": ""
+                        },
+                        {
+                          "value": "N",
+                          "name": "否",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "original_blue_invoice_no": {
+                      "type": "string",
+                      "title": "开具红字发票对应的蓝字发票号码",
+                      "maxLength": 20
+                    },
+                    "original_blue_paper_invoice_code": {
+                      "type": "string",
+                      "title": "开具红字发票对应的纸质发票代码",
+                      "maxLength": 12
+                    },
+                    "original_blue_paper_invoice_no": {
+                      "type": "string",
+                      "title": "开具红字发票对应的纸质发票号码",
+                      "maxLength": 20
+                    },
+                    "saler_tax_no": {
+                      "type": "string",
+                      "title": "销售方识别号",
+                      "maxLength": 20
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 150
+                    },
+                    "saler_address": {
+                      "type": "string",
+                      "title": "销货方地址",
+                      "maxLength": 250
+                    },
+                    "buyer_tax_no": {
+                      "type": "string",
+                      "title": "购买方识别号",
+                      "maxLength": 20
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "购买方名称",
+                      "maxLength": 150
+                    },
+                    "buyer_address": {
+                      "type": "string",
+                      "title": "购买方地址",
+                      "maxLength": 300
+                    },
+                    "total_amount": {
+                      "type": "number",
+                      "title": "合计金额",
+                      "description": "整数部分最大18位，保留2位小数"
+                    },
+                    "total_tax_amount": {
+                      "type": "number",
+                      "title": "合计税额",
+                      "description": "整数部分最大18位，保留2位小数"
+                    },
+                    "amount_with_tax": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "整数部分最大18位，保留2位小数"
+                    },
+                    "amount_with_tax_in_words": {
+                      "type": "string",
+                      "title": "价税合计(大写)",
+                      "maxLength": 300
+                    },
+                    "deduction_amount": {
+                      "type": "number",
+                      "title": "扣除额",
+                      "description": "整数部分最大18位，保留2位小数"
+                    },
+                    "settlement_method_code": {
+                      "type": "string",
+                      "title": "结算方式",
+                      "maxLength": 2
+                    },
+                    "issuer": {
+                      "type": "string",
+                      "title": "开票人",
+                      "maxLength": 300
+                    },
+                    "remark": {
+                      "type": "string",
+                      "title": "备注",
+                      "maxLength": 450
+                    },
+                    "item_count": {
+                      "type": "integer",
+                      "title": "明细条数"
+                    },
+                    "vat_immediate_refund_code": {
+                      "type": "string",
+                      "title": "增值税即征即退代码",
+                      "maxLength": 2
+                    },
+                    "export_tax_refund_type_code": {
+                      "type": "string",
+                      "title": "出口退税类代码",
+                      "maxLength": 2
+                    },
+                    "reviewer": {
+                      "type": "string",
+                      "title": "复核人姓名",
+                      "maxLength": 75
+                    },
+                    "payee": {
+                      "type": "string",
+                      "title": "收款人姓名",
+                      "maxLength": 150
+                    },
+                    "saler_phone": {
+                      "type": "string",
+                      "title": "销售方电话",
+                      "maxLength": 60
+                    },
+                    "saler_bank_name": {
+                      "type": "string",
+                      "title": "销售方开户行",
+                      "maxLength": 120
+                    },
+                    "saler_account_number": {
+                      "type": "string",
+                      "title": "销售方账号",
+                      "maxLength": 100
+                    },
+                    "buyer_phone": {
+                      "type": "string",
+                      "title": "购买方电话",
+                      "maxLength": 60
+                    },
+                    "buyer_bank_name": {
+                      "type": "string",
+                      "title": "购买方开户行",
+                      "maxLength": 120
+                    },
+                    "buyer_account_number": {
+                      "type": "string",
+                      "title": "购买方账号",
+                      "maxLength": 100
+                    },
+                    "saler_taxpayer_type_code": {
+                      "type": "string",
+                      "title": "销方纳税人类型代码",
+                      "enum": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "1",
+                          "name": "一般纳税人",
+                          "description": ""
+                        },
+                        {
+                          "value": "2",
+                          "name": "小规模纳税人",
+                          "description": ""
+                        },
+                        {
+                          "value": "3",
+                          "name": "转登记小规模纳税人",
+                          "description": ""
+                        },
+                        {
+                          "value": "4",
+                          "name": "辅导期一般纳税人",
+                          "description": ""
+                        },
+                        {
+                          "value": "5",
+                          "name": "自然人",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "refined_oil_abnormal_flag": {
+                      "type": "string",
+                      "title": "成品油异常标识",
+                      "enum": [
+                        "9",
+                        "1",
+                        "2"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "9",
+                          "name": "正常",
+                          "description": ""
+                        },
+                        {
+                          "value": "1",
+                          "name": "成品油单价异常",
+                          "description": ""
+                        },
+                        {
+                          "value": "2",
+                          "name": "成品油超库存异常",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "additional_elements": {
+                      "type": "object",
+                      "title": "附加要素信息",
+                      "description": "JSON格式"
+                    },
+                    "items": {
+                      "type": "array",
+                      "title": "货物信息",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "sequence_no": {
+                            "type": "integer",
+                            "title": "序号"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "title": "项目名称",
+                            "maxLength": 600
+                          },
+                          "item_short_name": {
+                            "type": "string",
+                            "title": "商品服务简称",
+                            "maxLength": 120
+                          },
+                          "goods_or_service_name": {
+                            "type": "string",
+                            "title": "货物或应税劳务、服务名称",
+                            "maxLength": 300
+                          },
+                          "tax_classification_code": {
+                            "type": "string",
+                            "title": "商品和服务税收分类合并编码",
+                            "maxLength": 19
+                          },
+                          "spec_model": {
+                            "type": "string",
+                            "title": "规格型号",
+                            "maxLength": 150
+                          },
+                          "unit": {
+                            "type": "string",
+                            "title": "单位",
+                            "maxLength": 300
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "title": "发票交易数量",
+                            "maxLength": 25
+                          },
+                          "unit_price": {
+                            "type": "string",
+                            "title": "发票交易单价",
+                            "maxLength": 25
+                          },
+                          "tax_rate": {
+                            "type": "number",
+                            "title": "税率",
+                            "description": "DECIMAL 6,6"
+                          },
+                          "tax_amount": {
+                            "type": "number",
+                            "title": "税额",
+                            "description": "DECIMAL 8,6"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "title": "金额",
+                            "description": "DECIMAL 8,2"
+                          },
+                          "deduction_amount": {
+                            "type": "number",
+                            "title": "扣除额",
+                            "description": "DECIMAL 8,2"
+                          },
+                          "product_barcode": {
+                            "type": "string",
+                            "title": "商品条码",
+                            "maxLength": 300
+                          }
+                        },
+                        "required": [
+                          "sequence_no",
+                          "tax_rate",
+                          "tax_amount",
+                          "amount"
+                        ],
+                        "x-apifox-orders": [
+                          "sequence_no",
+                          "item_name",
+                          "item_short_name",
+                          "goods_or_service_name",
+                          "tax_classification_code",
+                          "spec_model",
+                          "unit",
+                          "quantity",
+                          "unit_price",
+                          "tax_rate",
+                          "tax_amount",
+                          "amount",
+                          "deduction_amount",
+                          "product_barcode"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "invoice_no",
+                    "invoice_date",
+                    "invoice_category_code",
+                    "is_blue_invoice",
+                    "saler_name",
+                    "buyer_name",
+                    "total_amount",
+                    "total_tax_amount",
+                    "amount_with_tax",
+                    "amount_with_tax_in_words"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_no",
+                    "paper_invoice_code",
+                    "paper_invoice_no",
+                    "invoice_date",
+                    "invoice_category_code",
+                    "special_element_type_code",
+                    "is_blue_invoice",
+                    "original_blue_invoice_no",
+                    "original_blue_paper_invoice_code",
+                    "original_blue_paper_invoice_no",
+                    "saler_tax_no",
+                    "saler_name",
+                    "saler_address",
+                    "buyer_tax_no",
+                    "buyer_name",
+                    "buyer_address",
+                    "total_amount",
+                    "total_tax_amount",
+                    "amount_with_tax",
+                    "amount_with_tax_in_words",
+                    "deduction_amount",
+                    "settlement_method_code",
+                    "issuer",
+                    "remark",
+                    "item_count",
+                    "vat_immediate_refund_code",
+                    "export_tax_refund_type_code",
+                    "reviewer",
+                    "payee",
+                    "saler_phone",
+                    "saler_bank_name",
+                    "saler_account_number",
+                    "buyer_phone",
+                    "buyer_bank_name",
+                    "buyer_account_number",
+                    "saler_taxpayer_type_code",
+                    "refined_oil_abnormal_flag",
+                    "additional_elements",
+                    "items"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "标准增值税发票数据",
+              "displayName": "",
+              "id": "#/definitions/223576034",
+              "description": "包含发票类型: 01-增值税专用发票, 02-货物运输业增值税专用发票, 04-增值税普通发票, 08-增值税电子专用发票, 10-增值税电子普通发票",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_code": {
+                      "type": "string",
+                      "title": "发票代码",
+                      "maxLength": 12
+                    },
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "maxLength": 19,
+                      "description": "YYYY-MM-DD HH:mm:ss"
+                    },
+                    "special_invoice_type": {
+                      "type": "string",
+                      "title": "特殊票种",
+                      "enum": [
+                        "02",
+                        "03",
+                        "04",
+                        "05",
+                        "08",
+                        "20",
+                        "21",
+                        "22"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "02",
+                          "name": "农产品收购",
+                          "description": ""
+                        },
+                        {
+                          "value": "03",
+                          "name": "稀土矿产品发票",
+                          "description": ""
+                        },
+                        {
+                          "value": "04",
+                          "name": "稀土产成品发票",
+                          "description": ""
+                        },
+                        {
+                          "value": "05",
+                          "name": "石脑油",
+                          "description": ""
+                        },
+                        {
+                          "value": "08",
+                          "name": "成品油发票",
+                          "description": ""
+                        },
+                        {
+                          "value": "20",
+                          "name": "会员单位投资性黄金",
+                          "description": ""
+                        },
+                        {
+                          "value": "21",
+                          "name": "会员单位非投资性黄金",
+                          "description": ""
+                        },
+                        {
+                          "value": "22",
+                          "name": "客户标准黄金",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "invoice_status_flag": {
+                      "type": "string",
+                      "title": "发票状态标识",
+                      "enum": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "0",
+                          "name": "正数票",
+                          "description": ""
+                        },
+                        {
+                          "value": "1",
+                          "name": "负数票",
+                          "description": ""
+                        },
+                        {
+                          "value": "2",
+                          "name": "空白作废发票",
+                          "description": ""
+                        },
+                        {
+                          "value": "3",
+                          "name": "正数作废发票",
+                          "description": ""
+                        },
+                        {
+                          "value": "4",
+                          "name": "负数作废发票",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "verification_code": {
+                      "type": "string",
+                      "title": "校验码",
+                      "maxLength": 32
+                    },
+                    "saler_tax_no": {
+                      "type": "string",
+                      "title": "销售方识别号",
+                      "maxLength": 20
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 300
+                    },
+                    "buyer_tax_no": {
+                      "type": "string",
+                      "title": "购买方税号",
+                      "maxLength": 20
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "购买方名称",
+                      "maxLength": 300
+                    },
+                    "proxy_saler_tax_no": {
+                      "type": "string",
+                      "title": "代开发票真实销售方识别号",
+                      "maxLength": 20
+                    },
+                    "proxy_saler_name": {
+                      "type": "string",
+                      "title": "代开发票真实销售方名称",
+                      "maxLength": 300
+                    },
+                    "void_date": {
+                      "type": "string",
+                      "title": "作废日期",
+                      "maxLength": 19,
+                      "description": "YYYY-MM-DD HH:mm:ss"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "title": "金额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "tax_amount": {
+                      "type": "number",
+                      "title": "税额",
+                      "description": "DECIMAL 18,2"
+                    }
+                  },
+                  "required": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "invoice_status_flag",
+                    "saler_tax_no"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "special_invoice_type",
+                    "invoice_status_flag",
+                    "verification_code",
+                    "saler_tax_no",
+                    "saler_name",
+                    "buyer_tax_no",
+                    "buyer_name",
+                    "proxy_saler_tax_no",
+                    "proxy_saler_name",
+                    "void_date",
+                    "amount",
+                    "tax_amount"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "增值税普通发票（卷式）数据",
+              "displayName": "",
+              "id": "#/definitions/223576035",
+              "description": "包含发票类型: 11-卷式发票",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_code": {
+                      "type": "string",
+                      "title": "发票代码",
+                      "maxLength": 12
+                    },
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "maxLength": 19
+                    },
+                    "verification_code": {
+                      "type": "string",
+                      "title": "校验码",
+                      "maxLength": 32
+                    },
+                    "machine_code": {
+                      "type": "string",
+                      "title": "机器编号",
+                      "maxLength": 20
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "购买方名称",
+                      "maxLength": 300
+                    },
+                    "buyer_tax_no": {
+                      "type": "string",
+                      "title": "购买方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "amount": {
+                      "type": "number",
+                      "title": "金额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "tax_rate": {
+                      "type": "number",
+                      "title": "税率",
+                      "description": "DECIMAL 6,6"
+                    },
+                    "tax_amount": {
+                      "type": "number",
+                      "title": "税额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "total_amount": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "total_amount_in_words": {
+                      "type": "string",
+                      "title": "价税合计大写",
+                      "maxLength": 300
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 300
+                    },
+                    "saler_tax_no": {
+                      "type": "string",
+                      "title": "销售方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "issuer": {
+                      "type": "string",
+                      "title": "开票人",
+                      "maxLength": 300
+                    },
+                    "remark": {
+                      "type": "string",
+                      "title": "备注",
+                      "maxLength": 450
+                    }
+                  },
+                  "required": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "saler_tax_no",
+                    "amount",
+                    "tax_rate",
+                    "tax_amount",
+                    "total_amount"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "verification_code",
+                    "machine_code",
+                    "buyer_name",
+                    "buyer_tax_no",
+                    "amount",
+                    "tax_rate",
+                    "tax_amount",
+                    "total_amount",
+                    "total_amount_in_words",
+                    "saler_name",
+                    "saler_tax_no",
+                    "issuer",
+                    "remark"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "增值税普通发票（通行费）数据",
+              "displayName": "",
+              "id": "#/definitions/223576036",
+              "description": "包含发票类型: 14-通行费发票",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_code": {
+                      "type": "string",
+                      "title": "发票代码",
+                      "maxLength": 12
+                    },
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "maxLength": 19
+                    },
+                    "verification_code": {
+                      "type": "string",
+                      "title": "校验码",
+                      "maxLength": 32
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "车牌号",
+                      "maxLength": 300
+                    },
+                    "special_invoice_type": {
+                      "type": "string",
+                      "title": "特殊票种",
+                      "enum": [
+                        "06",
+                        "07"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "06",
+                          "name": "不可抵扣",
+                          "description": ""
+                        },
+                        {
+                          "value": "07",
+                          "name": "可抵扣",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "highway_flag": {
+                      "type": "string",
+                      "title": "高速公路标识",
+                      "enum": [
+                        "Y",
+                        "N"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "Y",
+                          "name": "是",
+                          "description": ""
+                        },
+                        {
+                          "value": "N",
+                          "name": "否",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "entrance": {
+                      "type": "string",
+                      "title": "入口",
+                      "maxLength": 300
+                    },
+                    "exit": {
+                      "type": "string",
+                      "title": "出口",
+                      "maxLength": 300
+                    },
+                    "amount": {
+                      "type": "number",
+                      "title": "金额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "tax_rate": {
+                      "type": "number",
+                      "title": "税率",
+                      "description": "DECIMAL 6,6"
+                    },
+                    "tax_amount": {
+                      "type": "number",
+                      "title": "税额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "total_amount": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "total_amount_in_words": {
+                      "type": "string",
+                      "title": "价税合计大写",
+                      "maxLength": 300
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 300
+                    },
+                    "saler_tax_no": {
+                      "type": "string",
+                      "title": "销售方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "saler_address_phone": {
+                      "type": "string",
+                      "title": "销售方地址、电话",
+                      "maxLength": 450
+                    },
+                    "saler_bank_account": {
+                      "type": "string",
+                      "title": "销售方开户行及账号",
+                      "maxLength": 300
+                    }
+                  },
+                  "required": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "saler_tax_no",
+                    "amount",
+                    "tax_rate",
+                    "tax_amount",
+                    "total_amount"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "verification_code",
+                    "buyer_name",
+                    "special_invoice_type",
+                    "highway_flag",
+                    "entrance",
+                    "exit",
+                    "amount",
+                    "tax_rate",
+                    "tax_amount",
+                    "total_amount",
+                    "total_amount_in_words",
+                    "saler_name",
+                    "saler_tax_no",
+                    "saler_address_phone",
+                    "saler_bank_account"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "机动车销售统一发票数据",
+              "displayName": "",
+              "id": "#/definitions/223576037",
+              "description": "包含发票类型: 03-机动车销售统一发票, 87-纸质发票（机动车销售统一发票）",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_code": {
+                      "type": "string",
+                      "title": "发票代码",
+                      "maxLength": 12
+                    },
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "maxLength": 19
+                    },
+                    "vehicle_type": {
+                      "type": "string",
+                      "title": "车辆类型",
+                      "maxLength": 50
+                    },
+                    "product_model": {
+                      "type": "string",
+                      "title": "厂牌型号",
+                      "maxLength": 100
+                    },
+                    "origin_place": {
+                      "type": "string",
+                      "title": "产地",
+                      "maxLength": 100
+                    },
+                    "certificate_no": {
+                      "type": "string",
+                      "title": "合格证号",
+                      "maxLength": 50
+                    },
+                    "import_certificate_no": {
+                      "type": "string",
+                      "title": "进口证明书号",
+                      "maxLength": 50
+                    },
+                    "business_inspection_no": {
+                      "type": "string",
+                      "title": "商检单号",
+                      "maxLength": 50
+                    },
+                    "engine_no": {
+                      "type": "string",
+                      "title": "发动机号码",
+                      "maxLength": 50
+                    },
+                    "vehicle_identification_no": {
+                      "type": "string",
+                      "title": "车辆识别代号/车架号码",
+                      "maxLength": 50
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "购买方名称",
+                      "maxLength": 300
+                    },
+                    "buyer_id_type": {
+                      "type": "string",
+                      "title": "购买方证件类型",
+                      "maxLength": 20
+                    },
+                    "buyer_id_no": {
+                      "type": "string",
+                      "title": "购买方证件号码/组织机构代码",
+                      "maxLength": 50
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 300
+                    },
+                    "saler_tax_no": {
+                      "type": "string",
+                      "title": "销售方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "amount": {
+                      "type": "number",
+                      "title": "不含税价",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "tax_rate": {
+                      "type": "number",
+                      "title": "税率",
+                      "description": "DECIMAL 6,6"
+                    },
+                    "tax_amount": {
+                      "type": "number",
+                      "title": "税额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "total_amount": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    }
+                  },
+                  "required": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "vehicle_identification_no",
+                    "saler_tax_no"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "vehicle_type",
+                    "product_model",
+                    "origin_place",
+                    "certificate_no",
+                    "import_certificate_no",
+                    "business_inspection_no",
+                    "engine_no",
+                    "vehicle_identification_no",
+                    "buyer_name",
+                    "buyer_id_type",
+                    "buyer_id_no",
+                    "saler_name",
+                    "saler_tax_no",
+                    "amount",
+                    "tax_rate",
+                    "tax_amount",
+                    "total_amount"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "二手车销售统一发票数据",
+              "displayName": "",
+              "id": "#/definitions/223576038",
+              "description": "包含发票类型: 15-二手车销售统一发票, 88-纸质发票（二手车销售统一发票）",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_code": {
+                      "type": "string",
+                      "title": "发票代码",
+                      "maxLength": 12
+                    },
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "maxLength": 19
+                    },
+                    "sale_date": {
+                      "type": "string",
+                      "title": "销售日期",
+                      "maxLength": 19
+                    },
+                    "vehicle_type": {
+                      "type": "string",
+                      "title": "车辆类型",
+                      "maxLength": 50
+                    },
+                    "license_plate_no": {
+                      "type": "string",
+                      "title": "车牌照号",
+                      "maxLength": 20
+                    },
+                    "registration_no": {
+                      "type": "string",
+                      "title": "登记证号",
+                      "maxLength": 50
+                    },
+                    "vehicle_identification_no": {
+                      "type": "string",
+                      "title": "车辆识别代号/车架号码",
+                      "maxLength": 50
+                    },
+                    "transfer_date": {
+                      "type": "string",
+                      "title": "转入日期",
+                      "maxLength": 19
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "买方单位/个人",
+                      "maxLength": 300
+                    },
+                    "buyer_id_type": {
+                      "type": "string",
+                      "title": "买方证件类型",
+                      "maxLength": 20
+                    },
+                    "buyer_id_no": {
+                      "type": "string",
+                      "title": "买方证件号码/组织机构代码",
+                      "maxLength": 50
+                    },
+                    "buyer_address": {
+                      "type": "string",
+                      "title": "买方单位/个人住址",
+                      "maxLength": 300
+                    },
+                    "buyer_phone": {
+                      "type": "string",
+                      "title": "买方电话",
+                      "maxLength": 60
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "卖方单位/个人",
+                      "maxLength": 300
+                    },
+                    "saler_id_type": {
+                      "type": "string",
+                      "title": "卖方证件类型",
+                      "maxLength": 20
+                    },
+                    "saler_id_no": {
+                      "type": "string",
+                      "title": "卖方证件号码/组织机构代码",
+                      "maxLength": 50
+                    },
+                    "saler_address": {
+                      "type": "string",
+                      "title": "卖方单位/个人住址",
+                      "maxLength": 300
+                    },
+                    "saler_phone": {
+                      "type": "string",
+                      "title": "卖方电话",
+                      "maxLength": 60
+                    },
+                    "vehicle_price_total": {
+                      "type": "number",
+                      "title": "车价合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "market_name": {
+                      "type": "string",
+                      "title": "二手车市场名称",
+                      "maxLength": 300
+                    },
+                    "market_tax_no": {
+                      "type": "string",
+                      "title": "二手车市场纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "market_address": {
+                      "type": "string",
+                      "title": "二手车市场地址",
+                      "maxLength": 300
+                    },
+                    "market_bank_account": {
+                      "type": "string",
+                      "title": "二手车市场开户行、账号",
+                      "maxLength": 300
+                    }
+                  },
+                  "required": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "vehicle_identification_no",
+                    "market_tax_no"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_code",
+                    "invoice_no",
+                    "invoice_date",
+                    "sale_date",
+                    "vehicle_type",
+                    "license_plate_no",
+                    "registration_no",
+                    "vehicle_identification_no",
+                    "transfer_date",
+                    "buyer_name",
+                    "buyer_id_type",
+                    "buyer_id_no",
+                    "buyer_address",
+                    "buyer_phone",
+                    "saler_name",
+                    "saler_id_type",
+                    "saler_id_no",
+                    "saler_address",
+                    "saler_phone",
+                    "vehicle_price_total",
+                    "market_name",
+                    "market_tax_no",
+                    "market_address",
+                    "market_bank_account"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "航空运输客票电子行程单数据",
+              "displayName": "",
+              "id": "#/definitions/223576039",
+              "description": "包含发票类型: 61-电子发票（航空运输客票电子行程单）",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "issue_date": {
+                      "type": "string",
+                      "title": "填开日期",
+                      "maxLength": 19
+                    },
+                    "passenger_name": {
+                      "type": "string",
+                      "title": "旅客姓名",
+                      "maxLength": 100
+                    },
+                    "passenger_id_no": {
+                      "type": "string",
+                      "title": "旅客身份证号码",
+                      "maxLength": 50
+                    },
+                    "carrier": {
+                      "type": "string",
+                      "title": "承运人",
+                      "maxLength": 300
+                    },
+                    "flight_no": {
+                      "type": "string",
+                      "title": "航班号",
+                      "maxLength": 50
+                    },
+                    "seat_class": {
+                      "type": "string",
+                      "title": "座位等级",
+                      "maxLength": 50
+                    },
+                    "departure": {
+                      "type": "string",
+                      "title": "出发地",
+                      "maxLength": 100
+                    },
+                    "destination": {
+                      "type": "string",
+                      "title": "目的地",
+                      "maxLength": 100
+                    },
+                    "travel_date": {
+                      "type": "string",
+                      "title": "乘机日期",
+                      "maxLength": 19
+                    },
+                    "travel_time": {
+                      "type": "string",
+                      "title": "乘机时间",
+                      "maxLength": 10
+                    },
+                    "fare": {
+                      "type": "number",
+                      "title": "票价",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "fuel_surcharge": {
+                      "type": "number",
+                      "title": "燃油附加费",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "airport_construction_fee": {
+                      "type": "number",
+                      "title": "民航发展基金",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "other_tax": {
+                      "type": "number",
+                      "title": "其他税费",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "total_amount": {
+                      "type": "number",
+                      "title": "合计金额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "insurance_premium": {
+                      "type": "number",
+                      "title": "保险费",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "agent_code": {
+                      "type": "string",
+                      "title": "销售单位代号",
+                      "maxLength": 50
+                    },
+                    "agent_name": {
+                      "type": "string",
+                      "title": "填开单位",
+                      "maxLength": 300
+                    },
+                    "remark": {
+                      "type": "string",
+                      "title": "备注",
+                      "maxLength": 450
+                    }
+                  },
+                  "required": [
+                    "invoice_no",
+                    "issue_date",
+                    "passenger_name",
+                    "flight_no"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_no",
+                    "issue_date",
+                    "passenger_name",
+                    "passenger_id_no",
+                    "carrier",
+                    "flight_no",
+                    "seat_class",
+                    "departure",
+                    "destination",
+                    "travel_date",
+                    "travel_time",
+                    "fare",
+                    "fuel_surcharge",
+                    "airport_construction_fee",
+                    "other_tax",
+                    "total_amount",
+                    "insurance_premium",
+                    "agent_code",
+                    "agent_name",
+                    "remark"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "铁路电子客票数据",
+              "displayName": "",
+              "id": "#/definitions/223576040",
+              "description": "包含发票类型: 51-电子发票（铁路电子客票）",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "issue_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "maxLength": 19
+                    },
+                    "passenger_name": {
+                      "type": "string",
+                      "title": "旅客姓名",
+                      "maxLength": 100
+                    },
+                    "passenger_id_no": {
+                      "type": "string",
+                      "title": "旅客身份证号码",
+                      "maxLength": 50
+                    },
+                    "train_no": {
+                      "type": "string",
+                      "title": "车次",
+                      "maxLength": 50
+                    },
+                    "seat_type": {
+                      "type": "string",
+                      "title": "席别",
+                      "maxLength": 50
+                    },
+                    "seat_no": {
+                      "type": "string",
+                      "title": "座位号",
+                      "maxLength": 20
+                    },
+                    "departure_station": {
+                      "type": "string",
+                      "title": "出发站",
+                      "maxLength": 100
+                    },
+                    "arrival_station": {
+                      "type": "string",
+                      "title": "到达站",
+                      "maxLength": 100
+                    },
+                    "departure_date": {
+                      "type": "string",
+                      "title": "开车日期",
+                      "maxLength": 19
+                    },
+                    "departure_time": {
+                      "type": "string",
+                      "title": "开车时间",
+                      "maxLength": 10
+                    },
+                    "fare": {
+                      "type": "number",
+                      "title": "票价",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "tax_rate": {
+                      "type": "number",
+                      "title": "税率",
+                      "description": "DECIMAL 6,6"
+                    },
+                    "tax_amount": {
+                      "type": "number",
+                      "title": "税额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "ticket_type": {
+                      "type": "string",
+                      "title": "票种",
+                      "maxLength": 50
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 300
+                    },
+                    "saler_tax_no": {
+                      "type": "string",
+                      "title": "销售方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "remark": {
+                      "type": "string",
+                      "title": "备注",
+                      "maxLength": 450
+                    }
+                  },
+                  "required": [
+                    "invoice_no",
+                    "issue_date",
+                    "passenger_name",
+                    "train_no",
+                    "saler_tax_no"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_no",
+                    "issue_date",
+                    "passenger_name",
+                    "passenger_id_no",
+                    "train_no",
+                    "seat_type",
+                    "seat_no",
+                    "departure_station",
+                    "arrival_station",
+                    "departure_date",
+                    "departure_time",
+                    "fare",
+                    "tax_rate",
+                    "tax_amount",
+                    "ticket_type",
+                    "saler_name",
+                    "saler_tax_no",
+                    "remark"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "数字化电子发票-机动车销售统一发票数据",
+              "displayName": "",
+              "id": "#/definitions/223576041",
+              "description": "包含发票类型: 83-机动车销售电子统一发票",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "paper_invoice_code": {
+                      "type": "string",
+                      "title": "纸质发票代码",
+                      "maxLength": 12
+                    },
+                    "paper_invoice_no": {
+                      "type": "string",
+                      "title": "纸质发票号码",
+                      "maxLength": 20
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "maxLength": 19
+                    },
+                    "vehicle_type": {
+                      "type": "string",
+                      "title": "车辆类型",
+                      "maxLength": 50
+                    },
+                    "product_model": {
+                      "type": "string",
+                      "title": "厂牌型号",
+                      "maxLength": 100
+                    },
+                    "origin_place": {
+                      "type": "string",
+                      "title": "产地",
+                      "maxLength": 100
+                    },
+                    "certificate_no": {
+                      "type": "string",
+                      "title": "合格证号",
+                      "maxLength": 50
+                    },
+                    "engine_no": {
+                      "type": "string",
+                      "title": "发动机号码",
+                      "maxLength": 50
+                    },
+                    "vehicle_identification_no": {
+                      "type": "string",
+                      "title": "车辆识别代号",
+                      "maxLength": 50
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "购买方名称",
+                      "maxLength": 300
+                    },
+                    "buyer_tax_no": {
+                      "type": "string",
+                      "title": "购买方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 300
+                    },
+                    "saler_tax_no": {
+                      "type": "string",
+                      "title": "销售方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "amount": {
+                      "type": "number",
+                      "title": "不含税价",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "tax_rate": {
+                      "type": "number",
+                      "title": "税率",
+                      "description": "DECIMAL 6,6"
+                    },
+                    "tax_amount": {
+                      "type": "number",
+                      "title": "税额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "total_amount": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "remark": {
+                      "type": "string",
+                      "title": "备注",
+                      "maxLength": 450
+                    }
+                  },
+                  "required": [
+                    "invoice_no",
+                    "invoice_date",
+                    "vehicle_identification_no",
+                    "saler_tax_no"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_no",
+                    "paper_invoice_code",
+                    "paper_invoice_no",
+                    "invoice_date",
+                    "vehicle_type",
+                    "product_model",
+                    "origin_place",
+                    "certificate_no",
+                    "engine_no",
+                    "vehicle_identification_no",
+                    "buyer_name",
+                    "buyer_tax_no",
+                    "saler_name",
+                    "saler_tax_no",
+                    "amount",
+                    "tax_rate",
+                    "tax_amount",
+                    "total_amount",
+                    "remark"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "数字化电子发票-二手车销售统一发票数据",
+              "displayName": "",
+              "id": "#/definitions/223576042",
+              "description": "包含发票类型: 84-二手车销售电子统一发票",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_no": {
+                      "type": "string",
+                      "title": "发票号码",
+                      "maxLength": 20
+                    },
+                    "paper_invoice_code": {
+                      "type": "string",
+                      "title": "纸质发票代码",
+                      "maxLength": 12
+                    },
+                    "paper_invoice_no": {
+                      "type": "string",
+                      "title": "纸质发票号码",
+                      "maxLength": 20
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "maxLength": 19
+                    },
+                    "special_element_type_code": {
+                      "type": "string",
+                      "title": "特定要素类型代码",
+                      "enum": [
+                        "51",
+                        "52"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "51",
+                          "name": "正向开具",
+                          "description": ""
+                        },
+                        {
+                          "value": "52",
+                          "name": "反向开具",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "vehicle_type": {
+                      "type": "string",
+                      "title": "车辆类型",
+                      "maxLength": 50
+                    },
+                    "license_plate_no": {
+                      "type": "string",
+                      "title": "车牌照号",
+                      "maxLength": 20
+                    },
+                    "vehicle_identification_no": {
+                      "type": "string",
+                      "title": "车辆识别代号",
+                      "maxLength": 50
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "买方名称",
+                      "maxLength": 300
+                    },
+                    "buyer_tax_no": {
+                      "type": "string",
+                      "title": "买方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "saler_name": {
+                      "type": "string",
+                      "title": "卖方名称",
+                      "maxLength": 300
+                    },
+                    "saler_tax_no": {
+                      "type": "string",
+                      "title": "卖方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "vehicle_price_total": {
+                      "type": "number",
+                      "title": "车价合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "market_name": {
+                      "type": "string",
+                      "title": "二手车市场名称",
+                      "maxLength": 300
+                    },
+                    "market_tax_no": {
+                      "type": "string",
+                      "title": "二手车市场纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "market_address": {
+                      "type": "string",
+                      "title": "二手车市场地址",
+                      "maxLength": 300
+                    },
+                    "remark": {
+                      "type": "string",
+                      "title": "备注",
+                      "maxLength": 450
+                    }
+                  },
+                  "required": [
+                    "invoice_no",
+                    "invoice_date",
+                    "vehicle_identification_no",
+                    "market_tax_no"
+                  ],
+                  "x-apifox-orders": [
+                    "invoice_no",
+                    "paper_invoice_code",
+                    "paper_invoice_no",
+                    "invoice_date",
+                    "special_element_type_code",
+                    "vehicle_type",
+                    "license_plate_no",
+                    "vehicle_identification_no",
+                    "buyer_name",
+                    "buyer_tax_no",
+                    "saler_name",
+                    "saler_tax_no",
+                    "vehicle_price_total",
+                    "market_name",
+                    "market_tax_no",
+                    "market_address",
+                    "remark"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
