@@ -600,7 +600,13 @@
               "schema": {
                 "jsonSchema": {
                   "type": "string",
-                  "enum": ["", "0", "1", "2", "3"],
+                  "enum": [
+                    "",
+                    "0",
+                    "1",
+                    "2",
+                    "3"
+                  ],
                   "x-apifox-enum": [
                     {
                       "value": "",
@@ -915,7 +921,10 @@
                         "cross_city_flag": {
                           "type": "string",
                           "title": "跨地（市）标志",
-                          "enum": ["Y", "N"],
+                          "enum": [
+                            "Y",
+                            "N"
+                          ],
                           "maxLength": 1
                         }
                       }
@@ -962,7 +971,14 @@
                             "description": "DECIMAL 18,6"
                           }
                         },
-                        "required": ["sequence_no", "construction_service_location", "construction_project_name", "amount", "tax_rate", "tax_amount"]
+                        "required": [
+                          "sequence_no",
+                          "construction_service_location",
+                          "construction_project_name",
+                          "amount",
+                          "tax_rate",
+                          "tax_amount"
+                        ]
                       }
                     },
                     "freight_transport_service_detail_list": {
@@ -1002,7 +1018,11 @@
                             "maxLength": 150
                           }
                         },
-                        "required": ["sequence_no", "departure_location", "arrival_location"]
+                        "required": [
+                          "sequence_no",
+                          "departure_location",
+                          "arrival_location"
+                        ]
                       }
                     },
                     "real_estate_sales_detail_list": {
@@ -1039,7 +1059,10 @@
                           "cross_city_flag": {
                             "type": "string",
                             "title": "跨地（市）标志",
-                            "enum": ["Y", "N"],
+                            "enum": [
+                              "Y",
+                              "N"
+                            ],
                             "maxLength": 1
                           },
                           "land_value_tax_project_no": {
@@ -1058,7 +1081,9 @@
                             "description": "DECIMAL 18,2"
                           }
                         },
-                        "required": ["sequence_no"]
+                        "required": [
+                          "sequence_no"
+                        ]
                       }
                     },
                     "real_estate_lease_detail_list": {
@@ -1095,11 +1120,16 @@
                           "cross_city_flag": {
                             "type": "string",
                             "title": "跨地（市）标志",
-                            "enum": ["Y", "N"],
+                            "enum": [
+                              "Y",
+                              "N"
+                            ],
                             "maxLength": 1
                           }
                         },
-                        "required": ["sequence_no"]
+                        "required": [
+                          "sequence_no"
+                        ]
                       }
                     },
                     "vehicle_vessel_tax_collection": {
@@ -1143,7 +1173,15 @@
                           "description": "DECIMAL 18,2"
                         }
                       },
-                      "required": ["insurance_policy_no", "vehicle_plate_or_vessel_registration_no", "tax_period", "vehicle_identification_no", "vehicle_vessel_tax_amount", "late_fee", "total_amount"]
+                      "required": [
+                        "insurance_policy_no",
+                        "vehicle_plate_or_vessel_registration_no",
+                        "tax_period",
+                        "vehicle_identification_no",
+                        "vehicle_vessel_tax_amount",
+                        "late_fee",
+                        "total_amount"
+                      ]
                     },
                     "toll_fee_detail_list": {
                       "type": "array",
@@ -1202,7 +1240,16 @@
                             "description": "DECIMAL 18,6"
                           }
                         },
-                        "required": ["sequence_no", "item_name", "vehicle_plate_no", "vehicle_type_code", "vehicle_type_name", "amount", "tax_rate", "tax_amount"]
+                        "required": [
+                          "sequence_no",
+                          "item_name",
+                          "vehicle_plate_no",
+                          "vehicle_type_code",
+                          "vehicle_type_name",
+                          "amount",
+                          "tax_rate",
+                          "tax_amount"
+                        ]
                       }
                     },
                     "passenger_transport_service_detail_list": {
@@ -1257,7 +1304,15 @@
                             "maxLength": 1
                           }
                         },
-                        "required": ["sequence_no", "passenger_name", "passenger_id_type_code", "passenger_id_no", "travel_date", "departure", "destination"]
+                        "required": [
+                          "sequence_no",
+                          "passenger_name",
+                          "passenger_id_type_code",
+                          "passenger_id_no",
+                          "travel_date",
+                          "departure",
+                          "destination"
+                        ]
                       }
                     },
                     "medical_service_inpatient_elements": {
@@ -1265,36 +1320,154 @@
                       "title": "医疗服务（住院）特定要素",
                       "description": "特定要素类型代码为10时返回",
                       "properties": {
-                        "medical_business_serial_no": {"type": "string", "title": "医疗业务流水号", "maxLength": 40},
-                        "patient_name": {"type": "string", "title": "患者姓名", "maxLength": 150},
-                        "patient_id_type_code": {"type": "string", "title": "患者身份证件类型代码", "maxLength": 3},
-                        "patient_id_no": {"type": "string", "title": "患者身份证件号码", "maxLength": 30},
-                        "medical_record_no": {"type": "string", "title": "病例号", "maxLength": 20},
-                        "inpatient_no": {"type": "string", "title": "住院号", "maxLength": 20},
-                        "inpatient_department": {"type": "string", "title": "住院科别", "maxLength": 100},
-                        "admission_date": {"type": "string", "title": "住院时间起", "maxLength": 19},
-                        "discharge_date": {"type": "string", "title": "住院时间止", "maxLength": 19},
-                        "prepaid_amount": {"type": "number", "title": "医疗预缴金额", "description": "DECIMAL 18,4"},
-                        "supplementary_payment": {"type": "number", "title": "医疗补缴金额", "description": "DECIMAL 18,4"},
-                        "refund_amount": {"type": "number", "title": "医疗退费金额", "description": "DECIMAL 18,4"},
-                        "medical_institution_type_code": {"type": "string", "title": "医疗机构类型代码", "maxLength": 4},
-                        "other_medical_institution_type": {"type": "string", "title": "其他医疗机构类型", "maxLength": 100},
-                        "health_insurance_type_code": {"type": "string", "title": "医保类型代码", "maxLength": 2},
-                        "other_health_insurance_type": {"type": "string", "title": "其他医保类型", "maxLength": 100},
-                        "health_insurance_no": {"type": "string", "title": "医保编号", "maxLength": 20},
-                        "gender_code": {"type": "string", "title": "性别代码", "maxLength": 1},
-                        "insurance_pooling_fund_payment": {"type": "number", "title": "医保统筹基金支付金额", "description": "DECIMAL 18,4"},
-                        "other_payment": {"type": "number", "title": "其他支付金额", "description": "DECIMAL 18,4"},
-                        "personal_account_payment": {"type": "number", "title": "个人账户支付金额", "description": "DECIMAL 18,4"},
-                        "personal_cash_payment": {"type": "number", "title": "个人现金支付金额", "description": "DECIMAL 18,4"},
-                        "personal_payment": {"type": "number", "title": "个人支付金额", "description": "DECIMAL 18,4"},
-                        "personal_self_payment": {"type": "number", "title": "个人自费金额", "description": "DECIMAL 18,4"},
-                        "payer_name": {"type": "string", "title": "交款人", "maxLength": 100},
-                        "payee_organization": {"type": "string", "title": "收款单位", "maxLength": 100},
-                        "custom_element_count": {"type": "integer", "title": "省市自定义要素数量"},
-                        "custom_elements_json": {"type": "object", "title": "省市自定义要素json"}
+                        "medical_business_serial_no": {
+                          "type": "string",
+                          "title": "医疗业务流水号",
+                          "maxLength": 40
+                        },
+                        "patient_name": {
+                          "type": "string",
+                          "title": "患者姓名",
+                          "maxLength": 150
+                        },
+                        "patient_id_type_code": {
+                          "type": "string",
+                          "title": "患者身份证件类型代码",
+                          "maxLength": 3
+                        },
+                        "patient_id_no": {
+                          "type": "string",
+                          "title": "患者身份证件号码",
+                          "maxLength": 30
+                        },
+                        "medical_record_no": {
+                          "type": "string",
+                          "title": "病例号",
+                          "maxLength": 20
+                        },
+                        "inpatient_no": {
+                          "type": "string",
+                          "title": "住院号",
+                          "maxLength": 20
+                        },
+                        "inpatient_department": {
+                          "type": "string",
+                          "title": "住院科别",
+                          "maxLength": 100
+                        },
+                        "admission_date": {
+                          "type": "string",
+                          "title": "住院时间起",
+                          "maxLength": 19
+                        },
+                        "discharge_date": {
+                          "type": "string",
+                          "title": "住院时间止",
+                          "maxLength": 19
+                        },
+                        "prepaid_amount": {
+                          "type": "number",
+                          "title": "医疗预缴金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "supplementary_payment": {
+                          "type": "number",
+                          "title": "医疗补缴金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "refund_amount": {
+                          "type": "number",
+                          "title": "医疗退费金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "medical_institution_type_code": {
+                          "type": "string",
+                          "title": "医疗机构类型代码",
+                          "maxLength": 4
+                        },
+                        "other_medical_institution_type": {
+                          "type": "string",
+                          "title": "其他医疗机构类型",
+                          "maxLength": 100
+                        },
+                        "health_insurance_type_code": {
+                          "type": "string",
+                          "title": "医保类型代码",
+                          "maxLength": 2
+                        },
+                        "other_health_insurance_type": {
+                          "type": "string",
+                          "title": "其他医保类型",
+                          "maxLength": 100
+                        },
+                        "health_insurance_no": {
+                          "type": "string",
+                          "title": "医保编号",
+                          "maxLength": 20
+                        },
+                        "gender_code": {
+                          "type": "string",
+                          "title": "性别代码",
+                          "maxLength": 1
+                        },
+                        "insurance_pooling_fund_payment": {
+                          "type": "number",
+                          "title": "医保统筹基金支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "other_payment": {
+                          "type": "number",
+                          "title": "其他支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "personal_account_payment": {
+                          "type": "number",
+                          "title": "个人账户支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "personal_cash_payment": {
+                          "type": "number",
+                          "title": "个人现金支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "personal_payment": {
+                          "type": "number",
+                          "title": "个人支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "personal_self_payment": {
+                          "type": "number",
+                          "title": "个人自费金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "payer_name": {
+                          "type": "string",
+                          "title": "交款人",
+                          "maxLength": 100
+                        },
+                        "payee_organization": {
+                          "type": "string",
+                          "title": "收款单位",
+                          "maxLength": 100
+                        },
+                        "custom_element_count": {
+                          "type": "integer",
+                          "title": "省市自定义要素数量"
+                        },
+                        "custom_elements_json": {
+                          "type": "object",
+                          "title": "省市自定义要素json"
+                        }
                       },
-                      "required": ["medical_business_serial_no", "patient_name", "patient_id_type_code", "patient_id_no", "inpatient_no", "inpatient_department", "gender_code"]
+                      "required": [
+                        "medical_business_serial_no",
+                        "patient_name",
+                        "patient_id_type_code",
+                        "patient_id_no",
+                        "inpatient_no",
+                        "inpatient_department",
+                        "gender_code"
+                      ]
                     },
                     "medical_service_inpatient_item_list": {
                       "type": "array",
@@ -1303,14 +1476,42 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "inpatient_invoice_detail_no": {"type": "integer", "title": "医疗服务住院发票明细序号"},
-                          "item_name": {"type": "string", "title": "项目名称", "maxLength": 600},
-                          "amount": {"type": "number", "title": "金额", "description": "DECIMAL 18,2"},
-                          "tax_rate": {"type": "number", "title": "税率", "description": "DECIMAL 16,6"},
-                          "tax_amount": {"type": "number", "title": "税额", "description": "DECIMAL 18,6"},
-                          "remark": {"type": "string", "title": "备注", "maxLength": 450}
+                          "inpatient_invoice_detail_no": {
+                            "type": "integer",
+                            "title": "医疗服务住院发票明细序号"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "title": "项目名称",
+                            "maxLength": 600
+                          },
+                          "amount": {
+                            "type": "number",
+                            "title": "金额",
+                            "description": "DECIMAL 18,2"
+                          },
+                          "tax_rate": {
+                            "type": "number",
+                            "title": "税率",
+                            "description": "DECIMAL 16,6"
+                          },
+                          "tax_amount": {
+                            "type": "number",
+                            "title": "税额",
+                            "description": "DECIMAL 18,6"
+                          },
+                          "remark": {
+                            "type": "string",
+                            "title": "备注",
+                            "maxLength": 450
+                          }
                         },
-                        "required": ["inpatient_invoice_detail_no", "item_name", "amount", "tax_amount"]
+                        "required": [
+                          "inpatient_invoice_detail_no",
+                          "item_name",
+                          "amount",
+                          "tax_amount"
+                        ]
                       }
                     },
                     "medical_service_inpatient_charge_list": {
@@ -1320,18 +1521,63 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "inpatient_charge_detail_no": {"type": "integer", "title": "住院收费明细序号"},
-                          "inpatient_invoice_detail_no": {"type": "integer", "title": "医疗服务住院发票明细序号"},
-                          "charge_item_detail": {"type": "string", "title": "费用明细", "maxLength": 100},
-                          "quantity": {"type": "string", "title": "发票商品数量", "maxLength": 25},
-                          "unit": {"type": "string", "title": "单位", "maxLength": 300},
-                          "amount": {"type": "number", "title": "金额", "description": "DECIMAL 18,2"},
-                          "tax_amount": {"type": "number", "title": "税额", "description": "DECIMAL 18,6"},
-                          "tax_rate": {"type": "number", "title": "税率", "description": "DECIMAL 16,6"},
-                          "medical_service_standard_code": {"type": "string", "title": "医疗服务贯标码", "maxLength": 50},
-                          "remark": {"type": "string", "title": "备注", "maxLength": 450}
+                          "inpatient_charge_detail_no": {
+                            "type": "integer",
+                            "title": "住院收费明细序号"
+                          },
+                          "inpatient_invoice_detail_no": {
+                            "type": "integer",
+                            "title": "医疗服务住院发票明细序号"
+                          },
+                          "charge_item_detail": {
+                            "type": "string",
+                            "title": "费用明细",
+                            "maxLength": 100
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "title": "发票商品数量",
+                            "maxLength": 25
+                          },
+                          "unit": {
+                            "type": "string",
+                            "title": "单位",
+                            "maxLength": 300
+                          },
+                          "amount": {
+                            "type": "number",
+                            "title": "金额",
+                            "description": "DECIMAL 18,2"
+                          },
+                          "tax_amount": {
+                            "type": "number",
+                            "title": "税额",
+                            "description": "DECIMAL 18,6"
+                          },
+                          "tax_rate": {
+                            "type": "number",
+                            "title": "税率",
+                            "description": "DECIMAL 16,6"
+                          },
+                          "medical_service_standard_code": {
+                            "type": "string",
+                            "title": "医疗服务贯标码",
+                            "maxLength": 50
+                          },
+                          "remark": {
+                            "type": "string",
+                            "title": "备注",
+                            "maxLength": 450
+                          }
                         },
-                        "required": ["inpatient_charge_detail_no", "inpatient_invoice_detail_no", "charge_item_detail", "amount", "tax_amount", "tax_rate"]
+                        "required": [
+                          "inpatient_charge_detail_no",
+                          "inpatient_invoice_detail_no",
+                          "charge_item_detail",
+                          "amount",
+                          "tax_amount",
+                          "tax_rate"
+                        ]
                       }
                     },
                     "medical_service_outpatient_elements": {
@@ -1339,28 +1585,114 @@
                       "title": "医疗服务（门诊）特定要素",
                       "description": "特定要素类型代码为11时返回",
                       "properties": {
-                        "medical_business_serial_no": {"type": "string", "title": "医疗业务流水号", "maxLength": 40},
-                        "patient_name": {"type": "string", "title": "患者姓名", "maxLength": 150},
-                        "patient_id_type_code": {"type": "string", "title": "患者身份证件类型代码", "maxLength": 3},
-                        "patient_id_no": {"type": "string", "title": "患者身份证件号码", "maxLength": 30},
-                        "outpatient_no": {"type": "string", "title": "门诊号", "maxLength": 30},
-                        "visit_date": {"type": "string", "title": "门诊就诊时间", "maxLength": 19},
-                        "medical_institution_type_code": {"type": "string", "title": "医疗机构类型代码", "maxLength": 4},
-                        "other_medical_institution_type": {"type": "string", "title": "其他医疗机构类型", "maxLength": 100},
-                        "health_insurance_type_code": {"type": "string", "title": "医保类型代码", "maxLength": 2},
-                        "other_health_insurance_type": {"type": "string", "title": "其他医保类型", "maxLength": 100},
-                        "health_insurance_no": {"type": "string", "title": "医保编号", "maxLength": 30},
-                        "gender_code": {"type": "string", "title": "性别代码", "maxLength": 1},
-                        "insurance_pooling_fund_payment": {"type": "number", "title": "医保统筹基金支付金额", "description": "DECIMAL 18,4"},
-                        "other_payment": {"type": "number", "title": "其他支付金额", "description": "DECIMAL 18,4"},
-                        "personal_account_payment": {"type": "number", "title": "个人账户支付金额", "description": "DECIMAL 18,4"},
-                        "personal_cash_payment": {"type": "number", "title": "个人现金支付金额", "description": "DECIMAL 18,4"},
-                        "personal_payment": {"type": "number", "title": "个人支付金额", "description": "DECIMAL 18,4"},
-                        "personal_self_payment": {"type": "number", "title": "个人自费金额", "description": "DECIMAL 18,4"},
-                        "custom_element_count": {"type": "integer", "title": "省市自定义要素数量"},
-                        "custom_elements_json": {"type": "object", "title": "省市自定义要素json"}
+                        "medical_business_serial_no": {
+                          "type": "string",
+                          "title": "医疗业务流水号",
+                          "maxLength": 40
+                        },
+                        "patient_name": {
+                          "type": "string",
+                          "title": "患者姓名",
+                          "maxLength": 150
+                        },
+                        "patient_id_type_code": {
+                          "type": "string",
+                          "title": "患者身份证件类型代码",
+                          "maxLength": 3
+                        },
+                        "patient_id_no": {
+                          "type": "string",
+                          "title": "患者身份证件号码",
+                          "maxLength": 30
+                        },
+                        "outpatient_no": {
+                          "type": "string",
+                          "title": "门诊号",
+                          "maxLength": 30
+                        },
+                        "visit_date": {
+                          "type": "string",
+                          "title": "门诊就诊时间",
+                          "maxLength": 19
+                        },
+                        "medical_institution_type_code": {
+                          "type": "string",
+                          "title": "医疗机构类型代码",
+                          "maxLength": 4
+                        },
+                        "other_medical_institution_type": {
+                          "type": "string",
+                          "title": "其他医疗机构类型",
+                          "maxLength": 100
+                        },
+                        "health_insurance_type_code": {
+                          "type": "string",
+                          "title": "医保类型代码",
+                          "maxLength": 2
+                        },
+                        "other_health_insurance_type": {
+                          "type": "string",
+                          "title": "其他医保类型",
+                          "maxLength": 100
+                        },
+                        "health_insurance_no": {
+                          "type": "string",
+                          "title": "医保编号",
+                          "maxLength": 30
+                        },
+                        "gender_code": {
+                          "type": "string",
+                          "title": "性别代码",
+                          "maxLength": 1
+                        },
+                        "insurance_pooling_fund_payment": {
+                          "type": "number",
+                          "title": "医保统筹基金支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "other_payment": {
+                          "type": "number",
+                          "title": "其他支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "personal_account_payment": {
+                          "type": "number",
+                          "title": "个人账户支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "personal_cash_payment": {
+                          "type": "number",
+                          "title": "个人现金支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "personal_payment": {
+                          "type": "number",
+                          "title": "个人支付金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "personal_self_payment": {
+                          "type": "number",
+                          "title": "个人自费金额",
+                          "description": "DECIMAL 18,4"
+                        },
+                        "custom_element_count": {
+                          "type": "integer",
+                          "title": "省市自定义要素数量"
+                        },
+                        "custom_elements_json": {
+                          "type": "object",
+                          "title": "省市自定义要素json"
+                        }
                       },
-                      "required": ["medical_business_serial_no", "patient_name", "patient_id_type_code", "patient_id_no", "outpatient_no", "visit_date", "gender_code"]
+                      "required": [
+                        "medical_business_serial_no",
+                        "patient_name",
+                        "patient_id_type_code",
+                        "patient_id_no",
+                        "outpatient_no",
+                        "visit_date",
+                        "gender_code"
+                      ]
                     },
                     "medical_service_outpatient_item_list": {
                       "type": "array",
@@ -1369,18 +1701,63 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "sequence_no": {"type": "integer", "title": "序号"},
-                          "item_name": {"type": "string", "title": "项目名称", "maxLength": 600},
-                          "charge_item_detail": {"type": "string", "title": "费用明细", "maxLength": 100},
-                          "unit": {"type": "string", "title": "单位", "maxLength": 300},
-                          "quantity": {"type": "string", "title": "发票商品数量", "maxLength": 25},
-                          "amount": {"type": "number", "title": "金额", "description": "DECIMAL 18,2"},
-                          "tax_rate": {"type": "number", "title": "税率", "description": "DECIMAL 16,6"},
-                          "tax_amount": {"type": "number", "title": "税额", "description": "DECIMAL 18,6"},
-                          "remark": {"type": "string", "title": "备注", "maxLength": 450},
-                          "medical_service_standard_code": {"type": "string", "title": "医疗服务贯标码", "maxLength": 50}
+                          "sequence_no": {
+                            "type": "integer",
+                            "title": "序号"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "title": "项目名称",
+                            "maxLength": 600
+                          },
+                          "charge_item_detail": {
+                            "type": "string",
+                            "title": "费用明细",
+                            "maxLength": 100
+                          },
+                          "unit": {
+                            "type": "string",
+                            "title": "单位",
+                            "maxLength": 300
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "title": "发票商品数量",
+                            "maxLength": 25
+                          },
+                          "amount": {
+                            "type": "number",
+                            "title": "金额",
+                            "description": "DECIMAL 18,2"
+                          },
+                          "tax_rate": {
+                            "type": "number",
+                            "title": "税率",
+                            "description": "DECIMAL 16,6"
+                          },
+                          "tax_amount": {
+                            "type": "number",
+                            "title": "税额",
+                            "description": "DECIMAL 18,6"
+                          },
+                          "remark": {
+                            "type": "string",
+                            "title": "备注",
+                            "maxLength": 450
+                          },
+                          "medical_service_standard_code": {
+                            "type": "string",
+                            "title": "医疗服务贯标码",
+                            "maxLength": 50
+                          }
                         },
-                        "required": ["sequence_no", "item_name", "amount", "tax_rate", "tax_amount"]
+                        "required": [
+                          "sequence_no",
+                          "item_name",
+                          "amount",
+                          "tax_rate",
+                          "tax_amount"
+                        ]
                       }
                     },
                     "tractor_harvester_elements": {
@@ -1784,23 +2161,55 @@
                     "issue_type": {
                       "type": "string",
                       "title": "开具类型（代开标识）",
-                      "enum": ["1", "2", "3"],
+                      "enum": [
+                        "1",
+                        "2",
+                        "3"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
-                        {"value": "1", "name": "自开", "description": ""},
-                        {"value": "2", "name": "代开", "description": ""},
-                        {"value": "3", "name": "代办退税", "description": ""}
+                        {
+                          "value": "1",
+                          "name": "自开",
+                          "description": ""
+                        },
+                        {
+                          "value": "2",
+                          "name": "代开",
+                          "description": ""
+                        },
+                        {
+                          "value": "3",
+                          "name": "代办退税",
+                          "description": ""
+                        }
                       ]
                     },
                     "tax_inclusive_rate_flag": {
                       "type": "string",
                       "title": "含税税率标识",
-                      "enum": ["0", "1", "2"],
+                      "enum": [
+                        "0",
+                        "1",
+                        "2"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
-                        {"value": "0", "name": "不含税税率", "description": ""},
-                        {"value": "1", "name": "含税税率", "description": ""},
-                        {"value": "2", "name": "差额征税", "description": ""}
+                        {
+                          "value": "0",
+                          "name": "不含税税率",
+                          "description": ""
+                        },
+                        {
+                          "value": "1",
+                          "name": "含税税率",
+                          "description": ""
+                        },
+                        {
+                          "value": "2",
+                          "name": "差额征税",
+                          "description": ""
+                        }
                       ]
                     },
                     "applicable_tax_rate_flag": {
@@ -1841,26 +2250,73 @@
                     "seller_taxpayer_type_code": {
                       "type": "string",
                       "title": "销方纳税人类型代码",
-                      "enum": ["1", "2", "3", "4", "5"],
+                      "enum": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
-                        {"value": "1", "name": "一般纳税人", "description": ""},
-                        {"value": "2", "name": "小规模纳税人", "description": ""},
-                        {"value": "3", "name": "转登记小规模纳税人", "description": ""},
-                        {"value": "4", "name": "辅导期一般纳税人", "description": ""},
-                        {"value": "5", "name": "自然人", "description": ""}
+                        {
+                          "value": "1",
+                          "name": "一般纳税人",
+                          "description": ""
+                        },
+                        {
+                          "value": "2",
+                          "name": "小规模纳税人",
+                          "description": ""
+                        },
+                        {
+                          "value": "3",
+                          "name": "转登记小规模纳税人",
+                          "description": ""
+                        },
+                        {
+                          "value": "4",
+                          "name": "辅导期一般纳税人",
+                          "description": ""
+                        },
+                        {
+                          "value": "5",
+                          "name": "自然人",
+                          "description": ""
+                        }
                       ]
                     },
                     "vehicle_abnormal_flag": {
                       "type": "string",
                       "title": "机动车异常标识",
-                      "enum": ["0", "1", "2", "3"],
+                      "enum": [
+                        "0",
+                        "1",
+                        "2",
+                        "3"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
-                        {"value": "0", "name": "无风险", "description": ""},
-                        {"value": "1", "name": "低风险", "description": ""},
-                        {"value": "2", "name": "中风险", "description": ""},
-                        {"value": "3", "name": "高风险", "description": ""}
+                        {
+                          "value": "0",
+                          "name": "无风险",
+                          "description": ""
+                        },
+                        {
+                          "value": "1",
+                          "name": "低风险",
+                          "description": ""
+                        },
+                        {
+                          "value": "2",
+                          "name": "中风险",
+                          "description": ""
+                        },
+                        {
+                          "value": "3",
+                          "name": "高风险",
+                          "description": ""
+                        }
                       ]
                     },
                     "items": {
@@ -1922,7 +2378,11 @@
                             "$ref": "#/definitions/zero_tax_rate_flag"
                           }
                         },
-                        "required": ["detail_sequence_no", "tax_amount", "amount"]
+                        "required": [
+                          "detail_sequence_no",
+                          "tax_amount",
+                          "amount"
+                        ]
                       }
                     }
                   },
@@ -1967,7 +2427,7 @@
                     "vehicle_abnormal_flag",
                     "items"
                   ],
-                  "title": "标准增值税发票数据",
+                  "title": "增值税发票数据",
                   "description": "包含发票类型: 01-增值税专用发票, 02-货物运输业增值税专用发票, 04-增值税普通发票, 08-增值税电子专用发票, 10-增值税电子普通发票"
                 }
               }
@@ -2046,7 +2506,9 @@
                     "special_invoice_type": {
                       "type": "string",
                       "title": "特殊票种",
-                      "enum": ["08"],
+                      "enum": [
+                        "08"
+                      ],
                       "maxLength": 2,
                       "x-apifox-enum": [
                         {
@@ -2059,7 +2521,13 @@
                     "invoice_status_flag": {
                       "type": "string",
                       "title": "发票状态标识",
-                      "enum": ["0", "1", "2", "3", "4"],
+                      "enum": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
                         {
@@ -2206,7 +2674,9 @@
                             "maxLength": 45
                           }
                         },
-                        "required": ["tax_amount"]
+                        "required": [
+                          "tax_amount"
+                        ]
                       }
                     }
                   },
@@ -2285,7 +2755,10 @@
                     "special_invoice_type": {
                       "type": "string",
                       "title": "特殊票种",
-                      "enum": ["06", "07"],
+                      "enum": [
+                        "06",
+                        "07"
+                      ],
                       "maxLength": 2,
                       "x-apifox-enum": [
                         {
@@ -2303,7 +2776,13 @@
                     "invoice_status_flag": {
                       "type": "string",
                       "title": "发票状态标识",
-                      "enum": ["0", "1", "2", "3", "4"],
+                      "enum": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
                         {
@@ -2496,7 +2975,10 @@
                             "maxLength": 45
                           }
                         },
-                        "required": ["tax_amount", "amount"]
+                        "required": [
+                          "tax_amount",
+                          "amount"
+                        ]
                       }
                     }
                   },
@@ -2584,7 +3066,13 @@
                     "invoice_status_flag": {
                       "type": "string",
                       "title": "发票状态标识",
-                      "enum": ["0", "1", "2", "3", "4"],
+                      "enum": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
                         {
@@ -2847,7 +3335,12 @@
                     "vehicle_abnormal_flag": {
                       "type": "string",
                       "title": "机动车异常标识",
-                      "enum": ["0", "1", "2", "3"],
+                      "enum": [
+                        "0",
+                        "1",
+                        "2",
+                        "3"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
                         {
@@ -3221,129 +3714,470 @@
                       "title": "发票号码",
                       "maxLength": 20
                     },
-                    "issue_date": {
+                    "is_paper_invoice": {
                       "type": "string",
-                      "title": "填开日期",
+                      "title": "是否为纸质发票",
+                      "maxLength": 1
+                    },
+                    "invoice_date": {
+                      "type": "string",
+                      "title": "开票日期",
+                      "description": "YYYY-MM-DD HH:mm:ss",
                       "maxLength": 19
                     },
-                    "passenger_name": {
+                    "original_blue_invoice_no": {
                       "type": "string",
-                      "title": "旅客姓名",
-                      "maxLength": 100
+                      "title": "开具红字发票对应的蓝字发票号码",
+                      "maxLength": 30
                     },
-                    "passenger_id_no": {
+                    "invoice_category_code": {
                       "type": "string",
-                      "title": "旅客身份证号码",
-                      "maxLength": 50
+                      "title": "发票票种代码",
+                      "maxLength": 2
                     },
-                    "carrier": {
+                    "special_element_type_code": {
                       "type": "string",
-                      "title": "承运人",
+                      "title": "特定要素类型代码",
+                      "maxLength": 2
+                    },
+                    "buyer_tax_no": {
+                      "type": "string",
+                      "title": "购买方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "buyer_name": {
+                      "type": "string",
+                      "title": "购买方名称",
                       "maxLength": 300
                     },
-                    "flight_no": {
+                    "buyer_address": {
                       "type": "string",
-                      "title": "航班号",
-                      "maxLength": 50
+                      "title": "购买方地址",
+                      "maxLength": 300
                     },
-                    "seat_class": {
+                    "buyer_phone": {
                       "type": "string",
-                      "title": "座位等级",
-                      "maxLength": 50
+                      "title": "购买方联系电话",
+                      "maxLength": 60
                     },
-                    "departure": {
+                    "seller_tax_no": {
                       "type": "string",
-                      "title": "出发地",
+                      "title": "销售方纳税人识别号",
+                      "maxLength": 20
+                    },
+                    "seller_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 300
+                    },
+                    "seller_address": {
+                      "type": "string",
+                      "title": "销售方地址",
+                      "maxLength": 300
+                    },
+                    "seller_phone": {
+                      "type": "string",
+                      "title": "销售方联系电话",
+                      "maxLength": 60
+                    },
+                    "buyer_agent_name": {
+                      "type": "string",
+                      "title": "购买方经办人",
+                      "maxLength": 150
+                    },
+                    "agent_id_no": {
+                      "type": "string",
+                      "title": "经办人身份证件号码",
+                      "maxLength": 30
+                    },
+                    "agent_phone": {
+                      "type": "string",
+                      "title": "经办人联系电话",
+                      "maxLength": 60
+                    },
+                    "issuer": {
+                      "type": "string",
+                      "title": "开票人",
+                      "maxLength": 300
+                    },
+                    "payee": {
+                      "type": "string",
+                      "title": "收款人",
+                      "maxLength": 300
+                    },
+                    "remitter": {
+                      "type": "string",
+                      "title": "付汇人",
+                      "maxLength": 300
+                    },
+                    "amount_with_tax": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "amount_with_tax_in_words": {
+                      "type": "string",
+                      "title": "价税合计（大写）",
                       "maxLength": 100
                     },
-                    "destination": {
+                    "settlement_method_code": {
                       "type": "string",
-                      "title": "目的地",
-                      "maxLength": 100
-                    },
-                    "travel_date": {
-                      "type": "string",
-                      "title": "乘机日期",
-                      "maxLength": 19
-                    },
-                    "travel_time": {
-                      "type": "string",
-                      "title": "乘机时间",
-                      "maxLength": 10
-                    },
-                    "fare": {
-                      "type": "number",
-                      "title": "票价",
-                      "description": "DECIMAL 18,2"
-                    },
-                    "fuel_surcharge": {
-                      "type": "number",
-                      "title": "燃油附加费",
-                      "description": "DECIMAL 18,2"
-                    },
-                    "airport_construction_fee": {
-                      "type": "number",
-                      "title": "民航发展基金",
-                      "description": "DECIMAL 18,2"
-                    },
-                    "other_tax": {
-                      "type": "number",
-                      "title": "其他税费",
-                      "description": "DECIMAL 18,2"
+                      "title": "结算方式代码",
+                      "maxLength": 2
                     },
                     "total_amount": {
                       "type": "number",
-                      "title": "合计金额",
+                      "title": "合计金额（合计不含税金额）",
                       "description": "DECIMAL 18,2"
                     },
-                    "insurance_premium": {
+                    "total_tax_amount": {
                       "type": "number",
-                      "title": "保险费",
+                      "title": "合计税额",
                       "description": "DECIMAL 18,2"
                     },
-                    "agent_code": {
+                    "issuer_real_name_auth_location": {
                       "type": "string",
-                      "title": "销售单位代号",
-                      "maxLength": 50
+                      "title": "开票人实人认证地址信息",
+                      "maxLength": 100
                     },
-                    "agent_name": {
+                    "mobile_invoice_location": {
                       "type": "string",
-                      "title": "填开单位",
-                      "maxLength": 300
+                      "title": "手机开票地址信息",
+                      "maxLength": 100
+                    },
+                    "contract_no": {
+                      "type": "string",
+                      "title": "合同编号",
+                      "maxLength": 60
+                    },
+                    "tax_obligation_occurrence_time": {
+                      "type": "string",
+                      "title": "纳税义务发生时间",
+                      "description": "YYYY-MM-DD HH:MI:SS",
+                      "maxLength": 17
+                    },
+                    "agent_id_type_code": {
+                      "type": "string",
+                      "title": "经办人身份证件种类",
+                      "maxLength": 30
+                    },
+                    "is_blue_invoice": {
+                      "type": "string",
+                      "title": "是否蓝字发票标志",
+                      "enum": [
+                        "Y",
+                        "N"
+                      ],
+                      "maxLength": 1
+                    },
+                    "vat_immediate_refund_code": {
+                      "type": "string",
+                      "title": "增值税即征即退代码",
+                      "maxLength": 2
                     },
                     "remark": {
                       "type": "string",
                       "title": "备注",
-                      "maxLength": 450
+                      "maxLength": 300
+                    },
+                    "goods_quantity": {
+                      "type": "number",
+                      "title": "商品数量",
+                      "description": "DECIMAL 18,4"
+                    },
+                    "export_tax_refund_type_code": {
+                      "type": "string",
+                      "title": "出口退税类代码",
+                      "maxLength": 2
+                    },
+                    "items": {
+                      "type": "array",
+                      "title": "货物信息",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "sequence_no": {
+                            "type": "integer",
+                            "title": "序号"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "title": "项目名称",
+                            "maxLength": 600
+                          },
+                          "goods_or_service_name": {
+                            "type": "string",
+                            "title": "货物或应税劳务、服务名称",
+                            "maxLength": 300
+                          },
+                          "item_short_name": {
+                            "type": "string",
+                            "title": "商品服务简称",
+                            "maxLength": 120
+                          },
+                          "tax_classification_code": {
+                            "type": "string",
+                            "title": "商品和服务税收分类合并编码",
+                            "maxLength": 19
+                          },
+                          "amount": {
+                            "type": "number",
+                            "title": "金额",
+                            "description": "DECIMAL 18,2"
+                          },
+                          "tax_rate": {
+                            "type": "number",
+                            "title": "税率",
+                            "description": "DECIMAL 16,6"
+                          },
+                          "tax_amount": {
+                            "type": "number",
+                            "title": "税额",
+                            "description": "DECIMAL 18,6"
+                          },
+                          "deduction_amount": {
+                            "type": "number",
+                            "title": "扣除额",
+                            "description": "DECIMAL 18,2"
+                          }
+                        },
+                        "required": [
+                          "sequence_no",
+                          "tax_classification_code",
+                          "amount",
+                          "tax_rate",
+                          "tax_amount"
+                        ]
+                      }
+                    },
+                    "flight_specific_elements": {
+                      "type": "object",
+                      "title": "民航行程单电子发票特定要素",
+                      "properties": {
+                        "invoice_no": {
+                          "type": "string",
+                          "title": "发票号码",
+                          "maxLength": 30
+                        },
+                        "domestic_international_flag": {
+                          "type": "string",
+                          "title": "国内国际标识",
+                          "maxLength": 1
+                        },
+                        "gp_no": {
+                          "type": "string",
+                          "title": "GP单号",
+                          "maxLength": 20
+                        },
+                        "is_blue_invoice": {
+                          "type": "string",
+                          "title": "是否蓝字发票标志",
+                          "enum": [
+                            "Y",
+                            "N"
+                          ],
+                          "maxLength": 1
+                        },
+                        "passenger_name": {
+                          "type": "string",
+                          "title": "姓名",
+                          "maxLength": 49
+                        },
+                        "id_no": {
+                          "type": "string",
+                          "title": "证件号码",
+                          "maxLength": 30
+                        },
+                        "endorsement": {
+                          "type": "string",
+                          "title": "签注",
+                          "maxLength": 200
+                        },
+                        "eticket_no": {
+                          "type": "string",
+                          "title": "电子客票号码",
+                          "maxLength": 30
+                        },
+                        "verification_code": {
+                          "type": "string",
+                          "title": "验证码",
+                          "maxLength": 20
+                        },
+                        "tips": {
+                          "type": "string",
+                          "title": "提示信息",
+                          "maxLength": 100
+                        },
+                        "insurance_fee": {
+                          "type": "string",
+                          "title": "保险费",
+                          "maxLength": 20
+                        },
+                        "sales_outlet_code": {
+                          "type": "string",
+                          "title": "销售网点代号",
+                          "maxLength": 20
+                        },
+                        "issuing_unit": {
+                          "type": "string",
+                          "title": "填开单位",
+                          "maxLength": 300
+                        },
+                        "invoice_date": {
+                          "type": "string",
+                          "title": "开票日期"
+                        },
+                        "seller_name": {
+                          "type": "string",
+                          "title": "销售方名称",
+                          "maxLength": 300
+                        },
+                        "seller_tax_no": {
+                          "type": "string",
+                          "title": "销售方纳税人识别号",
+                          "maxLength": 20
+                        },
+                        "buyer_name": {
+                          "type": "string",
+                          "title": "购买方名称",
+                          "maxLength": 300
+                        },
+                        "buyer_tax_no": {
+                          "type": "string",
+                          "title": "购买方纳税人识别号",
+                          "maxLength": 20
+                        },
+                        "flight_segment_details": {
+                          "type": "array",
+                          "title": "特定要素明细",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "departure_station": {
+                                "type": "string",
+                                "title": "始发站",
+                                "maxLength": 50
+                              },
+                              "destination_station": {
+                                "type": "string",
+                                "title": "目的站",
+                                "maxLength": 50
+                              },
+                              "segment": {
+                                "type": "integer",
+                                "title": "航段"
+                              },
+                              "carrier": {
+                                "type": "string",
+                                "title": "承运人",
+                                "maxLength": 20
+                              },
+                              "flight_no": {
+                                "type": "string",
+                                "title": "航班号",
+                                "maxLength": 20
+                              },
+                              "seat_class": {
+                                "type": "string",
+                                "title": "座位等级",
+                                "maxLength": 20
+                              },
+                              "carrier_date": {
+                                "type": "string",
+                                "title": "承运日期",
+                                "description": "YYYYYMMDD",
+                                "maxLength": 8
+                              },
+                              "takeoff_time": {
+                                "type": "string",
+                                "title": "起飞时间",
+                                "description": "YYYY-MM-DD HH:MI:SS",
+                                "maxLength": 17
+                              },
+                              "ticket_class_category": {
+                                "type": "string",
+                                "title": "客票级别/客票类别",
+                                "maxLength": 20
+                              },
+                              "ticket_effective_date": {
+                                "type": "string",
+                                "title": "客票生效日期",
+                                "description": "YYYYYMMDD",
+                                "maxLength": 8
+                              },
+                              "valid_until_date": {
+                                "type": "string",
+                                "title": "有效截止日期",
+                                "description": "YYYYYMMDD",
+                                "maxLength": 8
+                              },
+                              "free_baggage_allowance": {
+                                "type": "string",
+                                "title": "免费行李额",
+                                "maxLength": 20
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "invoice_no",
+                        "is_blue_invoice",
+                        "invoice_date",
+                        "seller_name",
+                        "seller_tax_no",
+                        "buyer_name"
+                      ]
                     }
                   },
                   "required": [
                     "invoice_no",
-                    "issue_date",
-                    "passenger_name",
-                    "flight_no"
+                    "is_paper_invoice",
+                    "invoice_date",
+                    "invoice_category_code",
+                    "seller_tax_no",
+                    "seller_name",
+                    "buyer_name",
+                    "is_blue_invoice"
                   ],
                   "x-apifox-orders": [
                     "invoice_no",
-                    "issue_date",
-                    "passenger_name",
-                    "passenger_id_no",
-                    "carrier",
-                    "flight_no",
-                    "seat_class",
-                    "departure",
-                    "destination",
-                    "travel_date",
-                    "travel_time",
-                    "fare",
-                    "fuel_surcharge",
-                    "airport_construction_fee",
-                    "other_tax",
+                    "is_paper_invoice",
+                    "invoice_date",
+                    "original_blue_invoice_no",
+                    "invoice_category_code",
+                    "special_element_type_code",
+                    "buyer_tax_no",
+                    "buyer_name",
+                    "buyer_address",
+                    "buyer_phone",
+                    "seller_tax_no",
+                    "seller_name",
+                    "seller_address",
+                    "seller_phone",
+                    "buyer_agent_name",
+                    "agent_id_no",
+                    "agent_phone",
+                    "issuer",
+                    "payee",
+                    "remitter",
+                    "amount_with_tax",
+                    "amount_with_tax_in_words",
+                    "settlement_method_code",
                     "total_amount",
-                    "insurance_premium",
-                    "agent_code",
-                    "agent_name",
-                    "remark"
+                    "total_tax_amount",
+                    "issuer_real_name_auth_location",
+                    "mobile_invoice_location",
+                    "contract_no",
+                    "tax_obligation_occurrence_time",
+                    "agent_id_type_code",
+                    "is_blue_invoice",
+                    "vat_immediate_refund_code",
+                    "remark",
+                    "goods_quantity",
+                    "export_tax_refund_type_code",
+                    "items",
+                    "flight_specific_elements"
                   ],
                   "title": "航空运输客票电子行程单数据",
                   "description": "包含发票类型: 61-电子发票（航空运输客票电子行程单）"
@@ -3364,118 +4198,426 @@
                       "title": "发票号码",
                       "maxLength": 20
                     },
-                    "issue_date": {
+                    "is_paper_invoice": {
+                      "type": "string",
+                      "title": "是否为纸质发票",
+                      "maxLength": 1
+                    },
+                    "invoice_date": {
                       "type": "string",
                       "title": "开票日期",
+                      "description": "YYYY-MM-DD HH:mm:ss",
                       "maxLength": 19
                     },
-                    "passenger_name": {
+                    "original_blue_invoice_no": {
                       "type": "string",
-                      "title": "旅客姓名",
-                      "maxLength": 100
+                      "title": "开具红字发票对应的蓝字发票号码",
+                      "maxLength": 30
                     },
-                    "passenger_id_no": {
+                    "invoice_category_code": {
                       "type": "string",
-                      "title": "旅客身份证号码",
-                      "maxLength": 50
+                      "title": "发票票种代码",
+                      "maxLength": 2
                     },
-                    "train_no": {
+                    "special_element_type_code": {
                       "type": "string",
-                      "title": "车次",
-                      "maxLength": 50
+                      "title": "特定要素类型代码",
+                      "maxLength": 2
                     },
-                    "seat_type": {
+                    "buyer_tax_no": {
                       "type": "string",
-                      "title": "席别",
-                      "maxLength": 50
-                    },
-                    "seat_no": {
-                      "type": "string",
-                      "title": "座位号",
+                      "title": "购买方纳税人识别号",
                       "maxLength": 20
                     },
-                    "departure_station": {
+                    "buyer_name": {
                       "type": "string",
-                      "title": "出发站",
-                      "maxLength": 100
-                    },
-                    "arrival_station": {
-                      "type": "string",
-                      "title": "到达站",
-                      "maxLength": 100
-                    },
-                    "departure_date": {
-                      "type": "string",
-                      "title": "开车日期",
-                      "maxLength": 19
-                    },
-                    "departure_time": {
-                      "type": "string",
-                      "title": "开车时间",
-                      "maxLength": 10
-                    },
-                    "fare": {
-                      "type": "number",
-                      "title": "票价",
-                      "description": "DECIMAL 18,2"
-                    },
-                    "tax_rate": {
-                      "type": "number",
-                      "title": "税率",
-                      "description": "DECIMAL 6,6"
-                    },
-                    "tax_amount": {
-                      "type": "number",
-                      "title": "税额",
-                      "description": "DECIMAL 18,2"
-                    },
-                    "ticket_type": {
-                      "type": "string",
-                      "title": "票种",
-                      "maxLength": 50
-                    },
-                    "seller_name": {
-                      "type": "string",
-                      "title": "销售方名称",
+                      "title": "购买方名称",
                       "maxLength": 300
+                    },
+                    "buyer_address": {
+                      "type": "string",
+                      "title": "购买方地址",
+                      "maxLength": 300
+                    },
+                    "buyer_phone": {
+                      "type": "string",
+                      "title": "购买方联系电话",
+                      "maxLength": 60
                     },
                     "seller_tax_no": {
                       "type": "string",
                       "title": "销售方纳税人识别号",
                       "maxLength": 20
                     },
+                    "seller_name": {
+                      "type": "string",
+                      "title": "销售方名称",
+                      "maxLength": 300
+                    },
+                    "seller_address": {
+                      "type": "string",
+                      "title": "销售方地址",
+                      "maxLength": 300
+                    },
+                    "seller_phone": {
+                      "type": "string",
+                      "title": "销售方联系电话",
+                      "maxLength": 60
+                    },
+                    "buyer_agent_name": {
+                      "type": "string",
+                      "title": "购买方经办人",
+                      "maxLength": 150
+                    },
+                    "agent_id_no": {
+                      "type": "string",
+                      "title": "经办人身份证件号码",
+                      "maxLength": 30
+                    },
+                    "agent_phone": {
+                      "type": "string",
+                      "title": "经办人联系电话",
+                      "maxLength": 60
+                    },
+                    "issuer": {
+                      "type": "string",
+                      "title": "开票人",
+                      "maxLength": 300
+                    },
+                    "payee": {
+                      "type": "string",
+                      "title": "收款人",
+                      "maxLength": 300
+                    },
+                    "remitter": {
+                      "type": "string",
+                      "title": "付汇人",
+                      "maxLength": 300
+                    },
+                    "amount_with_tax": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "amount_with_tax_in_words": {
+                      "type": "string",
+                      "title": "价税合计（大写）",
+                      "maxLength": 100
+                    },
+                    "settlement_method_code": {
+                      "type": "string",
+                      "title": "结算方式代码",
+                      "maxLength": 2
+                    },
+                    "total_amount": {
+                      "type": "number",
+                      "title": "合计金额（合计不含税金额）",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "total_tax_amount": {
+                      "type": "number",
+                      "title": "合计税额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "issuer_real_name_auth_location": {
+                      "type": "string",
+                      "title": "开票人实人认证地址信息",
+                      "maxLength": 100
+                    },
+                    "mobile_invoice_location": {
+                      "type": "string",
+                      "title": "手机开票地址信息",
+                      "maxLength": 100
+                    },
+                    "contract_no": {
+                      "type": "string",
+                      "title": "合同编号",
+                      "maxLength": 60
+                    },
+                    "tax_obligation_occurrence_time": {
+                      "type": "string",
+                      "title": "纳税义务发生时间",
+                      "description": "YYYY-MM-DD HH:MI:SS",
+                      "maxLength": 17
+                    },
+                    "agent_id_type_code": {
+                      "type": "string",
+                      "title": "经办人身份证件种类",
+                      "maxLength": 30
+                    },
+                    "is_blue_invoice": {
+                      "type": "string",
+                      "title": "是否蓝字发票标志",
+                      "enum": [
+                        "Y",
+                        "N"
+                      ],
+                      "maxLength": 1
+                    },
+                    "vat_immediate_refund_code": {
+                      "type": "string",
+                      "title": "增值税即征即退代码",
+                      "maxLength": 2
+                    },
                     "remark": {
                       "type": "string",
                       "title": "备注",
-                      "maxLength": 450
+                      "maxLength": 300
+                    },
+                    "goods_quantity": {
+                      "type": "number",
+                      "title": "商品数量",
+                      "description": "DECIMAL 18,4"
+                    },
+                    "export_tax_refund_type_code": {
+                      "type": "string",
+                      "title": "出口退税类代码",
+                      "maxLength": 2
+                    },
+                    "items": {
+                      "type": "array",
+                      "title": "货物信息",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "sequence_no": {
+                            "type": "integer",
+                            "title": "序号"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "title": "项目名称",
+                            "maxLength": 600
+                          },
+                          "goods_or_service_name": {
+                            "type": "string",
+                            "title": "货物或应税劳务、服务名称",
+                            "maxLength": 300
+                          },
+                          "item_short_name": {
+                            "type": "string",
+                            "title": "商品服务简称",
+                            "maxLength": 120
+                          },
+                          "tax_classification_code": {
+                            "type": "string",
+                            "title": "商品和服务税收分类合并编码",
+                            "maxLength": 19
+                          },
+                          "amount": {
+                            "type": "number",
+                            "title": "金额",
+                            "description": "DECIMAL 18,2"
+                          },
+                          "tax_rate": {
+                            "type": "number",
+                            "title": "税率",
+                            "description": "DECIMAL 16,6"
+                          },
+                          "tax_amount": {
+                            "type": "number",
+                            "title": "税额",
+                            "description": "DECIMAL 18,6"
+                          },
+                          "deduction_amount": {
+                            "type": "number",
+                            "title": "扣除额",
+                            "description": "DECIMAL 18,2"
+                          }
+                        },
+                        "required": [
+                          "sequence_no",
+                          "tax_classification_code",
+                          "amount",
+                          "tax_rate",
+                          "tax_amount"
+                        ]
+                      }
+                    },
+                    "railway_specific_elements": {
+                      "type": "object",
+                      "title": "铁路电子客票特定要素",
+                      "properties": {
+                        "invoice_no": {
+                          "type": "string",
+                          "title": "发票号码",
+                          "maxLength": 30
+                        },
+                        "invoice_date": {
+                          "type": "string",
+                          "title": "开票日期"
+                        },
+                        "business_type_name": {
+                          "type": "string",
+                          "title": "业务类型名称",
+                          "maxLength": 300
+                        },
+                        "departure_station": {
+                          "type": "string",
+                          "title": "出发站",
+                          "maxLength": 60
+                        },
+                        "departure_station_pinyin": {
+                          "type": "string",
+                          "title": "出发站拼音",
+                          "maxLength": 60
+                        },
+                        "arrival_station": {
+                          "type": "string",
+                          "title": "到达站",
+                          "maxLength": 60
+                        },
+                        "arrival_station_pinyin": {
+                          "type": "string",
+                          "title": "到达站拼音",
+                          "maxLength": 60
+                        },
+                        "train_no": {
+                          "type": "string",
+                          "title": "乘车车次",
+                          "maxLength": 20
+                        },
+                        "travel_date": {
+                          "type": "string",
+                          "title": "日期"
+                        },
+                        "departure_time": {
+                          "type": "string",
+                          "title": "出发时间",
+                          "maxLength": 5
+                        },
+                        "railway_eticket_type_name": {
+                          "type": "string",
+                          "title": "铁路电子客票票种名称",
+                          "maxLength": 60
+                        },
+                        "air_condition_flag": {
+                          "type": "string",
+                          "title": "空调特征",
+                          "maxLength": 20
+                        },
+                        "seat_class": {
+                          "type": "string",
+                          "title": "席别",
+                          "maxLength": 20
+                        },
+                        "carriage": {
+                          "type": "string",
+                          "title": "车厢",
+                          "maxLength": 20
+                        },
+                        "seat_no": {
+                          "type": "string",
+                          "title": "席位",
+                          "maxLength": 60
+                        },
+                        "payment_amount": {
+                          "type": "number",
+                          "title": "支付金额",
+                          "description": "DECIMAL 18,2"
+                        },
+                        "refunded_amount": {
+                          "type": "number",
+                          "title": "已退金额",
+                          "description": "DECIMAL 18,2"
+                        },
+                        "original_fare": {
+                          "type": "number",
+                          "title": "原票票价",
+                          "description": "DECIMAL 18,2"
+                        },
+                        "original_departure_station": {
+                          "type": "string",
+                          "title": "原票出发站",
+                          "maxLength": 60
+                        },
+                        "original_arrival_station": {
+                          "type": "string",
+                          "title": "原票到达站",
+                          "maxLength": 60
+                        },
+                        "eticket_no": {
+                          "type": "string",
+                          "title": "电子客票号",
+                          "maxLength": 30
+                        },
+                        "id_no": {
+                          "type": "string",
+                          "title": "证件号码",
+                          "maxLength": 30
+                        },
+                        "passenger_name": {
+                          "type": "string",
+                          "title": "姓名",
+                          "maxLength": 150
+                        },
+                        "railway_discount_type": {
+                          "type": "string",
+                          "title": "铁路客票优惠类型",
+                          "maxLength": 30
+                        },
+                        "original_invoice_no": {
+                          "type": "string",
+                          "title": "原发票号码",
+                          "maxLength": 30
+                        }
+                      },
+                      "required": [
+                        "invoice_no",
+                        "invoice_date",
+                        "business_type_name",
+                        "payment_amount"
+                      ]
                     }
                   },
                   "required": [
                     "invoice_no",
-                    "issue_date",
-                    "passenger_name",
-                    "train_no",
-                    "seller_tax_no"
+                    "is_paper_invoice",
+                    "invoice_date",
+                    "invoice_category_code",
+                    "seller_tax_no",
+                    "seller_name",
+                    "buyer_name",
+                    "is_blue_invoice"
                   ],
                   "x-apifox-orders": [
                     "invoice_no",
-                    "issue_date",
-                    "passenger_name",
-                    "passenger_id_no",
-                    "train_no",
-                    "seat_type",
-                    "seat_no",
-                    "departure_station",
-                    "arrival_station",
-                    "departure_date",
-                    "departure_time",
-                    "fare",
-                    "tax_rate",
-                    "tax_amount",
-                    "ticket_type",
-                    "seller_name",
+                    "is_paper_invoice",
+                    "invoice_date",
+                    "original_blue_invoice_no",
+                    "invoice_category_code",
+                    "special_element_type_code",
+                    "buyer_tax_no",
+                    "buyer_name",
+                    "buyer_address",
+                    "buyer_phone",
                     "seller_tax_no",
-                    "remark"
+                    "seller_name",
+                    "seller_address",
+                    "seller_phone",
+                    "buyer_agent_name",
+                    "agent_id_no",
+                    "agent_phone",
+                    "issuer",
+                    "payee",
+                    "remitter",
+                    "amount_with_tax",
+                    "amount_with_tax_in_words",
+                    "settlement_method_code",
+                    "total_amount",
+                    "total_tax_amount",
+                    "issuer_real_name_auth_location",
+                    "mobile_invoice_location",
+                    "contract_no",
+                    "tax_obligation_occurrence_time",
+                    "agent_id_type_code",
+                    "is_blue_invoice",
+                    "vat_immediate_refund_code",
+                    "remark",
+                    "goods_quantity",
+                    "export_tax_refund_type_code",
+                    "items",
+                    "railway_specific_elements"
                   ],
                   "title": "铁路电子客票数据",
                   "description": "包含发票类型: 51-电子发票（铁路电子客票）"
@@ -3525,7 +4667,10 @@
                     "is_blue_invoice": {
                       "type": "string",
                       "title": "是否蓝字发票",
-                      "enum": ["Y", "N"],
+                      "enum": [
+                        "Y",
+                        "N"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
                         {
@@ -3847,7 +4992,10 @@
                     "special_element_type_code": {
                       "type": "string",
                       "title": "特定要素类型代码",
-                      "enum": ["51", "52"],
+                      "enum": [
+                        "51",
+                        "52"
+                      ],
                       "maxLength": 2,
                       "x-apifox-enum": [
                         {
@@ -3865,7 +5013,10 @@
                     "is_blue_invoice": {
                       "type": "string",
                       "title": "是否蓝字发票",
-                      "enum": ["Y", "N"],
+                      "enum": [
+                        "Y",
+                        "N"
+                      ],
                       "maxLength": 1,
                       "x-apifox-enum": [
                         {
