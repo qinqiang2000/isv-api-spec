@@ -246,6 +246,9 @@
                           "type": "string",
                           "title": "返回信息"
                         },
+                        "invoice_type": {
+                          "$ref": "#/definitions/invoice_type"
+                        },
                         "verification_data": {
                           "title": "查验结果信息",
                           "description": "根据发票类型返回对应的发票数据结构",
@@ -279,6 +282,9 @@
                             },
                             {
                               "$ref": "#/definitions/223576042"
+                            },
+                            {
+                              "$ref": "#/definitions/223576043"
                             }
                           ]
                         }
@@ -291,6 +297,7 @@
                         "request_id",
                         "result_code",
                         "result_message",
+                        "invoice_type",
                         "verification_data"
                       ]
                     },
@@ -308,127 +315,7 @@
                     "description": "",
                     "properties": {
                       "invoice_type": {
-                        "type": "string",
-                        "title": "发票类型",
-                        "description": "2位字符",
-                        "enum": [
-                          "01",
-                          "02",
-                          "03",
-                          "04",
-                          "08",
-                          "10",
-                          "11",
-                          "14",
-                          "15",
-                          "81",
-                          "82",
-                          "85",
-                          "86",
-                          "51",
-                          "61",
-                          "83",
-                          "84",
-                          "87",
-                          "88"
-                        ],
-                        "x-apifox-enum": [
-                          {
-                            "value": "01",
-                            "name": "增值税专用发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "02",
-                            "name": "货物运输业增值税专用发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "03",
-                            "name": "机动车销售统一发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "04",
-                            "name": "增值税普通发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "08",
-                            "name": "增值税电子专用发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "10",
-                            "name": "增值税电子普通发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "11",
-                            "name": "卷式发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "14",
-                            "name": "通行费发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "15",
-                            "name": "二手车销售统一发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "81",
-                            "name": "电子发票（增值税专用发票）",
-                            "description": ""
-                          },
-                          {
-                            "value": "82",
-                            "name": "电子发票（普通发票）",
-                            "description": ""
-                          },
-                          {
-                            "value": "85",
-                            "name": "纸质发票（增值税专用发票）",
-                            "description": ""
-                          },
-                          {
-                            "value": "86",
-                            "name": "纸质发票（普通发票）",
-                            "description": ""
-                          },
-                          {
-                            "value": "51",
-                            "name": "电子发票（铁路电子客票）",
-                            "description": ""
-                          },
-                          {
-                            "value": "61",
-                            "name": "电子发票（航空运输客票电子行程单）",
-                            "description": ""
-                          },
-                          {
-                            "value": "83",
-                            "name": "机动车销售电子统一发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "84",
-                            "name": "二手车销售电子统一发票",
-                            "description": ""
-                          },
-                          {
-                            "value": "87",
-                            "name": "纸质发票（机动车销售统一发票）",
-                            "description": ""
-                          },
-                          {
-                            "value": "88",
-                            "name": "纸质发票（二手车销售统一发票）",
-                            "description": ""
-                          }
-                        ]
+                        "$ref": "#/definitions/invoice_type"
                       },
                       "invoice_code": {
                         "type": "string",
@@ -1247,6 +1134,143 @@
           "visibility": "INHERITED",
           "moduleId": 6572471,
           "items": [
+            {
+              "name": "发票类型",
+              "displayName": "",
+              "id": "#/definitions/invoice_type",
+              "description": "发票类型枚举值",
+              "schema": {
+                "jsonSchema": {
+                  "type": "string",
+                  "title": "发票类型",
+                  "description": "2位字符",
+                  "enum": [
+                    "01",
+                    "02",
+                    "03",
+                    "04",
+                    "08",
+                    "10",
+                    "11",
+                    "14",
+                    "15",
+                    "81",
+                    "82",
+                    "85",
+                    "86",
+                    "51",
+                    "61",
+                    "83",
+                    "84",
+                    "87",
+                    "88",
+                    "90"
+                  ],
+                  "x-apifox-enum": [
+                    {
+                      "value": "01",
+                      "name": "增值税专用发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "02",
+                      "name": "货物运输业增值税专用发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "03",
+                      "name": "机动车销售统一发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "04",
+                      "name": "增值税普通发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "08",
+                      "name": "增值税电子专用发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "10",
+                      "name": "增值税电子普通发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "11",
+                      "name": "卷式发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "14",
+                      "name": "通行费发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "15",
+                      "name": "二手车销售统一发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "81",
+                      "name": "电子发票（增值税专用发票）",
+                      "description": ""
+                    },
+                    {
+                      "value": "82",
+                      "name": "电子发票（普通发票）",
+                      "description": ""
+                    },
+                    {
+                      "value": "85",
+                      "name": "纸质发票（增值税专用发票）",
+                      "description": ""
+                    },
+                    {
+                      "value": "86",
+                      "name": "纸质发票（普通发票）",
+                      "description": ""
+                    },
+                    {
+                      "value": "51",
+                      "name": "电子发票（铁路电子客票）",
+                      "description": ""
+                    },
+                    {
+                      "value": "61",
+                      "name": "电子发票（航空运输客票电子行程单）",
+                      "description": ""
+                    },
+                    {
+                      "value": "83",
+                      "name": "机动车销售电子统一发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "84",
+                      "name": "二手车销售电子统一发票",
+                      "description": ""
+                    },
+                    {
+                      "value": "87",
+                      "name": "纸质发票（机动车销售统一发票）",
+                      "description": ""
+                    },
+                    {
+                      "value": "88",
+                      "name": "纸质发票（二手车销售统一发票）",
+                      "description": ""
+                    },
+                    {
+                      "value": "F01",
+                      "name": "财政票据",
+                      "description": ""
+                    }
+                  ]
+                }
+              }
+            },
             {
               "name": "数字化电子发票-增值税发票数据",
               "displayName": "",
@@ -5750,6 +5774,371 @@
                   "description": "包含发票类型: 84-二手车销售电子统一发票, 88：纸质发票（二手车销售统一发票）"
                 }
               }
+            },
+            {
+              "name": "财政票据数据",
+              "displayName": "",
+              "id": "#/definitions/223576043",
+              "description": "包含发票类型: F01-财政票据",
+              "schema": {
+                "jsonSchema": {
+                  "type": "object",
+                  "properties": {
+                    "bill_code": {
+                      "type": "string",
+                      "title": "票据代码"
+                    },
+                    "bill_no": {
+                      "type": "string",
+                      "title": "票据号码"
+                    },
+                    "payer_tax_no": {
+                      "type": "string",
+                      "title": "缴款人纳税识别号"
+                    },
+                    "verification_code": {
+                      "type": "string",
+                      "title": "校验码"
+                    },
+                    "payer_name": {
+                      "type": "string",
+                      "title": "缴款人"
+                    },
+                    "issue_date": {
+                      "type": "string",
+                      "title": "开票日期"
+                    },
+                    "payee_unit": {
+                      "type": "string",
+                      "title": "收款单位"
+                    },
+                    "reviewer": {
+                      "type": "string",
+                      "title": "复核人"
+                    },
+                    "payee": {
+                      "type": "string",
+                      "title": "收款人"
+                    },
+                    "bill_name": {
+                      "type": "string",
+                      "title": "票据名称"
+                    },
+                    "total_amount": {
+                      "type": "string",
+                      "title": "金额合计"
+                    },
+                    "total_amount_in_words": {
+                      "type": "string",
+                      "title": "金额合计中文大写"
+                    },
+                    "red_reversal_flag": {
+                      "type": "string",
+                      "title": "冲红标志",
+                      "description": "01正常，02冲红",
+                      "enum": [
+                        "01",
+                        "02"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "01",
+                          "name": "正常",
+                          "description": ""
+                        },
+                        {
+                          "value": "02",
+                          "name": "冲红",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "red_reversal_date": {
+                      "type": "string",
+                      "title": "冲红日期"
+                    },
+                    "red_reversal_time": {
+                      "type": "string",
+                      "title": "冲红时间"
+                    },
+                    "red_reversal_reason": {
+                      "type": "string",
+                      "title": "冲红原因"
+                    },
+                    "print_status": {
+                      "type": "string",
+                      "title": "是否打印",
+                      "description": "01未打印  02已打印",
+                      "enum": [
+                        "01",
+                        "02"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "01",
+                          "name": "未打印",
+                          "description": ""
+                        },
+                        {
+                          "value": "02",
+                          "name": "已打印",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "accounting_status": {
+                      "type": "string",
+                      "title": "是否入账",
+                      "description": "01未入账  02 已入账",
+                      "enum": [
+                        "01",
+                        "02"
+                      ],
+                      "x-apifox-enum": [
+                        {
+                          "value": "01",
+                          "name": "未入账",
+                          "description": ""
+                        },
+                        {
+                          "value": "02",
+                          "name": "已入账",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "item_list": {
+                      "type": "array",
+                      "title": "项目清单",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "sequence_no": {
+                            "type": "integer",
+                            "title": "项目序号"
+                          },
+                          "item_code": {
+                            "type": "string",
+                            "title": "项目编号"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "title": "项目名称"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "title": "单位"
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "title": "数量"
+                          },
+                          "specification": {
+                            "type": "string",
+                            "title": "规格标准"
+                          },
+                          "amount": {
+                            "type": "string",
+                            "title": "金额"
+                          },
+                          "remark": {
+                            "type": "string",
+                            "title": "备注"
+                          }
+                        },
+                        "required": [
+                          "item_code",
+                          "item_name",
+                          "unit",
+                          "quantity",
+                          "specification",
+                          "amount",
+                          "remark"
+                        ],
+                        "x-apifox-orders": [
+                          "sequence_no",
+                          "item_code",
+                          "item_name",
+                          "unit",
+                          "quantity",
+                          "specification",
+                          "amount",
+                          "remark"
+                        ]
+                      }
+                    },
+                    "item_details": {
+                      "type": "array",
+                      "title": "项目明细",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "sequence_no": {
+                            "type": "integer",
+                            "title": "项目序号"
+                          },
+                          "item_code": {
+                            "type": "string",
+                            "title": "项目编号"
+                          },
+                          "item_name": {
+                            "type": "string",
+                            "title": "项目名称"
+                          },
+                          "unit": {
+                            "type": "string",
+                            "title": "单位"
+                          },
+                          "quantity": {
+                            "type": "string",
+                            "title": "数量"
+                          },
+                          "specification": {
+                            "type": "string",
+                            "title": "规格标准"
+                          },
+                          "amount": {
+                            "type": "string",
+                            "title": "金额"
+                          },
+                          "remark": {
+                            "type": "string",
+                            "title": "备注"
+                          },
+                          "unit_price": {
+                            "type": "string",
+                            "title": "单价",
+                            "description": "仅当开通非税票据明细且使用时返回该字段，目前仅上海地区有内容返回",
+                            "nullable": true
+                          },
+                          "self_paid": {
+                            "type": "string",
+                            "title": "自费",
+                            "description": "仅当开通非税票据明细且使用时返回该字段，目前仅上海地区有内容返回",
+                            "nullable": true
+                          },
+                          "classified_self_paid": {
+                            "type": "string",
+                            "title": "分类自负",
+                            "description": "仅当开通非税票据明细且使用时返回该字段，目前仅上海地区有内容返回",
+                            "nullable": true
+                          }
+                        },
+                        "required": [
+                          "sequence_no",
+                          "item_code",
+                          "item_name",
+                          "unit",
+                          "quantity",
+                          "specification",
+                          "amount",
+                          "remark"
+                        ],
+                        "x-apifox-orders": [
+                          "sequence_no",
+                          "item_code",
+                          "item_name",
+                          "unit",
+                          "quantity",
+                          "specification",
+                          "amount",
+                          "remark",
+                          "unit_price",
+                          "self_paid",
+                          "classified_self_paid"
+                        ]
+                      }
+                    },
+                    "other_info": {
+                      "type": "array",
+                      "title": "其他信息",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field_name": {
+                            "type": "string",
+                            "title": "字段英文名称"
+                          },
+                          "field_title": {
+                            "type": "string",
+                            "title": "字段中文名称"
+                          },
+                          "field_value": {
+                            "type": "string",
+                            "title": "字段值"
+                          }
+                        },
+                        "required": [
+                          "field_name",
+                          "field_title",
+                          "field_value"
+                        ],
+                        "x-apifox-orders": [
+                          "field_name",
+                          "field_title",
+                          "field_value"
+                        ]
+                      }
+                    },
+                    "detail_url": {
+                      "type": "string",
+                      "title": "税局查验截图url",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "bill_code",
+                    "bill_no",
+                    "payer_tax_no",
+                    "verification_code",
+                    "payer_name",
+                    "issue_date",
+                    "payee_unit",
+                    "reviewer",
+                    "payee",
+                    "bill_name",
+                    "total_amount",
+                    "total_amount_in_words",
+                    "red_reversal_flag",
+                    "red_reversal_date",
+                    "red_reversal_time",
+                    "red_reversal_reason",
+                    "print_status",
+                    "accounting_status",
+                    "item_list",
+                    "item_details",
+                    "other_info"
+                  ],
+                  "x-apifox-orders": [
+                    "bill_code",
+                    "bill_no",
+                    "payer_tax_no",
+                    "verification_code",
+                    "payer_name",
+                    "issue_date",
+                    "payee_unit",
+                    "reviewer",
+                    "payee",
+                    "bill_name",
+                    "total_amount",
+                    "total_amount_in_words",
+                    "red_reversal_flag",
+                    "red_reversal_date",
+                    "red_reversal_time",
+                    "red_reversal_reason",
+                    "print_status",
+                    "accounting_status",
+                    "item_list",
+                    "item_details",
+                    "other_info",
+                    "detail_url"
+                  ],
+                  "title": "财政票据数据",
+                  "description": "包含发票类型: 90-财政票据"
+                }
+              },
+              "visibility": "INHERITED",
+              "moduleId": 6572471
             }
           ]
         }
