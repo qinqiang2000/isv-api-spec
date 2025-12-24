@@ -95,6 +95,186 @@
       "inheritPreProcessors": {},
       "items": [
         {
+          "name": "认证",
+          "id": 73482300,
+          "auth": {},
+          "securityScheme": {},
+          "parentId": 0,
+          "serverId": "",
+          "description": "",
+          "identityPattern": {
+            "httpApi": {
+              "type": "inherit",
+              "bodyType": "",
+              "fields": []
+            }
+          },
+          "shareSettings": {},
+          "visibility": "INHERITED",
+          "moduleId": 6572471,
+          "preProcessors": [
+            {
+              "id": "inheritProcessors",
+              "type": "inheritProcessors",
+              "data": {}
+            }
+          ],
+          "postProcessors": [
+            {
+              "id": "inheritProcessors",
+              "type": "inheritProcessors",
+              "data": {}
+            }
+          ],
+          "inheritPostProcessors": {},
+          "inheritPreProcessors": {},
+          "items": [
+            {
+              "name": "认证",
+              "api": {
+                "id": "389577334",
+                "method": "post",
+                "path": "/base/oauth/token",
+                "parameters": {},
+                "auth": {},
+                "securityScheme": {},
+                "commonParameters": {
+                  "query": [],
+                  "body": [],
+                  "cookie": [],
+                  "header": []
+                },
+                "responses": [
+                  {
+                    "id": "162242509",
+                    "code": 200,
+                    "name": "成功",
+                    "headers": [],
+                    "jsonSchema": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "access_token": {
+                              "type": "string",
+                              "description": "字符串, 最长255，用于后续访问的令牌，随机字符串",
+                              "title": "令牌"
+                            },
+                            "token_type": {
+                              "type": "string",
+                              "description": "目前固定为：bearer",
+                              "title": "令牌类型"
+                            },
+                            "expires_in": {
+                              "type": "number",
+                              "description": "access_token有效时间，长整型，单位秒。token为发票云系统自动生成并缓存，该失效时间是指在缓存的失效时间，起始时间指的token保存到缓存的时间，与用户请求时间无关",
+                              "title": "过期时间"
+                            },
+                            "errcode": {
+                              "type": "string",
+                              "description": "操作结果码（已废弃）"
+                            },
+                            "description": {
+                              "type": "string",
+                              "description": "操作描述（已废弃）"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "access_token",
+                            "token_type",
+                            "expires_in",
+                            "errcode",
+                            "description"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "data"
+                      ],
+                      "x-apifox-orders": [
+                        "data"
+                      ]
+                    },
+                    "description": "",
+                    "contentType": "json",
+                    "mediaType": ""
+                  },
+                  {
+                    "id": "341712497",
+                    "referencedResponseId": 341712497
+                  }
+                ],
+                "responseExamples": [],
+                "requestBody": {
+                  "type": "application/json",
+                  "parameters": [],
+                  "jsonSchema": {
+                    "type": "object",
+                    "description": "",
+                    "properties": {
+                      "client_id": {
+                        "type": "string",
+                        "description": "ISV伙伴唯一标识；ISV伙伴线下注册后，发票云会给一个client_id作为ISV伙伴的唯一标识"
+                      },
+                      "timestamp": {
+                        "type": "string",
+                        "description": "时间戳"
+                      },
+                      "sign": {
+                        "type": "string",
+                        "description": "签名(由client_id + client_secret  + timestamp的值通过MD5算法生成)"
+                      }
+                    },
+                    "required": [
+                      "client_id",
+                      "timestamp",
+                      "sign"
+                    ],
+                    "x-apifox-orders": [
+                      "client_id",
+                      "timestamp",
+                      "sign"
+                    ]
+                  },
+                  "required": true,
+                  "mediaType": "",
+                  "examples": [],
+                  "oasExtensions": ""
+                },
+                "description": "",
+                "tags": [],
+                "status": "developing",
+                "serverId": "",
+                "operationId": "",
+                "sourceUrl": "",
+                "ordering": 10,
+                "cases": [],
+                "mocks": [],
+                "customApiFields": "{}",
+                "advancedSettings": {
+                  "disabledSystemHeaders": {}
+                },
+                "mockScript": {},
+                "codeSamples": [],
+                "commonResponseStatus": {
+                  "341712497": true
+                },
+                "responseChildren": [],
+                "visibility": "INHERITED",
+                "moduleId": 6572471,
+                "oasExtensions": "",
+                "type": "http",
+                "preProcessors": [],
+                "postProcessors": [],
+                "inheritPostProcessors": {},
+                "inheritPreProcessors": {}
+              }
+            }
+          ]
+        },
+        {
           "name": "订单",
           "id": 71408886,
           "auth": {},
@@ -138,8 +318,8 @@
                 "method": "post",
                 "path": "/partners/orders",
                 "parameters": {
-                  "query": [],
                   "path": [],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -288,8 +468,6 @@
                       }
                     }
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -297,7 +475,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "**注意事项**\n :::highlight red 📌\n 为一个新的纳税人识别号/统一社会信用代码（TIN）下单时\n    - 要[登录一次电子税局账号才激活订单](apifox://link/endpoint/383608322)\n    - 登录接口请参考：[登录电子税局账号](apifox://link/endpoint/383608322)\n:::",
                 "tags": [],
@@ -377,7 +558,6 @@
                 "method": "post",
                 "path": "/partners/orders/{order_no}/close",
                 "parameters": {
-                  "query": [],
                   "path": [
                     {
                       "id": "order_no#0",
@@ -388,6 +568,7 @@
                       "type": "string"
                     }
                   ],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -517,8 +698,6 @@
                     "type": "object",
                     "x-apifox-refs": {}
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -526,7 +705,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "一、计费说明：\n第一优先级：下单七天无理由终止不计费\n第二优先级：下单30天内不发生业务终止不计费\n第三优先级：超过30天终止计费\n二、若改企业名称，先调此接口退货后创建订单",
                 "tags": [],
@@ -606,6 +788,7 @@
                 "method": "get",
                 "path": "/partners/orders",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "YyfLhby9HZ",
@@ -650,7 +833,6 @@
                       }
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -775,10 +957,11 @@
                     "type": "object",
                     "x-apifox-refs": {}
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "Query参数：tenant_id/tin：至少填写其中一个",
                 "tags": [],
@@ -964,6 +1147,7 @@
                 "method": "post",
                 "path": "/partners/invoice-items",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "6ZXXGNr9Sq",
@@ -978,7 +1162,6 @@
                       }
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -1120,8 +1303,6 @@
                       "properties": {}
                     }
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "[\n    {\n        \"item_code\": \"SRV-202401\",\n        \"item_name\": \"软件服务费\",\n        \"tax_category_code\": \"3070102000000000000\",\n        \"tax_rate\": 0.03,\n        \"specification\": \"标准版\",\n        \"unit\": \"项\",\n        \"vat_preferential_policy_applied\": true,\n        \"vat_preferential_policy_type_code\": \"03\",\n        \"vat_refund_type_code\": \"01\"\n    },\n    {\n        \"item_code\": \"PROD-HW-9001\",\n        \"item_name\": \"智能网关设备\",\n        \"tax_category_code\": \"1040401010000000000\",\n        \"tax_rate\": 0.13,\n        \"specification\": \"GW-X10\",\n        \"unit\": \"台\",\n        \"vat_preferential_policy_applied\": false,\n        \"vat_refund_type_code\": null\n    }\n]",
@@ -1129,7 +1310,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -1155,6 +1339,7 @@
                           "name": "access_token",
                           "type": "string",
                           "value": "1617326422240529408_YGVCbl9K6s8XTrIE0J9rdaztYI5Nw9LqmCadaCx2kW9v5CLRGZwLetQjDShDRbi3LVxQQTH5e9v1v7h4ac4L2BUTF1n6ucvd1wM8",
+                          "enable": false,
                           "description": "",
                           "isDelete": false
                         }
@@ -1230,8 +1415,8 @@
                 "method": "post",
                 "path": "/isv/invoice-items/delete",
                 "parameters": {
-                  "query": [],
                   "path": [],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -1379,10 +1564,11 @@
                       "ids"
                     ]
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -1482,6 +1668,7 @@
                 "method": "get",
                 "path": "/partners/invoice-items",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "0TTYCDxLLU",
@@ -1514,7 +1701,6 @@
                       "fixedValue": false
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -1640,10 +1826,11 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -1744,6 +1931,7 @@
                 "method": "post",
                 "path": "/partners/property-leases",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "6ZXXGNr9Sq",
@@ -1758,7 +1946,6 @@
                       }
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -1878,8 +2065,6 @@
                       "properties": {}
                     }
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "{\n    \"requestId\": \"1624601109096\",\n    \"businessSystemCode\": \"BUSINESS_FPY\",\n    \"interfaceCode\": \"BILL.PUSH\",\n    \"data\": [\n        {\n            \"billNo\": \"ids-uat-3std1-29\",\n            \"billDate\": \"2023-05-17\",\n            \"totalAmount\": 11300,\n            \"autoInvoice\": \"0\",\n            \"invoiceType\": \"08xdp\",\n            \"buyerName\": \"深圳市顺丰快运有限公司test01\",\n            \"buyerProperty\": \"0\",\n            \"sellerTaxpayerId\": \"91440300MA5G9GK78Y\",\n            \"sellerName\": \"金蝶票据云科技(深圳)有限公司\",\n            \"sellerBankAndAccount\": \"13710884704\",\n            \"sellerAddressAndTel\": \"高新技术产业园南区科技南十二路58996989\",\n            \"drawer\": \"开票人\",\n            \"billDetail\": [\n                {\n                    \"amount\": 11300,\n                    \"detailId\": \"1194121661989796666\",\n                    \"goodsName\": \"蜂胶口腔膜\",\n                    \"lineProperty\": 2,\n                    \"price\": 11300,\n                    \"quantity\": 1,\n                    \"revenueCode\": \"1070304990000000000\",\n                    \"taxRate\": \"0.13\",\n                    \"units\": \"个\"\n                }\n            ]\n        }\n    ]\n}",
@@ -1887,7 +2072,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -1913,6 +2101,7 @@
                           "name": "access_token",
                           "type": "string",
                           "value": "1617326422240529408_YGVCbl9K6s8XTrIE0J9rdaztYI5Nw9LqmCadaCx2kW9v5CLRGZwLetQjDShDRbi3LVxQQTH5e9v1v7h4ac4L2BUTF1n6ucvd1wM8",
+                          "enable": false,
                           "description": "",
                           "isDelete": false
                         }
@@ -1981,6 +2170,7 @@
                 "method": "post",
                 "path": "/partners/property-leases/delete",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "6ZXXGNr9Sq",
@@ -1995,7 +2185,6 @@
                       }
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -2106,10 +2295,11 @@
                       "ids"
                     ]
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -2135,6 +2325,7 @@
                           "name": "access_token",
                           "type": "string",
                           "value": "1617326422240529408_YGVCbl9K6s8XTrIE0J9rdaztYI5Nw9LqmCadaCx2kW9v5CLRGZwLetQjDShDRbi3LVxQQTH5e9v1v7h4ac4L2BUTF1n6ucvd1wM8",
+                          "enable": false,
                           "description": "",
                           "isDelete": false
                         }
@@ -2203,6 +2394,7 @@
                 "method": "get",
                 "path": "/partners/property-leases",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "cAXTE8ZQtL",
@@ -2235,7 +2427,6 @@
                       "fixedValue": false
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -2341,10 +2532,11 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -2438,8 +2630,8 @@
                 "method": "post",
                 "path": "/partners/etax-accounts",
                 "parameters": {
-                  "query": [],
                   "path": [],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -2546,8 +2738,6 @@
                       }
                     }
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -2555,7 +2745,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "每个企业仅支持维护3个数电账号\nUPDATE/CREATE要对数电账号密码做可信校验，并触发验证码发送。\nDELETE可以不用",
                 "tags": [],
@@ -2627,8 +2820,8 @@
                 "method": "post",
                 "path": "/partners/etax-accounts/delete",
                 "parameters": {
-                  "query": [],
                   "path": [],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -2735,8 +2928,6 @@
                       "ids"
                     ]
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -2744,7 +2935,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "每个企业仅支持维护3个数电账号，DELETE可以不用可信校验\n",
                 "tags": [],
@@ -2816,6 +3010,7 @@
                 "method": "get",
                 "path": "/partners/etax-accounts",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "cAXTE8ZQtL",
@@ -2848,7 +3043,6 @@
                       "fixedValue": false
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -2926,8 +3120,7 @@
                             "x-apifox-orders": [
                               "01KC8B87J3QHNYBV22QTN09KRS"
                             ],
-                            "properties": {},
-                            "required": []
+                            "properties": {}
                           }
                         },
                         "request_id": {
@@ -2964,10 +3157,11 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -3098,6 +3292,7 @@
                 "method": "get",
                 "path": "/partners/etax-accounts/session-status",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "itYj2aJuQx",
@@ -3124,7 +3319,6 @@
                       "type": "string"
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -3252,8 +3446,6 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -3261,7 +3453,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "## 说明\n1. 本接口只检测状态。不触发验证码发送，若登陆失效需调用2.3接口完成登陆；不返回认证链接，若认证失效需调用2.4接口完成认证。\n2. 查询参数中：id和(tin & etax_account)两个条件任选一个\n",
                 "tags": [],
@@ -3355,8 +3550,8 @@
                 "method": "post",
                 "path": "/partners/etax-accounts/login",
                 "parameters": {
-                  "query": [],
                   "path": [],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -3455,7 +3650,7 @@
                     },
                     "x-apifox-orders": [
                       "01KBZ9DFM6RHKWW64PRGJKNH15",
-                      "sms_code"
+                      "verification_code"
                     ],
                     "x-apifox-refs": {
                       "01KBZ9DFM6RHKWW64PRGJKNH15": {
@@ -3467,8 +3662,6 @@
                       }
                     }
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -3476,7 +3669,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "该接口分成两步\n第一步，不带验证码，请求电子税局登录，除部分不发送验证码地区（登录成功直接返回uuid），发送验证码\n第二步，接收到税局的验证码后，带着验证码进行验证，完成登录",
                 "tags": [
@@ -3601,6 +3797,7 @@
                 "method": "post",
                 "path": "/partners/etax-account/real-person-auth/qr-code",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "OSeYoOd3Np",
@@ -3636,7 +3833,6 @@
                       "fixedValue": false
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -3730,8 +3926,6 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -3739,7 +3933,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "查询参数中：id和(tin & etax_account)两个条件任选一个",
                 "tags": [],
@@ -3862,6 +4059,7 @@
                 "method": "get",
                 "path": "/partners/etax-account/real-person-auth/qr-code/result",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "HLKi4SgFV3",
@@ -3902,7 +4100,6 @@
                       "type": "string"
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -4025,8 +4222,6 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -4034,7 +4229,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "查询参数中：\n- verification_id必填\n- id和(tin & etax_account)两个条件任选一个",
                 "tags": [],
@@ -4157,6 +4355,7 @@
                 "method": "get",
                 "path": "/partners/credit-limit",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "czVPN0HjmZ",
@@ -4167,7 +4366,6 @@
                       "type": "string"
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -4296,8 +4494,6 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -4305,7 +4501,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [
@@ -4423,8 +4622,8 @@
                 "method": "post",
                 "path": "/partners/invoice-issue-tasks",
                 "parameters": {
-                  "query": [],
                   "path": [],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -4537,8 +4736,6 @@
                       }
                     }
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -4546,7 +4743,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "本接口用于生成**单张**开票任务，自动触发开票流程。支持自动补全开票项，适用于复杂业务场景下的开票自动化需求。\n对于开具红票的情况下，数量和金额都应该传负数，单价传正数\n如遇到开票异常，需传traceID来做重试、更改\n## 1 **发票金额算法**\n### 1.1 **蓝票算法**\n不含税金额(四舍五入,保留两位小数)= 含税金额/(1+税率)\n税额= 含税金额-不含税金额\n不含税总金额=各行不含税金额相加\n总税额 = 价税合计-不含税总金额\n最后一项税额 = 总税额-（前n项税额之和）\n### 1.2 **红票算法**\n价税合计=取蓝票的价税合计\n合计税额=取蓝票的合计税额\n合计金额=取蓝票合计金额\n## 2 **明细项**\n不含税金额(四舍五入,保留两位小数)= 含税金额/(1+税率)\n税额= 含税金额-不含税金额\n最后一项不含税金额 = 合计金额-（前n项不含税金额之和)\n最后一项税额 = 合计税额-（前n项税额之和）\n## 3 **误差规则**\n单行商品明细 |单价×数量-金额|<=0.01 元\n|不含税金额×税率-税额|<=0.06元\n## 4 **发票开具校验注意事项**\n### 4.1 **正数发票**\n正数发票合计金额>0 ；\n价税合计=合计金额+合计税额；\n开票合计金额 与 明细行所有金额加起来要一致；\n开票合计税额 与 明细行所有税额加起来要一致；\n除折扣行外，正数发票的商品行金额必须大于0 ；\n正数发票每行商品行金额均不能为0，税额不能为负数 ；\n折扣行金额不能大于被折扣行金额。多行折扣情况下，折扣行金额不能大于各被折扣行金额之和。\n正数发票金额为负的商品行（即折扣行），其上一行商品金额必须为正。\n单价和数量同时为空，或都不能为空 ；\n金额、税额、数量、单价必须是合法数字 ；\n折扣行税率必须与被折扣行税率相同。多行折扣情况下，各被折扣行税率相同，且与折扣行税率相同。\n### 4.2 **负数发票**\n负数发票合计金额<0 ；\n价税合计=合计金额+合计税额；\n开票合计金额 与 明细行所有金额加起来要一致；\n开票合计税额 与 明细行所有税额加起来要一致；\n负数发票的商品行金额必须小于0，税额不能为正数；\n单价和数量同时为空，或都不能为空 ；\n金额、税额、数量、单价必须是合法数字",
                 "tags": [
@@ -4662,6 +4862,7 @@
                 "method": "patch",
                 "path": "/partners/invoice-issue-tasks",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "OegyOgODEx",
@@ -4672,7 +4873,6 @@
                       "type": "string"
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -4815,8 +5015,6 @@
                       }
                     }
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -4824,7 +5022,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "本接口用于在开票异常情况下，对开票任务进行重试、更改，需传task_id",
                 "tags": [
@@ -4940,6 +5141,7 @@
                 "method": "get",
                 "path": "/partners/invoice-issue-tasks",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
                       "id": "9qJz9sJkkU",
@@ -4950,7 +5152,6 @@
                       "type": "string"
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -5022,8 +5223,8 @@
                           "maxLength": 20
                         },
                         "issue_date": {
-                          "$ref": "#/definitions/223576029",
-                          "title": "开票日期"
+                          "type": "object",
+                          "properties": {}
                         },
                         "xml_url": {
                           "type": "string",
@@ -5055,11 +5256,11 @@
                       "x-apifox-orders": [
                         "request_id",
                         "invoice_number",
-                        "invoice_date",
                         "xml_url",
                         "ofd_url",
                         "pdf_url",
-                        "invoice_request_id"
+                        "invoice_request_id",
+                        "issue_date"
                       ]
                     },
                     "itemSchema": {},
@@ -5124,8 +5325,6 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -5133,7 +5332,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "该接口返回的是异步开票的结果\n错误码中\n1304 代表的是 异步开票中\n除1304外，其他错误码都代表本次异步开票结束，如果不是0000，又需要重试，需要重新发起请求",
                 "tags": [
@@ -5286,8 +5488,8 @@
                 "method": "post",
                 "path": "/isv/leqi-joint-use-applications",
                 "parameters": {
-                  "query": [],
                   "path": [],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -5405,7 +5607,6 @@
                       "x-apifox-orders": [
                         "01KC89ZQNXX2DMHX362GFPF72R"
                       ],
-                      "required": [],
                       "x-apifox-refs": {
                         "01KC89ZQNXX2DMHX362GFPF72R": {
                           "$ref": "#/definitions/228407585",
@@ -5416,8 +5617,6 @@
                       }
                     }
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -5425,7 +5624,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -5433,7 +5635,7 @@
                 "serverId": "",
                 "operationId": "",
                 "sourceUrl": "",
-                "ordering": 3,
+                "ordering": 0,
                 "cases": [
                   {
                     "id": 327374554,
@@ -5505,17 +5707,17 @@
                 "method": "get",
                 "path": "/isv/leqi-joint-use-applications",
                 "parameters": {
+                  "path": [],
                   "query": [
                     {
-                      "required": false,
-                      "description": "纳税人识别号/统一社会信用代码（TIN），Taxpayer Identification Number，用于标识企业的纳税主体；企业一般为：税号",
-                      "type": "string",
                       "id": "7cdYHQ9QOe",
+                      "name": "tin",
+                      "required": false,
                       "enable": true,
-                      "name": "tin"
+                      "description": "纳税人识别号/统一社会信用代码（TIN），Taxpayer Identification Number，用于标识企业的纳税主体；企业一般为：税号",
+                      "type": "string"
                     }
                   ],
-                  "path": [],
                   "cookie": [],
                   "header": [
                     {
@@ -5590,7 +5792,6 @@
                             "x-apifox-orders": [
                               "01KC8A96WY527TBP9KDYMJZ04D"
                             ],
-                            "required": [],
                             "x-apifox-refs": {
                               "01KC8A96WY527TBP9KDYMJZ04D": {
                                 "$ref": "#/definitions/228407585",
@@ -5651,8 +5852,6 @@
                     "properties": {},
                     "x-apifox-orders": []
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "",
@@ -5660,7 +5859,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "",
                 "tags": [],
@@ -5668,7 +5870,7 @@
                 "serverId": "",
                 "operationId": "",
                 "sourceUrl": "",
-                "ordering": 9,
+                "ordering": 6,
                 "cases": [
                   {
                     "id": 327392440,
@@ -5777,8 +5979,8 @@
                 "method": "post",
                 "path": "/partners/invoice-verifications",
                 "parameters": {
-                  "query": [],
                   "path": [],
+                  "query": [],
                   "cookie": [],
                   "header": [
                     {
@@ -5944,7 +6146,8 @@
                     },
                     "itemSchema": {
                       "type": "object",
-                      "properties": {}
+                      "properties": {},
+                      "x-apifox-orders": []
                     },
                     "description": "",
                     "contentType": "json",
@@ -6019,7 +6222,8 @@
                     },
                     "itemSchema": {
                       "type": "object",
-                      "properties": {}
+                      "properties": {},
+                      "x-apifox-orders": []
                     },
                     "description": "发票信息格式不正确",
                     "contentType": "json",
@@ -6094,7 +6298,8 @@
                     },
                     "itemSchema": {
                       "type": "object",
-                      "properties": {}
+                      "properties": {},
+                      "x-apifox-orders": []
                     },
                     "description": "发票类型不支持或超出查验期限",
                     "contentType": "json",
@@ -6169,7 +6374,8 @@
                     },
                     "itemSchema": {
                       "type": "object",
-                      "properties": {}
+                      "properties": {},
+                      "x-apifox-orders": []
                     },
                     "description": "超过每日查验次数限制",
                     "contentType": "json",
@@ -6244,7 +6450,8 @@
                     },
                     "itemSchema": {
                       "type": "object",
-                      "properties": {}
+                      "properties": {},
+                      "x-apifox-orders": []
                     },
                     "description": "税局网络不稳定",
                     "contentType": "json",
@@ -6419,22 +6626,16 @@
                         "maxLength": 20
                       }
                     },
-                    "required": [
-                      "invoice_no",
-                      "invoice_date"
-                    ],
                     "x-apifox-orders": [
                       "invoice_type",
                       "invoice_code",
-                      "invoice_no",
-                      "invoice_date",
                       "verification_code",
                       "invoice_amount",
-                      "company_tax_no"
+                      "company_tax_no",
+                      "invoice_number",
+                      "issue_date"
                     ]
                   },
-                  "required": false,
-                  "mediaType": "",
                   "examples": [
                     {
                       "value": "{\n  \"invoice_type\": \"81\",\n  \"invoice_code\": \"5101*****111\",\n  \"invoice_no\": \"00000001\",\n  \"invoice_date\": \"2025-01-01\",\n  \"verification_code\": \"123456\",\n  \"invoice_amount\": 10000.0,\n  \"company_tax_no\": \"915100************\"\n}",
@@ -6442,7 +6643,10 @@
                       "description": ""
                     }
                   ],
-                  "oasExtensions": ""
+                  "mediaType": "",
+                  "oasExtensions": "",
+                  "required": false,
+                  "additionalContent": []
                 },
                 "description": "企业端业务系统通过接口对开具、取得的各类发票发起查验申请，系统根据查验申请反馈查验结果。\n\n| 发票类型 | 税务总局查验平台 | 乐企查验接口 | 财政部查验平台 | 备注 |\n|---|---|---|---|---|\n|  | 1、大部分当日开具发票当日可查验（但部分因税局同步延迟可能失败）<br>2、每份发票每天最多可查验5次<br>3、可查验最近5年内增值税发票管理系统或电子发票服务平台开具的发票 | 企业端业务系统通过接口对开具、取得的各类发票，或自然人通过个人所得税app的【自然人个人票夹】功能，定向推送给任职受雇企业的数电发票发起查验申请，系统根据查验申请反馈查验结果。 | 1、可查验最近一年内开具的电子票据<br>2、每张票据当日可查询5次<br>3、目前不支持非税收入一般缴款书（电子）查验 |  |\n| 01增值税专用发票 | 必填发票代码、发票号码、开票日期、金额（不含税金额） | 必填发票代码、发票号码、开票日期、金额（不含税金额）、税号 |  |  |\n| 02货物运输业增值税专用发票 | 必填发票代码、发票号码、开票日期、金额（不含税金额） | 必填发票代码、发票号码、开票日期、金额（不含税金额）、税号 |  |  |\n| 03机动车销售统一发票 | 必填发票代码、发票号码、开票日期、金额（不含税金额） | 必填发票代码、发票号码、开票日期、金额（不含税金额）、税号 |  |  |\n| 04增值税普通发票 | 必填发票代码、发票号码、开票日期、校验码后六位 | 必填发票代码、发票号码、开票日期、校验码后六位、税号 |  |  |\n| 08增值税电子专用发票 | 必填发票代码、发票号码、开票日期、金额（不含税金额） | 必填发票代码、发票号码、开票日期、金额（不含税金额）、税号 |  |  |\n| 10增值税电子普通发票 | 必填发票代码、发票号码、开票日期、校验码后六位 | 必填发票代码、发票号码、开票日期、校验码后六位、税号 |  |  |\n| 11增值税普通发票（卷式） | 必填发票代码、发票号码、开票日期、校验码后六位 | 必填发票代码、发票号码、开票日期、校验码后六位、税号 |  |  |\n| 14增值税普通发票（通行费） | 必填发票代码、发票号码、开票日期、校验码后六位 | 必填发票代码、发票号码、开票日期、校验码后六位、税号 |  |  |\n| 15二手车销售统一发票 | 必填发票代码、发票号码、开票日期、金额（车价合计） | 必填发票代码、发票号码、开票日期、金额（车价合计）、税号 |  |  |\n| 81数电发票（增值税专用发票） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计）、税号 |  |  |\n| 82数电发票（普通发票） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计）、税号 |  | 包含数电发票（通行费发票），特定业务要素代码08 |\n| 85数电纸质发票（增值税专用发票） | 以下组合二选一：<br>① 发票代码 + 发票号码 + 开票日期 + 金额（不含税金额）<br>② 数电发票号码（20位）+ 开票日期 + 金额（价税合计） | 必填发票代码、发票号码（纸质发票号码）、开票日期、金额（不含税金额）、税号 |  |  |\n| 86数电纸质发票（普通发票） | 以下组合二选一：<br>① 发票代码 + 发票号码 + 开票日期 + 校验码后六位<br>② 数电发票号码（20位）+ 开票日期 + 金额（价税合计） | 必填发票代码、发票号码（纸质发票号码）、开票日期、校验码后六位、税号 |  |  |\n| 51数电发票（铁路电子客票） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计）、税号 |  |  |\n| 61数电发票（航空运输客票电子行程单） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计）、税号 |  |  |\n| 83数电发票（机动车销售统一发票） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计）、税号 |  |  |\n| 84数电发票（二手车销售统一发票） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计） | 必填发票号码（20位数电发票号码）、开票日期、金额（价税合计）、税号 |  |  |\n| 87数电纸质发票（机动车销售统一发票） | 必填发票代码、发票号码（纸质发票号码）、开票日期、金额（不含税金额） | 必填发票代码、发票号码（纸质发票号码）、开票日期、金额（不含税金额）、税号 |  |  |\n| 88数电纸质发票（二手车销售统一发票） | 必填发票代码、发票号码（纸质发票号码）、开票日期、金额（车价合计） | 必填发票代码、发票号码（纸质发票号码）、开票日期、金额（车价合计）、税号 |  |  |\n| F1财政电子票据 |  |  | 必填发票代码、发票号码、开票日期、金额、校验码 |  |\n\n\n",
                 "tags": [
@@ -6506,9 +6710,9 @@
           "id": 341712478,
           "databaseResponseExamples": [
             {
-              "id": 31234863,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265294,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "缺少必填字段",
@@ -6523,9 +6727,9 @@
           "code": "400",
           "responseExamples": [
             {
-              "id": 31234863,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265294,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "缺少必填字段",
@@ -6551,9 +6755,9 @@
           "id": 341712486,
           "databaseResponseExamples": [
             {
-              "id": 31234864,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265295,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "Unauthenticated or token expired",
@@ -6568,9 +6772,9 @@
           "code": "401",
           "responseExamples": [
             {
-              "id": 31234864,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265295,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "Unauthenticated or token expired",
@@ -6596,9 +6800,9 @@
           "id": 341712487,
           "databaseResponseExamples": [
             {
-              "id": 31234865,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265296,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "示例 1",
@@ -6613,9 +6817,9 @@
           "code": "403",
           "responseExamples": [
             {
-              "id": 31234865,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265296,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "示例 1",
@@ -6641,9 +6845,9 @@
           "id": 341712488,
           "databaseResponseExamples": [
             {
-              "id": 31234866,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265297,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "Tenant does not exist or does not belong to this ISV",
@@ -6658,9 +6862,9 @@
           "code": "404",
           "responseExamples": [
             {
-              "id": 31234866,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265297,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "Tenant does not exist or does not belong to this ISV",
@@ -6686,9 +6890,9 @@
           "id": 341712495,
           "databaseResponseExamples": [
             {
-              "id": 31234867,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265298,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "Duplicate order number or status conflict",
@@ -6703,9 +6907,9 @@
           "code": "409",
           "responseExamples": [
             {
-              "id": 31234867,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265298,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "Duplicate order number or status conflict",
@@ -6731,9 +6935,9 @@
           "id": 341712496,
           "databaseResponseExamples": [
             {
-              "id": 31234868,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265299,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "ETAX invoice/validation failure",
@@ -6748,9 +6952,9 @@
           "code": "422",
           "responseExamples": [
             {
-              "id": 31234868,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265299,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "ETAX invoice/validation failure",
@@ -6776,9 +6980,9 @@
           "id": 341712497,
           "databaseResponseExamples": [
             {
-              "id": 31234869,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265300,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "Internal server error",
@@ -6793,9 +6997,9 @@
           "code": "500",
           "responseExamples": [
             {
-              "id": 31234869,
-              "createdAt": "2025-12-11T02:48:44.000Z",
-              "updatedAt": "2025-12-11T02:48:44.000Z",
+              "id": 31265300,
+              "createdAt": "2025-12-24T09:05:06.000Z",
+              "updatedAt": "2025-12-24T09:05:06.000Z",
               "deletedAt": null,
               "apiDetailId": 0,
               "name": "Internal server error",
@@ -7095,9 +7299,9 @@
                     "operation_type",
                     "01KBC8ZGPDG6H1W3PK9V5VGZHT",
                     "01KBC8ZQVTVKFYH8FCWD3BVKBZ",
-                    "account_status",
                     "login_status",
-                    "real_name_verification_status"
+                    "real_name_verification_status",
+                    "status"
                   ],
                   "required": [
                     "etax_account",
@@ -7261,13 +7465,11 @@
                   },
                   "required": [
                     "id",
-                    "item_name",
                     "tax_category_code",
                     "tax_rate"
                   ],
                   "x-apifox-orders": [
                     "id",
-                    "item_name",
                     "tax_category_code",
                     "tax_rate",
                     "specification",
@@ -7275,7 +7477,8 @@
                     "unit_price",
                     "vat_preferential_policy_applied",
                     "vat_preferential_policy_type_code",
-                    "vat_refund_type_code"
+                    "vat_refund_type_code",
+                    "name"
                   ]
                 }
               },
@@ -7385,8 +7588,6 @@
                     "city_name",
                     "detailed_address",
                     "area_unit",
-                    "start_lease_date",
-                    "end_lease_date",
                     "property_certificate_number"
                   ],
                   "x-apifox-orders": [
@@ -7394,13 +7595,13 @@
                     "province_name",
                     "city_name",
                     "detailed_address",
-                    "is_cross_city",
                     "area_unit",
-                    "start_lease_date",
-                    "end_lease_date",
                     "property_certificate_number",
                     "license_plate_number",
-                    "status"
+                    "status",
+                    "lease_start_date",
+                    "lease_end_date",
+                    "cross_city_flag"
                   ]
                 }
               },
@@ -7887,18 +8088,13 @@
                           "maxLength": 100
                         }
                       },
-                      "required": [
-                        "simple_address",
-                        "building_name",
-                        "cross_city_sign"
-                      ],
                       "x-apifox-orders": [
-                        "simple_address",
                         "detail_address",
-                        "building_name",
-                        "land_tax_no",
-                        "cross_city_sign",
-                        "cross_city_tax_verify_no"
+                        "cross_city_tax_verify_no",
+                        "construction_service_location",
+                        "construction_project_name",
+                        "land_value_tax_project_no",
+                        "cross_city_flag"
                       ],
                       "title": "建筑服务特定信息"
                     },
@@ -7940,8 +8136,8 @@
                           "start_place",
                           "end_place",
                           "transport_type",
-                          "license_plate",
-                          "transport_goods"
+                          "transport_goods",
+                          "transport_tool_plate_no"
                         ]
                       },
                       "title": "货物运输服务特定信息"
@@ -7998,14 +8194,14 @@
                           }
                         },
                         "x-apifox-orders": [
-                          "traveler",
                           "card_type",
                           "card_no",
                           "travel_date",
                           "start_place",
                           "end_place",
                           "transport_type",
-                          "seat_class"
+                          "seat_class",
+                          "passenger_name"
                         ]
                       },
                       "title": "旅客运输服务特定信息"
@@ -8053,7 +8249,7 @@
                       "x-apifox-orders": [
                         "for_register",
                         "engine_no",
-                        "chassis_no"
+                        "identify_no"
                       ],
                       "title": "拖拉机和联合收割机特定信息"
                     },
@@ -8174,19 +8370,17 @@
                           "evidence_type",
                           "etax_invoice_no",
                           "invoice_code",
-                          "invoice_no",
                           "evidence_no",
-                          "invoice_date",
                           "evidence_amount",
-                          "deduction",
-                          "remark"
+                          "remark",
+                          "invoice_number",
+                          "issue_date",
+                          "deduction_amount"
                         ],
                         "required": [
                           "evidence_type",
                           "evidence_no",
-                          "invoice_date",
-                          "evidence_amount",
-                          "deduction"
+                          "evidence_amount"
                         ]
                       },
                       "title": "差额扣除额清单",
@@ -8234,8 +8428,6 @@
                         }
                       },
                       "required": [
-                        "insurance_no",
-                        "register_no",
                         "tax_period",
                         "amount",
                         "late_fee_amount",
@@ -8243,13 +8435,13 @@
                         "identify_no"
                       ],
                       "x-apifox-orders": [
-                        "insurance_no",
-                        "register_no",
                         "tax_period",
                         "amount",
                         "late_fee_amount",
                         "total_amount",
-                        "identify_no"
+                        "identify_no",
+                        "insurance_policy_no",
+                        "vehicle_plate_or_vessel_registration_no"
                       ],
                       "title": "代征车船税",
                       "description": "特定业务类型为07时必填"
@@ -8326,27 +8518,23 @@
                           }
                         },
                         "x-apifox-orders": [
-                          "chassis_no",
-                          "model",
-                          "origin",
                           "compliance_no",
                           "import_no",
-                          "business_no",
                           "engine_no",
                           "vehicle_weight",
                           "vehicle_capacity",
                           "taxation_voucher",
-                          "vehicle_type",
                           "manufacturer",
-                          "vehicle_uuid"
+                          "vehicle_uuid",
+                          "identify_no",
+                          "product_model",
+                          "origin_place",
+                          "inspection_no",
+                          "vehicle_type_code"
                         ],
                         "required": [
-                          "chassis_no",
-                          "model",
-                          "origin",
                           "compliance_no",
                           "engine_no",
-                          "vehicle_type",
                           "manufacturer",
                           "vehicle_uuid"
                         ]
@@ -8401,12 +8589,11 @@
                             "x-apifox-orders": [
                               "co_buyer_name",
                               "id_card_type",
-                              "id_card_number"
+                              "id_no"
                             ],
                             "required": [
                               "co_buyer_name",
-                              "id_card_type",
-                              "id_card_number"
+                              "id_card_type"
                             ]
                           },
                           "title": "不动产共同购买方",
@@ -8481,19 +8668,17 @@
                             },
                             "x-apifox-orders": [
                               "estate_code",
-                              "simple_address",
                               "detail_address",
-                              "cross_city_sign",
-                              "land_tax_no",
-                              "approved_price",
                               "actual_turnover",
-                              "estate_id",
-                              "area_unit"
+                              "area_unit",
+                              "construction_service_location",
+                              "cross_city_flag",
+                              "land_value_tax_project_no",
+                              "approved_tax_price",
+                              "property_certificate_number"
                             ],
                             "required": [
-                              "simple_address",
                               "detail_address",
-                              "cross_city_sign",
                               "area_unit",
                               "actual_turnover"
                             ]
@@ -9363,24 +9548,23 @@
                           "line_number",
                           "discount_type",
                           "goods_name",
-                          "goods_code",
-                          "spec_model",
                           "unit",
-                          "num",
                           "unit_price",
                           "detail_amount",
                           "tax_rate",
                           "tax_amount",
                           "discount_amount",
-                          "deduction",
                           "preferential_policy",
                           "vat_exception",
-                          "tax_free_type"
+                          "tax_free_type",
+                          "product_code",
+                          "specification",
+                          "quantity",
+                          "deduction_amount"
                         ],
                         "required": [
                           "discount_type",
                           "goods_name",
-                          "goods_code",
                           "detail_amount",
                           "tax_rate",
                           "tax_amount",
@@ -9661,23 +9845,18 @@
                           }
                         },
                         "required": [
-                          "estate_id",
-                          "simple_address",
                           "detail_address",
-                          "start_lease_date",
-                          "end_lease_date",
-                          "cross_city_sign",
                           "area_unit"
                         ],
                         "x-apifox-orders": [
-                          "estate_id",
-                          "simple_address",
                           "detail_address",
-                          "start_lease_date",
-                          "end_lease_date",
-                          "cross_city_sign",
                           "area_unit",
-                          "car_brand_no"
+                          "property_certificate_number",
+                          "construction_service_location",
+                          "lease_start_date",
+                          "lease_end_date",
+                          "cross_city_flag",
+                          "license_plate_number"
                         ]
                       },
                       "title": "不动产经营租赁服务特定信息",
@@ -9942,7 +10121,6 @@
                     "tax_flag",
                     "paper_invoice_type",
                     "invoice_type",
-                    "invoice_copy_type",
                     "invoice_amount",
                     "total_tax_amount",
                     "total_amount",
@@ -9956,7 +10134,6 @@
                     "show_seller_address_tel",
                     "natural_person_flag",
                     "buyer_name",
-                    "buyer_identifier",
                     "buyer_address",
                     "buyer_fixed_telephone",
                     "buyer_card_name",
@@ -10001,7 +10178,8 @@
                     "lq_invoice_issue_mode_code",
                     "invoice_issue_type",
                     "natural_person_id_card",
-                    "natural_person_country_code"
+                    "natural_person_country_code",
+                    "buyer_tax_no"
                   ],
                   "x-apifox-refs": {}
                 }
@@ -12171,7 +12349,7 @@
             {
               "name": "开具类型（代开标识）",
               "displayName": "",
-              "id": "#/definitions/issue_type_enum",
+              "id": "#/definitions/232429936",
               "description": "发票开具类型枚举，用于标识发票是自开、代开还是代办退税",
               "schema": {
                 "jsonSchema": {
@@ -12201,7 +12379,9 @@
                     }
                   ]
                 }
-              }
+              },
+              "visibility": "INHERITED",
+              "moduleId": 6572471
             }
           ]
         },
@@ -12211,6 +12391,79 @@
           "visibility": "INHERITED",
           "moduleId": 6572471,
           "items": [
+            {
+              "name": "发票状态",
+              "displayName": "发票状态",
+              "id": "#/definitions/232439276",
+              "description": "发票类型枚举值",
+              "schema": {
+                "jsonSchema": {
+                  "type": "string",
+                  "title": "发票状态",
+                  "description": "2位字符",
+                  "enum": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8"
+                  ],
+                  "x-apifox-enum": [
+                    {
+                      "value": "0",
+                      "name": "正常",
+                      "description": ""
+                    },
+                    {
+                      "value": "1",
+                      "name": "失控",
+                      "description": "仅纸票，乐企、电票平台已废弃此枚举"
+                    },
+                    {
+                      "value": "2",
+                      "name": "作废",
+                      "description": "仅纸票"
+                    },
+                    {
+                      "value": "3",
+                      "name": "红冲",
+                      "description": "仅纸票，等同于全额红冲，增值税发票服务平台历史数据"
+                    },
+                    {
+                      "value": "4",
+                      "name": "异常",
+                      "description": "仅纸票，乐企、电票平台已废弃此枚举"
+                    },
+                    {
+                      "value": "5",
+                      "name": "非正常",
+                      "description": "仅纸票，乐企、电票平台已废弃此枚举"
+                    },
+                    {
+                      "value": "6",
+                      "name": "红字发票待确认",
+                      "description": "查验不支持"
+                    },
+                    {
+                      "value": "7",
+                      "name": "部分红冲",
+                      "description": ""
+                    },
+                    {
+                      "value": "8",
+                      "name": "全额红冲",
+                      "description": "数电发票"
+                    }
+                  ]
+                }
+              },
+              "visibility": "INHERITED",
+              "moduleId": 6572471
+            },
             {
               "name": "发票类型",
               "displayName": "发票类型",
@@ -12678,10 +12931,10 @@
                           "sequence_no",
                           "construction_service_location",
                           "construction_project_name",
-                          "item_name",
                           "amount",
                           "tax_rate",
-                          "tax_amount"
+                          "tax_amount",
+                          "name"
                         ]
                       }
                     },
@@ -12723,17 +12976,15 @@
                           }
                         },
                         "required": [
-                          "sequence_no",
-                          "departure_location",
-                          "arrival_location"
+                          "sequence_no"
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
                           "transport_tool_type",
                           "transport_tool_plate_no",
-                          "departure_location",
-                          "arrival_location",
-                          "cargo_name"
+                          "start_place",
+                          "end_place",
+                          "transport_goods"
                         ]
                       }
                     },
@@ -12805,7 +13056,7 @@
                           "cross_city_flag",
                           "land_value_tax_project_no",
                           "approved_tax_price",
-                          "actual_transaction_amount"
+                          "actual_turnover"
                         ]
                       }
                     },
@@ -12982,7 +13233,6 @@
                         },
                         "required": [
                           "sequence_no",
-                          "item_name",
                           "vehicle_plate_no",
                           "vehicle_type_code",
                           "vehicle_type_name",
@@ -12992,7 +13242,6 @@
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
-                          "item_name",
                           "vehicle_plate_no",
                           "vehicle_type_code",
                           "vehicle_type_name",
@@ -13000,7 +13249,8 @@
                           "toll_end_date",
                           "amount",
                           "tax_rate",
-                          "tax_amount"
+                          "tax_amount",
+                          "name"
                         ]
                       }
                     },
@@ -13060,9 +13310,7 @@
                           "passenger_name",
                           "passenger_id_type_code",
                           "passenger_id_no",
-                          "travel_date",
-                          "departure",
-                          "destination"
+                          "travel_date"
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
@@ -13070,10 +13318,10 @@
                           "passenger_id_type_code",
                           "passenger_id_no",
                           "travel_date",
-                          "departure",
-                          "destination",
                           "seat_class",
-                          "transport_type_code"
+                          "transport_type_code",
+                          "start_place",
+                          "end_place"
                         ]
                       }
                     },
@@ -13256,9 +13504,9 @@
                         "personal_payment",
                         "personal_self_payment",
                         "payer_name",
-                        "payee_organization",
                         "custom_element_count",
-                        "custom_elements_json"
+                        "custom_elements_json",
+                        "payee_unit"
                       ]
                     },
                     "medical_service_inpatient_item_list": {
@@ -13300,17 +13548,16 @@
                         },
                         "required": [
                           "inpatient_invoice_detail_no",
-                          "item_name",
                           "amount",
                           "tax_amount"
                         ],
                         "x-apifox-orders": [
                           "inpatient_invoice_detail_no",
-                          "item_name",
                           "amount",
                           "tax_rate",
                           "tax_amount",
-                          "remark"
+                          "remark",
+                          "name"
                         ]
                       }
                     },
@@ -13587,14 +13834,12 @@
                         },
                         "required": [
                           "sequence_no",
-                          "item_name",
                           "amount",
                           "tax_rate",
                           "tax_amount"
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
-                          "item_name",
                           "charge_item_detail",
                           "unit",
                           "quantity",
@@ -13602,7 +13847,8 @@
                           "tax_rate",
                           "tax_amount",
                           "remark",
-                          "medical_service_standard_code"
+                          "medical_service_standard_code",
+                          "name"
                         ]
                       }
                     },
@@ -13734,15 +13980,14 @@
                           "sequence_no",
                           "tax_rate",
                           "tax_amount",
-                          "amount"
+                          "amount",
+                          "item_short_name"
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
-                          "item_name",
                           "item_short_name",
                           "goods_or_service_name",
                           "tax_classification_code",
-                          "spec_model",
                           "unit",
                           "quantity",
                           "unit_price",
@@ -13750,28 +13995,37 @@
                           "tax_amount",
                           "amount",
                           "deduction_amount",
-                          "product_barcode"
+                          "product_barcode",
+                          "name",
+                          "specification"
                         ]
                       }
+                    },
+                    "invoice_status": {
+                      "$ref": "#/definitions/232439276",
+                      "title": "发票状态",
+                      "description": "0、2、3、7、8"
                     }
                   },
                   "required": [
-                    "invoice_no",
-                    "invoice_date",
                     "is_blue_invoice",
                     "seller_name",
                     "buyer_name",
                     "total_amount",
                     "total_tax_amount",
-                    "amount_with_tax",
-                    "amount_with_tax_in_words"
+                    "amount_with_tax_in_words",
+                    "invoice_status",
+                    "issue_date",
+                    "seller_tax_no",
+                    "remark"
                   ],
                   "x-apifox-orders": [
-                    "invoice_no",
-                    "paper_invoice_code",
+                    "invoice_number",
+                    "invoice_code",
                     "paper_invoice_no",
-                    "invoice_date",
                     "invoice_category_code",
+                    "issue_date",
+                    "invoice_status",
                     "special_element_type_code",
                     "is_blue_invoice",
                     "original_blue_invoice_no",
@@ -13785,7 +14039,6 @@
                     "buyer_address",
                     "total_amount",
                     "total_tax_amount",
-                    "amount_with_tax",
                     "amount_with_tax_in_words",
                     "deduction_amount",
                     "settlement_method_code",
@@ -13799,9 +14052,9 @@
                     "seller_phone",
                     "seller_bank_name",
                     "seller_account_number",
-                    "buyer_phone",
                     "buyer_bank_name",
                     "buyer_account_number",
+                    "buyer_fixed_telephone",
                     "seller_taxpayer_type_code",
                     "refined_oil_abnormal_flag",
                     "additional_elements",
@@ -13831,7 +14084,7 @@
             },
             {
               "name": "增值税发票数据",
-              "displayName": "",
+              "displayName": "增值税发票数据",
               "id": "#/definitions/231697053",
               "description": "包含发票类型: 01-增值税专用发票, 02-货物运输业增值税专用发票, 04-增值税普通发票, 08-增值税电子专用发票, 10-增值税电子普通发票 \n注：特殊票种为02：农产品收购时，购方、销方信息为反向存储，如有需要请自行进行反转。",
               "schema": {
@@ -13852,7 +14105,7 @@
                       "type": "string",
                       "title": "开票日期",
                       "maxLength": 19,
-                      "description": "YYYY-MM-DD HH:mm:ss"
+                      "description": "乐企YYYY-MM-DD HH:mm:ss；总局查验平台YYYY-MM-DD"
                     },
                     "special_invoice_type": {
                       "type": "string",
@@ -14173,14 +14426,10 @@
                           }
                         },
                         "required": [
-                          "detail_sequence_no",
-                          "tax_amount",
-                          "amount"
+                          "name"
                         ],
                         "x-apifox-orders": [
-                          "detail_sequence_no",
                           "name",
-                          "spec_model",
                           "unit",
                           "quantity",
                           "unit_price",
@@ -14188,27 +14437,32 @@
                           "tax_amount",
                           "amount",
                           "product_code",
-                          "zero_tax_rate_flag"
+                          "zero_tax_rate_flag",
+                          "sequence_no",
+                          "specification"
                         ]
                       }
                     },
                     "issue_type": {
-                      "$ref": "#/definitions/issue_type_enum"
+                      "$ref": "#/definitions/232429936"
+                    },
+                    "invoice_status": {
+                      "$ref": "#/definitions/232439276"
                     }
                   },
                   "required": [
                     "invoice_code",
-                    "invoice_no",
-                    "invoice_date",
-                    "invoice_status_flag",
                     "seller_tax_no",
                     "issue_type",
-                    "applicable_tax_rate_flag"
+                    "invoice_status",
+                    "invoice_number",
+                    "issue_date"
                   ],
                   "x-apifox-orders": [
+                    "invoice_number",
                     "invoice_code",
-                    "invoice_no",
-                    "invoice_date",
+                    "issue_date",
+                    "invoice_status",
                     "special_invoice_type",
                     "invoice_status_flag",
                     "verification_code",
@@ -14246,7 +14500,7 @@
             },
             {
               "name": "增值税普通发票（卷式）数据",
-              "displayName": "",
+              "displayName": "增值税普通发票（卷式）数据",
               "id": "#/definitions/231697054",
               "description": "包含发票类型: 11-卷式发票",
               "schema": {
@@ -14455,46 +14709,46 @@
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
-                          "item_name",
                           "quantity",
                           "unit_price",
                           "amount",
                           "unit_price_with_tax",
-                          "amount_with_tax",
                           "tax_rate",
                           "tax_amount",
-                          "product_code"
+                          "product_code",
+                          "name",
+                          "total_amount"
                         ]
                       }
+                    },
+                    "invoice_status": {
+                      "$ref": "#/definitions/232439276"
                     }
                   },
                   "required": [
                     "invoice_code",
-                    "invoice_no",
                     "tax_payer_id",
-                    "invoice_date",
                     "seller_tax_no",
-                    "invoice_status_flag"
+                    "invoice_status_flag",
+                    "invoice_status"
                   ],
                   "x-apifox-orders": [
+                    "invoice_number",
                     "invoice_code",
-                    "invoice_no",
+                    "issue_date",
+                    "invoice_status",
                     "tax_payer_id",
-                    "invoice_date",
                     "seller_tax_no",
                     "seller_name",
                     "buyer_tax_no",
                     "buyer_name",
-                    "agent_seller_tax_no",
-                    "agent_seller_name",
-                    "tax_payment_voucher_no",
                     "void_date",
                     "special_invoice_type",
                     "invoice_status_flag",
                     "amount",
                     "tax_amount",
                     "tax_rate",
-                    "amount_with_tax",
+                    "total_amount",
                     "remark",
                     "verification_code",
                     "item_count",
@@ -14503,7 +14757,10 @@
                     "seller_bank_account",
                     "buyer_address_phone",
                     "buyer_bank_account",
-                    "items"
+                    "items",
+                    "proxy_seller_tax_no",
+                    "proxy_seller_name",
+                    "taxation_voucher"
                   ],
                   "title": "增值税普通发票（卷式）数据",
                   "description": "包含发票类型: 11-卷式发票"
@@ -14514,7 +14771,7 @@
             },
             {
               "name": "增值税普通发票（通行费）数据",
-              "displayName": "",
+              "displayName": "增值税普通发票（通行费）数据",
               "id": "#/definitions/231697055",
               "description": "包含发票类型: 14-通行费发票",
               "schema": {
@@ -14735,7 +14992,6 @@
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
-                          "item_name",
                           "specification",
                           "unit",
                           "quantity",
@@ -14743,24 +14999,25 @@
                           "tax_rate",
                           "tax_amount",
                           "amount",
-                          "product_code"
+                          "product_code",
+                          "name"
                         ]
                       }
+                    },
+                    "invoice_status": {
+                      "$ref": "#/definitions/232439276"
                     }
                   },
                   "required": [
                     "invoice_code",
-                    "invoice_no",
-                    "tax_payer_id",
-                    "invoice_date",
-                    "invoice_status_flag",
-                    "seller_tax_no"
+                    "seller_tax_no",
+                    "invoice_number",
+                    "invoice_status"
                   ],
                   "x-apifox-orders": [
                     "invoice_code",
-                    "invoice_no",
+                    "invoice_status",
                     "tax_payer_id",
-                    "invoice_date",
                     "special_invoice_type",
                     "invoice_status_flag",
                     "tax_control_code",
@@ -14773,17 +15030,19 @@
                     "buyer_name",
                     "buyer_address_phone",
                     "buyer_bank_account",
-                    "agent_seller_tax_no",
-                    "agent_seller_name",
-                    "tax_payment_voucher_no",
                     "void_date",
                     "amount",
                     "tax_amount",
                     "tax_rate",
-                    "amount_with_tax",
                     "remark",
                     "non_taxable_amount",
-                    "items"
+                    "items",
+                    "invoice_number",
+                    "issue_date",
+                    "proxy_seller_tax_no",
+                    "proxy_seller_name",
+                    "taxation_voucher",
+                    "total_amount"
                   ],
                   "title": "增值税普通发票（通行费）数据",
                   "description": "包含发票类型: 14-通行费发票"
@@ -14794,7 +15053,7 @@
             },
             {
               "name": "机动车销售统一发票数据",
-              "displayName": "",
+              "displayName": "机动车销售统一发票数据",
               "id": "#/definitions/231697056",
               "description": "包含发票类型: 03-机动车销售统一发票",
               "schema": {
@@ -14836,7 +15095,7 @@
                     },
                     "buyer_name": {
                       "type": "string",
-                      "title": "购货单位",
+                      "title": "购买方名称",
                       "maxLength": 370
                     },
                     "buyer_tax_no": {
@@ -15089,30 +15348,25 @@
                     },
                     "seller_tax_no": {
                       "type": "string",
-                      "title": "纳税人识别号",
+                      "title": "销货单位纳税人识别号",
                       "maxLength": 20
                     },
                     "issue_type": {
-                      "$ref": "#/definitions/issue_type_enum"
+                      "$ref": "#/definitions/232429936"
+                    },
+                    "invoice_status": {
+                      "$ref": "#/definitions/232439276"
                     }
                   },
                   "required": [
-                    "tax_payer_id",
-                    "invoice_date",
-                    "invoice_status_flag",
                     "seller_tax_no",
-                    "invoice_type",
-                    "deduction_flag",
-                    "receive_time",
-                    "receiving_tax_bureau_code",
-                    "submission_method"
+                    "invoice_status"
                   ],
                   "x-apifox-orders": [
                     "invoice_code",
                     "paper_invoice_no",
-                    "invoice_no",
+                    "invoice_status",
                     "tax_payer_id",
-                    "invoice_date",
                     "tax_control_code",
                     "invoice_status_flag",
                     "buyer_name",
@@ -15125,9 +15379,6 @@
                     "seller_bank_name",
                     "seller_account_number",
                     "product_model",
-                    "vehicle_type",
-                    "certificate_no",
-                    "import_certificate_no",
                     "origin_place",
                     "inspection_no",
                     "engine_no",
@@ -15135,13 +15386,10 @@
                     "vehicle_price",
                     "tax_rate",
                     "vat_tax_amount",
-                    "amount_with_tax",
                     "agent_unit_code",
                     "agent_unit_name",
                     "issuer",
                     "issue_type",
-                    "tonnage",
-                    "passenger_capacity",
                     "deduction_flag",
                     "void_date",
                     "void_person",
@@ -15151,7 +15399,6 @@
                     "tax_bureau_code",
                     "receiving_tax_bureau_code",
                     "tax_bureau_name",
-                    "tax_payment_voucher_no",
                     "submission_method",
                     "code_table_version",
                     "product_code",
@@ -15161,7 +15408,16 @@
                     "zero_tax_rate_flag",
                     "applicable_tax_rate_flag",
                     "three_percent_reason",
-                    "vehicle_abnormal_flag"
+                    "vehicle_abnormal_flag",
+                    "invoice_number",
+                    "issue_date",
+                    "vehicle_type_code",
+                    "compliance_no",
+                    "import_no",
+                    "total_amount",
+                    "vehicle_weight",
+                    "vehicle_capacity",
+                    "taxation_voucher"
                   ],
                   "title": "机动车销售统一发票数据",
                   "description": "包含发票类型: 03-机动车销售统一发票"
@@ -15172,7 +15428,7 @@
             },
             {
               "name": "二手车销售统一发票数据",
-              "displayName": "",
+              "displayName": "二手车销售统一发票数据",
               "id": "#/definitions/231697057",
               "description": "包含发票类型: 15-二手车销售统一发票",
               "schema": {
@@ -15378,20 +15634,22 @@
                       "maxLength": 1
                     },
                     "issue_type": {
-                      "$ref": "#/definitions/issue_type_enum"
+                      "$ref": "#/definitions/232429936"
+                    },
+                    "invoice_status": {
+                      "$ref": "#/definitions/232439276"
                     }
                   },
                   "x-apifox-orders": [
+                    "invoice_number",
                     "invoice_code",
                     "paper_invoice_no",
-                    "invoice_no",
+                    "invoice_status",
                     "tax_payer_id",
-                    "invoice_date",
                     "tax_control_code",
                     "buyer_name",
                     "buyer_code",
                     "buyer_address",
-                    "buyer_phone",
                     "issuer_tax_no",
                     "seller_name",
                     "seller_code",
@@ -15399,7 +15657,6 @@
                     "seller_phone",
                     "license_plate_no",
                     "registration_no",
-                    "vehicle_type",
                     "vehicle_identification_no",
                     "product_model",
                     "transfer_vehicle_management_name",
@@ -15422,10 +15679,16 @@
                     "preferential_policy_flag",
                     "zero_tax_rate_flag",
                     "vat_special_management",
-                    "applicable_tax_rate_flag"
+                    "applicable_tax_rate_flag",
+                    "issue_date",
+                    "buyer_fixed_telephone",
+                    "vehicle_type_code"
                   ],
                   "title": "二手车销售统一发票数据",
-                  "description": "包含发票类型: 15-二手车销售统一发票"
+                  "description": "包含发票类型: 15-二手车销售统一发票",
+                  "required": [
+                    "invoice_status"
+                  ]
                 }
               },
               "visibility": "INHERITED",
@@ -15670,14 +15933,14 @@
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
-                          "item_name",
                           "goods_or_service_name",
                           "item_short_name",
                           "tax_classification_code",
                           "amount",
                           "tax_rate",
                           "tax_amount",
-                          "deduction_amount"
+                          "deduction_amount",
+                          "name"
                         ]
                       }
                     },
@@ -15860,15 +16123,12 @@
                         }
                       },
                       "required": [
-                        "invoice_no",
                         "is_blue_invoice",
-                        "invoice_date",
                         "seller_name",
                         "seller_tax_no",
                         "buyer_name"
                       ],
                       "x-apifox-orders": [
-                        "invoice_no",
                         "domestic_international_flag",
                         "gp_no",
                         "is_blue_invoice",
@@ -15881,19 +16141,18 @@
                         "insurance_fee",
                         "sales_outlet_code",
                         "issuing_unit",
-                        "invoice_date",
                         "seller_name",
                         "seller_tax_no",
                         "buyer_name",
                         "buyer_tax_no",
-                        "flight_segment_details"
+                        "flight_segment_details",
+                        "invoice_number",
+                        "issue_date"
                       ]
                     }
                   },
                   "required": [
-                    "invoice_no",
                     "is_paper_invoice",
-                    "invoice_date",
                     "invoice_category_code",
                     "seller_tax_no",
                     "seller_name",
@@ -15901,27 +16160,22 @@
                     "is_blue_invoice"
                   ],
                   "x-apifox-orders": [
-                    "invoice_no",
                     "is_paper_invoice",
-                    "invoice_date",
                     "original_blue_invoice_no",
                     "invoice_category_code",
                     "special_element_type_code",
                     "buyer_tax_no",
                     "buyer_name",
                     "buyer_address",
-                    "buyer_phone",
                     "seller_tax_no",
                     "seller_name",
                     "seller_address",
                     "seller_phone",
                     "buyer_agent_name",
                     "agent_id_no",
-                    "agent_phone",
                     "issuer",
                     "payee",
                     "remitter",
-                    "amount_with_tax",
                     "amount_with_tax_in_words",
                     "settlement_method_code",
                     "total_amount",
@@ -15937,7 +16191,11 @@
                     "goods_quantity",
                     "export_tax_refund_type_code",
                     "items",
-                    "flight_specific_elements"
+                    "flight_specific_elements",
+                    "invoice_number",
+                    "issue_date",
+                    "buyer_fixed_telephone",
+                    "agent_telephone"
                   ],
                   "title": "航空运输客票电子行程单数据",
                   "description": "包含发票类型: 61-电子发票（航空运输客票电子行程单）"
@@ -16185,14 +16443,14 @@
                         ],
                         "x-apifox-orders": [
                           "sequence_no",
-                          "item_name",
                           "goods_or_service_name",
                           "item_short_name",
                           "tax_classification_code",
                           "amount",
                           "tax_rate",
                           "tax_amount",
-                          "deduction_amount"
+                          "deduction_amount",
+                          "name"
                         ]
                       }
                     },
@@ -16325,14 +16583,10 @@
                         }
                       },
                       "required": [
-                        "invoice_no",
-                        "invoice_date",
                         "business_type_name",
                         "payment_amount"
                       ],
                       "x-apifox-orders": [
-                        "invoice_no",
-                        "invoice_date",
                         "business_type_name",
                         "departure_station",
                         "departure_station_pinyin",
@@ -16355,14 +16609,14 @@
                         "id_no",
                         "passenger_name",
                         "railway_discount_type",
-                        "original_invoice_no"
+                        "original_invoice_no",
+                        "invoice_number",
+                        "issue_date"
                       ]
                     }
                   },
                   "required": [
-                    "invoice_no",
                     "is_paper_invoice",
-                    "invoice_date",
                     "invoice_category_code",
                     "seller_tax_no",
                     "seller_name",
@@ -16370,27 +16624,22 @@
                     "is_blue_invoice"
                   ],
                   "x-apifox-orders": [
-                    "invoice_no",
                     "is_paper_invoice",
-                    "invoice_date",
                     "original_blue_invoice_no",
                     "invoice_category_code",
                     "special_element_type_code",
                     "buyer_tax_no",
                     "buyer_name",
                     "buyer_address",
-                    "buyer_phone",
                     "seller_tax_no",
                     "seller_name",
                     "seller_address",
                     "seller_phone",
                     "buyer_agent_name",
                     "agent_id_no",
-                    "agent_phone",
                     "issuer",
                     "payee",
                     "remitter",
-                    "amount_with_tax",
                     "amount_with_tax_in_words",
                     "settlement_method_code",
                     "total_amount",
@@ -16406,7 +16655,11 @@
                     "goods_quantity",
                     "export_tax_refund_type_code",
                     "items",
-                    "railway_specific_elements"
+                    "railway_specific_elements",
+                    "invoice_number",
+                    "issue_date",
+                    "buyer_fixed_telephone",
+                    "agent_telephone"
                   ],
                   "title": "铁路电子客票数据",
                   "description": "包含发票类型: 51-电子发票（铁路电子客票）"
@@ -16652,18 +16905,14 @@
                     }
                   },
                   "required": [
-                    "invoice_no",
-                    "invoice_date",
                     "invoice_category_code",
                     "is_blue_invoice",
                     "seller_name",
                     "buyer_name",
                     "total_amount",
                     "total_tax_amount",
-                    "amount_with_tax",
                     "amount_with_tax_in_words",
                     "issuer",
-                    "vehicle_type",
                     "product_model",
                     "vehicle_identification_no",
                     "tax_rate",
@@ -16671,10 +16920,7 @@
                     "price_without_tax"
                   ],
                   "x-apifox-orders": [
-                    "invoice_no",
-                    "paper_invoice_code",
                     "paper_invoice_no",
-                    "invoice_date",
                     "invoice_category_code",
                     "special_element_type_code",
                     "is_blue_invoice",
@@ -16690,20 +16936,15 @@
                     "buyer_tax_no",
                     "buyer_name",
                     "buyer_address",
-                    "buyer_phone",
                     "buyer_bank_name",
                     "buyer_account_number",
                     "total_amount",
                     "total_tax_amount",
-                    "amount_with_tax",
                     "amount_with_tax_in_words",
                     "issuer",
                     "remark",
-                    "vehicle_type",
                     "product_model",
                     "origin_place",
-                    "certificate_no",
-                    "import_certificate_no",
                     "inspection_no",
                     "engine_no",
                     "vehicle_identification_no",
@@ -16712,10 +16953,17 @@
                     "tax_bureau_code",
                     "tax_bureau_name",
                     "price_without_tax",
-                    "tax_payment_voucher_no",
                     "vehicle_tonnage",
-                    "passenger_capacity",
-                    "commodity_tax_classification_code"
+                    "invoice_number",
+                    "invoice_code",
+                    "issue_date",
+                    "buyer_fixed_telephone",
+                    "vehicle_type_code",
+                    "compliance_no",
+                    "import_no",
+                    "taxation_voucher",
+                    "vehicle_capacity",
+                    "tax_classification_code"
                   ],
                   "title": "数字化电子发票-机动车销售统一发票数据",
                   "description": "包含发票类型: 83-机动车销售电子统一发票, 87：纸质发票（机动车销售统一发票）"
@@ -17028,20 +17276,16 @@
                     }
                   },
                   "required": [
-                    "invoice_no",
-                    "invoice_date",
                     "invoice_category_code",
                     "is_blue_invoice",
                     "seller_name",
                     "buyer_name",
                     "total_amount",
                     "total_tax_amount",
-                    "amount_with_tax",
                     "amount_with_tax_in_words",
                     "issuer",
                     "license_plate_no",
                     "registration_no",
-                    "vehicle_type",
                     "vehicle_identification_no",
                     "product_model",
                     "transfer_vehicle_management_name",
@@ -17049,10 +17293,7 @@
                     "vehicle_price_total"
                   ],
                   "x-apifox-orders": [
-                    "invoice_no",
-                    "paper_invoice_code",
                     "paper_invoice_no",
-                    "invoice_date",
                     "invoice_category_code",
                     "special_element_type_code",
                     "is_blue_invoice",
@@ -17068,18 +17309,15 @@
                     "buyer_tax_no",
                     "buyer_name",
                     "buyer_address",
-                    "buyer_phone",
                     "buyer_bank_name",
                     "buyer_account_number",
                     "total_amount",
                     "total_tax_amount",
-                    "amount_with_tax",
                     "amount_with_tax_in_words",
                     "issuer",
                     "remark",
                     "license_plate_no",
                     "registration_no",
-                    "vehicle_type",
                     "vehicle_identification_no",
                     "product_model",
                     "transfer_vehicle_management_name",
@@ -17103,7 +17341,12 @@
                     "used_car_market_account_number",
                     "used_car_market_address",
                     "used_car_market_phone",
-                    "commodity_tax_classification_code"
+                    "invoice_number",
+                    "invoice_code",
+                    "issue_date",
+                    "buyer_fixed_telephone",
+                    "vehicle_type_code",
+                    "tax_classification_code"
                   ],
                   "title": "数字化电子发票-二手车销售统一发票数据",
                   "description": "包含发票类型: 84-二手车销售电子统一发票, 88：纸质发票（二手车销售统一发票）"
@@ -17285,7 +17528,6 @@
                         },
                         "required": [
                           "item_code",
-                          "item_name",
                           "unit",
                           "quantity",
                           "specification",
@@ -17295,12 +17537,12 @@
                         "x-apifox-orders": [
                           "sequence_no",
                           "item_code",
-                          "item_name",
                           "unit",
                           "quantity",
                           "specification",
                           "amount",
-                          "remark"
+                          "remark",
+                          "name"
                         ]
                       }
                     },
@@ -17370,7 +17612,6 @@
                         "required": [
                           "sequence_no",
                           "item_code",
-                          "item_name",
                           "unit",
                           "quantity",
                           "specification",
@@ -17380,7 +17621,6 @@
                         "x-apifox-orders": [
                           "sequence_no",
                           "item_code",
-                          "item_name",
                           "unit",
                           "quantity",
                           "specification",
@@ -17388,7 +17628,8 @@
                           "remark",
                           "unit_price",
                           "self_paid",
-                          "classified_self_paid"
+                          "classified_self_paid",
+                          "name"
                         ]
                       }
                     },
