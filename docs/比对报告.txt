@@ -1,0 +1,584 @@
+========================================================================================================================
+                                        发票查验数据比对报告
+========================================================================================================================
+
+【总体统计】
+  • 响应示例总数: 15
+  • 错误示例数量: 4 (跳过比对)
+  • 正常示例数量: 11
+  • 完全匹配: 0 个
+  • 存在问题: 11 个
+  • 缺失字段总数: 157
+  • 多余字段总数: 144
+
+========================================================================================================================
+
+【详细比对结果】
+
+✗ 示例 1: 财政票据
+  Schema ID: #/definitions/231986265
+  Schema 字段数: 44 | 示例字段数: 33
+
+  ❌ 缺失字段 (12 个):
+     • item_details[].amount
+     • item_details[].classified_self_paid
+     • item_details[].item_code
+     • item_details[].name
+     • item_details[].quantity
+     • item_details[].remark
+     • item_details[].self_paid
+     • item_details[].sequence_no
+     • item_details[].specification
+     • item_details[].unit
+     • item_details[].unit_price
+     • item_list[].name
+
+  ⚠️  多余字段 (1 个):
+     • item_list[].item_name
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 2: 数字化电子发票-增值税发票数据
+  Schema ID: #/definitions/231697052
+  Schema 字段数: 203 | 示例字段数: 204
+
+  ❌ 缺失字段 (17 个):
+     • buyer_fixed_telephone
+     • construction_service_detail_list[].name
+     • freight_transport_service_detail_list[].end_place
+     • freight_transport_service_detail_list[].start_place
+     • freight_transport_service_detail_list[].transport_goods
+     • invoice_code
+     • invoice_number
+     • issue_date
+     • items[].name
+     • items[].specification
+     • medical_service_inpatient_elements.payee_unit
+     • medical_service_inpatient_item_list[].name
+     • medical_service_outpatient_item_list[].name
+     • passenger_transport_service_detail_list[].end_place
+     • passenger_transport_service_detail_list[].start_place
+     • real_estate_sales_detail_list[].actual_turnover
+     • toll_fee_detail_list[].name
+
+  ⚠️  多余字段 (18 个):
+     • amount_with_tax
+     • buyer_phone
+     • construction_service_detail_list[].item_name
+     • freight_transport_service_detail_list[].arrival_location
+     • freight_transport_service_detail_list[].cargo_name
+     • freight_transport_service_detail_list[].departure_location
+     • invoice_date
+     • invoice_no
+     • items[].item_name
+     • items[].spec_model
+     • medical_service_inpatient_elements.payee_organization
+     • medical_service_inpatient_item_list[].item_name
+     • medical_service_outpatient_item_list[].item_name
+     • paper_invoice_code
+     • passenger_transport_service_detail_list[].departure
+     • passenger_transport_service_detail_list[].destination
+     • real_estate_sales_detail_list[].actual_transaction_amount
+     • toll_fee_detail_list[].item_name
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 3: 增值税发票数据
+  Schema ID: #/definitions/231697053
+  Schema 字段数: 42 | 示例字段数: 42
+
+  ❌ 缺失字段 (6 个):
+     • applicable_tax_rate_flag
+     • invoice_number
+     • issue_date
+     • items[].specification
+     • items[].zero_tax_rate_flag
+     • vehicle_abnormal_flag
+
+  ⚠️  多余字段 (6 个):
+     • applicable_rate_flag
+     • invoice_date
+     • invoice_no
+     • items[].spec_model
+     • items[].zero_rate_flag
+     • motor_vehicle_abnormal_flag
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 4: 增值税普通发票（卷式）数据
+  Schema ID: #/definitions/231697054
+  Schema 字段数: 38 | 示例字段数: 38
+
+  ❌ 缺失字段 (8 个):
+     • invoice_number
+     • issue_date
+     • items[].name
+     • items[].total_amount
+     • proxy_seller_name
+     • proxy_seller_tax_no
+     • taxation_voucher
+     • total_amount
+
+  ⚠️  多余字段 (8 个):
+     • agent_seller_name
+     • agent_seller_tax_no
+     • amount_with_tax
+     • invoice_date
+     • invoice_no
+     • items[].amount_with_tax
+     • items[].item_name
+     • tax_payment_voucher_no
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 5: 增值税普通发票（通行费）数据
+  Schema ID: #/definitions/231697055
+  Schema 字段数: 38 | 示例字段数: 38
+
+  ❌ 缺失字段 (7 个):
+     • invoice_number
+     • issue_date
+     • items[].name
+     • proxy_seller_name
+     • proxy_seller_tax_no
+     • taxation_voucher
+     • total_amount
+
+  ⚠️  多余字段 (7 个):
+     • agent_seller_name
+     • agent_seller_tax_no
+     • amount_with_tax
+     • invoice_date
+     • invoice_no
+     • items[].item_name
+     • tax_payment_voucher_no
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 6: 机动车销售统一发票数据
+  Schema ID: #/definitions/231697056
+  Schema 字段数: 55 | 示例字段数: 55
+
+  ❌ 缺失字段 (20 个):
+     • code_table_version
+     • compliance_no
+     • custom_code
+     • id_card_no
+     • import_no
+     • invoice_number
+     • issue_date
+     • origin_place
+     • product_code
+     • receiving_tax_bureau_code
+     • submission_method
+     • tax_bureau_code
+     • tax_bureau_name
+     • taxation_voucher
+     • vat_tax_amount
+     • vehicle_capacity
+     • vehicle_type_code
+     • vehicle_weight
+     • void_person
+     • zero_tax_rate_flag
+
+  ⚠️  多余字段 (20 个):
+     • buyer_id_number
+     • certificate_no
+     • code_table_version_no
+     • commodity_tax_classification_code
+     • deadweight_tonnage
+     • import_certificate_no
+     • invoice_date
+     • invoice_no
+     • origin
+     • passenger_capacity
+     • payment_voucher_no
+     • receive_tax_authority_code
+     • self_made_code
+     • submission_mode
+     • tax_authority_code
+     • tax_authority_name
+     • vat_amount
+     • vehicle_type
+     • voider
+     • zero_rate_flag
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 7: 二手车销售统一发票数据
+  Schema ID: #/definitions/231697057
+  Schema 字段数: 42 | 示例字段数: 42
+
+  ❌ 缺失字段 (15 个):
+     • auction_company_address
+     • auction_company_bank_account
+     • auction_company_name
+     • auction_company_phone
+     • auction_company_tax_no
+     • buyer_code
+     • buyer_fixed_telephone
+     • custom_code
+     • invoice_number
+     • issue_date
+     • issuer_tax_no
+     • product_code
+     • seller_code
+     • vehicle_type_code
+     • zero_tax_rate_flag
+
+  ⚠️  多余字段 (15 个):
+     • business_auction_company_address
+     • business_auction_company_bank_account
+     • business_auction_company_name
+     • business_auction_company_phone
+     • business_auction_company_tax_no
+     • buyer_phone
+     • buyer_tax_no
+     • commodity_tax_classification_code
+     • invoice_date
+     • invoice_no
+     • seller_tax_no
+     • seller_tax_no_optional
+     • taxpayer_self_made_code
+     • vehicle_type
+     • zero_rate_flag
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 8: 航空运输客票电子行程单数据
+  Schema ID: #/definitions/231697058
+  Schema 字段数: 81 | 示例字段数: 78
+
+  ❌ 缺失字段 (30 个):
+     • agent_id_type_code
+     • agent_telephone
+     • buyer_agent_name
+     • buyer_fixed_telephone
+     • flight_specific_elements.civil_aviation_development_fund
+     • flight_specific_elements.fare
+     • flight_specific_elements.flight_segment_details
+     • flight_specific_elements.flight_segment_details[].carrier
+     • flight_specific_elements.flight_segment_details[].carrier_date
+     • flight_specific_elements.flight_segment_details[].departure_station
+     • flight_specific_elements.flight_segment_details[].destination_station
+     • flight_specific_elements.flight_segment_details[].flight_no
+     • flight_specific_elements.flight_segment_details[].free_baggage_allowance
+     • flight_specific_elements.flight_segment_details[].seat_class
+     • flight_specific_elements.flight_segment_details[].segment
+     • flight_specific_elements.flight_segment_details[].takeoff_time
+     • flight_specific_elements.flight_segment_details[].ticket_class_category
+     • flight_specific_elements.flight_segment_details[].ticket_effective_date
+     • flight_specific_elements.flight_segment_details[].valid_until_date
+     • flight_specific_elements.fuel_surcharge
+     • flight_specific_elements.invoice_number
+     • flight_specific_elements.issue_date
+     • flight_specific_elements.other_tax_and_fee
+     • flight_specific_elements.tips
+     • goods_quantity
+     • invoice_number
+     • issue_date
+     • issuer_real_name_auth_location
+     • items[].name
+     • mobile_invoice_location
+
+  ⚠️  多余字段 (27 个):
+     • agent_id_type
+     • agent_phone
+     • amount_with_tax
+     • buyer_agent
+     • buyer_phone
+     • commodity_quantity
+     • flight_specific_elements.flight_specific_detail_list
+     • flight_specific_elements.flight_specific_detail_list[].carrier
+     • flight_specific_elements.flight_specific_detail_list[].carrier_date
+     • flight_specific_elements.flight_specific_detail_list[].departure_station
+     • flight_specific_elements.flight_specific_detail_list[].departure_time
+     • flight_specific_elements.flight_specific_detail_list[].destination_station
+     • flight_specific_elements.flight_specific_detail_list[].flight_no
+     • flight_specific_elements.flight_specific_detail_list[].flight_segment
+     • flight_specific_elements.flight_specific_detail_list[].free_luggage_allowance
+     • flight_specific_elements.flight_specific_detail_list[].seat_class
+     • flight_specific_elements.flight_specific_detail_list[].ticket_effective_date
+     • flight_specific_elements.flight_specific_detail_list[].ticket_level_category
+     • flight_specific_elements.flight_specific_detail_list[].valid_until_date
+     • flight_specific_elements.invoice_date
+     • flight_specific_elements.invoice_no
+     • flight_specific_elements.prompt_message
+     • invoice_date
+     • invoice_no
+     • issuer_real_name_auth_address
+     • items[].item_name
+     • mobile_invoice_address
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 9: 铁路电子客票数据
+  Schema ID: #/definitions/231697059
+  Schema 字段数: 74 | 示例字段数: 72
+
+  ❌ 缺失字段 (21 个):
+     • agent_id_type_code
+     • agent_telephone
+     • buyer_agent_name
+     • buyer_fixed_telephone
+     • goods_quantity
+     • invoice_number
+     • issue_date
+     • issuer_real_name_auth_location
+     • items[].name
+     • mobile_invoice_location
+     • railway_specific_elements.fare
+     • railway_specific_elements.invoice_number
+     • railway_specific_elements.issue_date
+     • railway_specific_elements.original_arrival_station
+     • railway_specific_elements.original_departure_station
+     • railway_specific_elements.original_fare
+     • railway_specific_elements.railway_discount_type
+     • railway_specific_elements.seat_class
+     • railway_specific_elements.seat_no
+     • railway_specific_elements.tax
+     • railway_specific_elements.tax_rate
+
+  ⚠️  多余字段 (19 个):
+     • agent_id_type
+     • agent_phone
+     • amount_with_tax
+     • buyer_agent
+     • buyer_phone
+     • commodity_quantity
+     • invoice_date
+     • invoice_no
+     • issuer_real_name_auth_address
+     • items[].item_name
+     • mobile_invoice_address
+     • railway_specific_elements.invoice_date
+     • railway_specific_elements.invoice_no
+     • railway_specific_elements.original_ticket_arrival_station
+     • railway_specific_elements.original_ticket_departure_station
+     • railway_specific_elements.original_ticket_fare
+     • railway_specific_elements.railway_ticket_preferential_type
+     • railway_specific_elements.seat
+     • railway_specific_elements.seat_berth
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 10: 数字化电子发票-机动车销售统一发票数据
+  Schema ID: #/definitions/231697060
+  Schema 字段数: 45 | 示例字段数: 46
+
+  ❌ 缺失字段 (15 个):
+     • buyer_fixed_telephone
+     • compliance_no
+     • import_no
+     • invoice_code
+     • invoice_number
+     • issue_date
+     • origin_place
+     • price_without_tax
+     • tax_bureau_code
+     • tax_bureau_name
+     • tax_classification_code
+     • taxation_voucher
+     • vehicle_capacity
+     • vehicle_tonnage
+     • vehicle_type_code
+
+  ⚠️  多余字段 (16 个):
+     • amount_with_tax
+     • buyer_phone
+     • certificate_no
+     • commodity_tax_classification_code
+     • competent_tax_authority_code
+     • competent_tax_authority_name
+     • import_certificate_no
+     • invoice_date
+     • invoice_no
+     • origin
+     • paper_invoice_code
+     • passenger_capacity
+     • payment_voucher_no
+     • price_excluding_tax
+     • vehicle_deadweight_tonnage
+     • vehicle_type
+
+------------------------------------------------------------------------------------------------------------------------
+
+✗ 示例 11: 数字化电子发票-二手车销售统一发票数据
+  Schema ID: #/definitions/231697061
+  Schema 字段数: 55 | 示例字段数: 56
+
+  ❌ 缺失字段 (6 个):
+     • buyer_fixed_telephone
+     • invoice_code
+     • invoice_number
+     • issue_date
+     • tax_classification_code
+     • vehicle_type_code
+
+  ⚠️  多余字段 (7 个):
+     • amount_with_tax
+     • buyer_phone
+     • commodity_tax_classification_code
+     • invoice_date
+     • invoice_no
+     • paper_invoice_code
+     • vehicle_type
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+========================================================================================================================
+                                        常见问题模式分析
+========================================================================================================================
+
+【高频缺失字段】(出现在多个示例中)
+------------------------------------------------------------------------------------------------------------------------
+
+  • invoice_number
+    出现次数: 10 | 涉及示例: 数字化电子发票-增值税发票数据, 增值税发票数据, 增值税普通发票（卷式）数据...
+
+  • issue_date
+    出现次数: 10 | 涉及示例: 数字化电子发票-增值税发票数据, 增值税发票数据, 增值税普通发票（卷式）数据...
+
+  • buyer_fixed_telephone
+    出现次数: 6 | 涉及示例: 数字化电子发票-增值税发票数据, 二手车销售统一发票数据, 航空运输客票电子行程单数据...
+
+  • items[].name
+    出现次数: 5 | 涉及示例: 数字化电子发票-增值税发票数据, 增值税普通发票（卷式）数据, 增值税普通发票（通行费）数据...
+
+  • taxation_voucher
+    出现次数: 4 | 涉及示例: 增值税普通发票（卷式）数据, 增值税普通发票（通行费）数据, 机动车销售统一发票数据...
+
+  • vehicle_type_code
+    出现次数: 4 | 涉及示例: 机动车销售统一发票数据, 二手车销售统一发票数据, 数字化电子发票-机动车销售统一发票数据...
+
+  • invoice_code
+    出现次数: 3 | 涉及示例: 数字化电子发票-增值税发票数据, 数字化电子发票-机动车销售统一发票数据, 数字化电子发票-二手车销售统一发票数据
+
+
+【高频多余字段】(出现在多个示例中)
+------------------------------------------------------------------------------------------------------------------------
+
+  • invoice_date
+    出现次数: 10 | 涉及示例: 数字化电子发票-增值税发票数据, 增值税发票数据, 增值税普通发票（卷式）数据...
+
+  • invoice_no
+    出现次数: 10 | 涉及示例: 数字化电子发票-增值税发票数据, 增值税发票数据, 增值税普通发票（卷式）数据...
+
+  • amount_with_tax
+    出现次数: 7 | 涉及示例: 数字化电子发票-增值税发票数据, 增值税普通发票（卷式）数据, 增值税普通发票（通行费）数据...
+
+  • buyer_phone
+    出现次数: 6 | 涉及示例: 数字化电子发票-增值税发票数据, 二手车销售统一发票数据, 航空运输客票电子行程单数据...
+
+  • items[].item_name
+    出现次数: 5 | 涉及示例: 数字化电子发票-增值税发票数据, 增值税普通发票（卷式）数据, 增值税普通发票（通行费）数据...
+
+  • commodity_tax_classification_code
+    出现次数: 4 | 涉及示例: 机动车销售统一发票数据, 二手车销售统一发票数据, 数字化电子发票-机动车销售统一发票数据...
+
+  • vehicle_type
+    出现次数: 4 | 涉及示例: 机动车销售统一发票数据, 二手车销售统一发票数据, 数字化电子发票-机动车销售统一发票数据...
+
+  • paper_invoice_code
+    出现次数: 3 | 涉及示例: 数字化电子发票-增值税发票数据, 数字化电子发票-机动车销售统一发票数据, 数字化电子发票-二手车销售统一发票数据
+
+
+【关键发现和建议】
+------------------------------------------------------------------------------------------------------------------------
+
+1. 字段命名不统一问题（高频出现）：
+   
+   a) 发票基础字段：
+      • Schema 定义: invoice_number, issue_date
+      • Example 使用: invoice_no, invoice_date
+      ➜ 建议：统一使用 invoice_number 和 issue_date
+   
+   b) 买方联系方式：
+      • Schema 定义: buyer_fixed_telephone
+      • Example 使用: buyer_phone
+      ➜ 建议：明确区分固定电话和手机号，或统一命名
+   
+   c) 商品/项目名称：
+      • Schema 定义: items[].name
+      • Example 使用: items[].item_name
+      ➜ 建议：统一使用 name 或 item_name
+   
+   d) 规格型号：
+      • Schema 定义: items[].specification
+      • Example 使用: items[].spec_model
+      ➜ 建议：统一使用 specification
+   
+   e) 价税合计：
+      • Schema 定义: total_amount
+      • Example 使用: amount_with_tax
+      ➜ 建议：明确区分总金额和价税合计，或统一命名
+   
+   f) 车辆类型：
+      • Schema 定义: vehicle_type_code
+      • Example 使用: vehicle_type
+      ➜ 建议：统一使用 vehicle_type_code
+   
+   g) 商品税收分类编码：
+      • Schema 定义: tax_classification_code 或 product_code
+      • Example 使用: commodity_tax_classification_code
+      ➜ 建议：统一命名规范
+
+2. 数字化电子发票特有字段：
+   
+   • Schema 中定义了 invoice_code（数电票没有发票代码）
+   • Example 中使用了 paper_invoice_code（纸质发票代码）
+   ➜ 建议：明确数电票和纸质票的字段差异
+
+3. 航空和铁路票据字段问题：
+   
+   a) 航空票据：
+      • Schema 定义: flight_segment_details
+      • Example 使用: flight_specific_detail_list
+      ➜ 建议：统一数组命名
+   
+   b) 铁路票据：
+      • Schema 定义: railway_discount_type, seat_class, seat_no
+      • Example 使用: railway_ticket_preferential_type, seat, seat_berth
+      ➜ 建议：统一字段命名
+
+4. 财政票据问题：
+   
+   • Schema 定义了 item_details[] 数组（详细项目）
+   • Example 只使用了 item_list[]（项目列表）
+   • 且字段名不一致：item_list[].name vs item_list[].item_name
+   ➜ 建议：明确两个数组的用途，或只保留一个
+
+5. 代理/经办信息：
+   
+   • Schema 定义: proxy_seller_name, proxy_seller_tax_no
+   • Example 使用: agent_seller_name, agent_seller_tax_no
+   ➜ 建议：统一使用 agent 或 proxy
+
+6. 缺失的关键字段（多个示例）：
+   
+   • taxation_voucher (完税凭证号) - 缺失 4 次
+   • 建议检查是否应该包含此字段
+
+7. 二手车拍卖企业信息：
+   
+   • Schema 定义: auction_company_*
+   • Example 使用: business_auction_company_*
+   ➜ 建议：统一前缀命名
+
+【总结】
+
+核心问题：Schema 定义和 Example 数据之间存在大量的字段命名不一致问题。
+
+建议行动：
+1. 制定统一的字段命名规范文档
+2. 决定采用 Schema 还是 Example 的命名方式作为标准
+3. 批量更新不一致的字段名称
+4. 补充缺失的必要字段
+5. 移除多余的冗余字段
+6. 特别关注高频字段的统一（invoice_number/invoice_no, issue_date/invoice_date 等）
+
+
+========================================================================================================================
+【报告生成完成】
+========================================================================================================================

@@ -1,0 +1,288 @@
+========================================================================================================================
+                                    字段更新前后对比示例
+========================================================================================================================
+
+【示例 1：财政票据 - item_list 字段更新】
+
+更新前:
+{
+    "item_name": "西药费",
+    "amount": "368.60"
+}
+
+更新后:
+{
+    "name": "西药费",
+    "amount": "368.60"
+}
+
+变更: item_name → name
+
+========================================================================================================================
+
+【示例 2：增值税发票 - 基础字段更新】
+
+更新前:
+{
+    "invoice_no": "发票号码",
+    "invoice_date": "开票日期",
+    "applicable_rate_flag": "1",
+    "motor_vehicle_abnormal_flag": "机动车异常标识",
+    "items": [{
+        "spec_model": "规格型号",
+        "zero_rate_flag": "零税率标识"
+    }]
+}
+
+更新后:
+{
+    "invoice_number": "发票号码",
+    "issue_date": "开票日期",
+    "applicable_tax_rate_flag": "1",
+    "vehicle_abnormal_flag": "机动车异常标识",
+    "items": [{
+        "specification": "规格型号",
+        "zero_tax_rate_flag": "零税率标识"
+    }]
+}
+
+变更:
+- invoice_no → invoice_number
+- invoice_date → issue_date
+- applicable_rate_flag → applicable_tax_rate_flag
+- motor_vehicle_abnormal_flag → vehicle_abnormal_flag
+- items[].spec_model → specification
+- items[].zero_rate_flag → zero_tax_rate_flag
+
+========================================================================================================================
+
+【示例 3：机动车销售统一发票 - 多字段更新】
+
+更新前:
+{
+    "invoice_no": "发票号码",
+    "invoice_date": "开票日期",
+    "buyer_id_number": "买方身份证号",
+    "certificate_no": "合格证号",
+    "commodity_tax_classification_code": "商品税收分类编码",
+    "vehicle_type": "车辆类型",
+    "passenger_capacity": "载客人数",
+    "vat_amount": "增值税金额",
+    "tax_authority_code": "税务机关代码",
+    "payment_voucher_no": "完税凭证号"
+}
+
+更新后:
+{
+    "invoice_number": "发票号码",
+    "issue_date": "开票日期",
+    "id_card_no": "买方身份证号",
+    "compliance_no": "合格证号",
+    "product_code": "商品税收分类编码",
+    "vehicle_type_code": "车辆类型",
+    "vehicle_capacity": "载客人数",
+    "vat_tax_amount": "增值税金额",
+    "tax_bureau_code": "税务机关代码",
+    "taxation_voucher": "完税凭证号"
+}
+
+变更:
+- invoice_no → invoice_number
+- invoice_date → issue_date
+- buyer_id_number → id_card_no
+- certificate_no → compliance_no
+- commodity_tax_classification_code → product_code
+- vehicle_type → vehicle_type_code
+- passenger_capacity → vehicle_capacity
+- vat_amount → vat_tax_amount
+- tax_authority_code → tax_bureau_code
+- payment_voucher_no → taxation_voucher
+
+========================================================================================================================
+
+【示例 4：二手车销售统一发票 - 拍卖企业字段更新】
+
+更新前:
+{
+    "invoice_no": "发票号码",
+    "invoice_date": "开票日期",
+    "business_auction_company_name": "拍卖企业名称",
+    "business_auction_company_tax_no": "拍卖企业税号",
+    "business_auction_company_address": "拍卖企业地址",
+    "business_auction_company_phone": "拍卖企业电话",
+    "buyer_phone": "买方电话",
+    "vehicle_type": "车辆类型"
+}
+
+更新后:
+{
+    "invoice_number": "发票号码",
+    "issue_date": "开票日期",
+    "auction_company_name": "拍卖企业名称",
+    "auction_company_tax_no": "拍卖企业税号",
+    "auction_company_address": "拍卖企业地址",
+    "auction_company_phone": "拍卖企业电话",
+    "buyer_fixed_telephone": "买方电话",
+    "vehicle_type_code": "车辆类型"
+}
+
+变更:
+- invoice_no → invoice_number
+- invoice_date → issue_date
+- business_auction_company_* → auction_company_*
+- buyer_phone → buyer_fixed_telephone
+- vehicle_type → vehicle_type_code
+
+========================================================================================================================
+
+【示例 5：航空运输电子行程单 - 航段详情更新】
+
+更新前:
+{
+    "flight_specific_elements": {
+        "invoice_no": "发票号码",
+        "invoice_date": "开票日期",
+        "prompt_message": "提示信息",
+        "flight_specific_detail_list": [{
+            "departure_time": "起飞时间",
+            "flight_segment": "航段",
+            "free_luggage_allowance": "免费行李额",
+            "ticket_level_category": "客票等级类别"
+        }]
+    }
+}
+
+更新后:
+{
+    "flight_specific_elements": {
+        "invoice_number": "发票号码",
+        "issue_date": "开票日期",
+        "tips": "提示信息",
+        "flight_segment_details": [{
+            "takeoff_time": "起飞时间",
+            "segment": "航段",
+            "free_baggage_allowance": "免费行李额",
+            "ticket_class_category": "客票等级类别"
+        }]
+    }
+}
+
+变更:
+- flight_specific_elements.invoice_no → invoice_number
+- flight_specific_elements.invoice_date → issue_date
+- flight_specific_elements.prompt_message → tips
+- flight_specific_detail_list → flight_segment_details (数组名称)
+- 航段详情内字段:
+  - departure_time → takeoff_time
+  - flight_segment → segment
+  - free_luggage_allowance → free_baggage_allowance
+  - ticket_level_category → ticket_class_category
+
+========================================================================================================================
+
+【示例 6：铁路电子客票 - 铁路特定要素更新】
+
+更新前:
+{
+    "railway_specific_elements": {
+        "invoice_no": "发票号码",
+        "invoice_date": "开票日期",
+        "original_ticket_departure_station": "原票发站",
+        "original_ticket_arrival_station": "原票到站",
+        "original_ticket_fare": "原票票价",
+        "railway_ticket_preferential_type": "铁路优惠类型",
+        "seat": "座位等级",
+        "seat_berth": "席位号"
+    }
+}
+
+更新后:
+{
+    "railway_specific_elements": {
+        "invoice_number": "发票号码",
+        "issue_date": "开票日期",
+        "original_departure_station": "原票发站",
+        "original_arrival_station": "原票到站",
+        "original_fare": "原票票价",
+        "railway_discount_type": "铁路优惠类型",
+        "seat_class": "座位等级",
+        "seat_no": "席位号"
+    }
+}
+
+变更:
+- railway_specific_elements.invoice_no → invoice_number
+- railway_specific_elements.invoice_date → issue_date
+- original_ticket_departure_station → original_departure_station
+- original_ticket_arrival_station → original_arrival_station
+- original_ticket_fare → original_fare
+- railway_ticket_preferential_type → railway_discount_type
+- seat → seat_class
+- seat_berth → seat_no
+
+========================================================================================================================
+
+【示例 7：数字化电子发票 - 服务明细字段更新】
+
+更新前:
+{
+    "invoice_no": "发票号码",
+    "invoice_date": "开票日期",
+    "buyer_phone": "购买方电话",
+    "amount_with_tax": "价税合计",
+    "paper_invoice_code": "纸质发票代码",
+    "freight_transport_service_detail_list": [{
+        "departure_location": "起运地",
+        "arrival_location": "到达地",
+        "cargo_name": "运输货物名称"
+    }],
+    "passenger_transport_service_detail_list": [{
+        "departure": "出发地",
+        "destination": "到达地"
+    }],
+    "items": [{
+        "item_name": "项目名称",
+        "spec_model": "规格型号"
+    }]
+}
+
+更新后:
+{
+    "invoice_number": "发票号码",
+    "issue_date": "开票日期",
+    "buyer_fixed_telephone": "购买方电话",
+    "total_amount": "价税合计",
+    "invoice_code": "纸质发票代码",
+    "freight_transport_service_detail_list": [{
+        "start_place": "起运地",
+        "end_place": "到达地",
+        "transport_goods": "运输货物名称"
+    }],
+    "passenger_transport_service_detail_list": [{
+        "start_place": "出发地",
+        "end_place": "到达地"
+    }],
+    "items": [{
+        "name": "项目名称",
+        "specification": "规格型号"
+    }]
+}
+
+变更:
+- invoice_no → invoice_number
+- invoice_date → issue_date
+- buyer_phone → buyer_fixed_telephone
+- amount_with_tax → total_amount
+- paper_invoice_code → invoice_code
+- freight_transport_service_detail_list[]:
+  - departure_location → start_place
+  - arrival_location → end_place
+  - cargo_name → transport_goods
+- passenger_transport_service_detail_list[]:
+  - departure → start_place
+  - destination → end_place
+- items[]:
+  - item_name → name
+  - spec_model → specification
+
+========================================================================================================================

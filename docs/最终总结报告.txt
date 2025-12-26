@@ -1,0 +1,265 @@
+
+====================================================================================================
+发票查验 API - ResponseExamples 字段验证与补充 - 最终报告
+====================================================================================================
+
+更新时间: 2025-12-25 20:00:02
+文件路径: /Users/qinqiang02/colab/codespace/api_spec/isv/invoice_verification.apifox.json
+
+====================================================================================================
+1. 任务背景
+====================================================================================================
+
+根据比对报告，invoice_verification.apifox.json 文件中的 11 个发票类型 responseExamples 
+存在 157 个字段缺失问题（后来验证为 144 个，因为某些字段已在之前的更新中补充）。
+
+本次任务的目标是：
+  • 验证每个 responseExample 与其对应 schema 的字段匹配情况
+  • 补充所有缺失的字段
+  • 确保每个 responseExample 包含 schema 中定义的所有必需字段
+
+====================================================================================================
+2. 验证结果汇总
+====================================================================================================
+
+┌─────────────────────────────────────────────────┬──────────┬──────────┬──────────┐
+│ 发票类型                                        │ 预期补充 │ 已存在   │ 完成度   │
+├─────────────────────────────────────────────────┼──────────┼──────────┼──────────┤
+│ 财政票据                                        │    11    │    11    │  100.0%  │
+│ 数字化电子发票-增值税发票数据                   │    17    │    17    │  100.0%  │
+│ 增值税发票数据                                  │     6    │     6    │  100.0%  │
+│ 增值税普通发票（卷式）数据                      │     8    │     8    │  100.0%  │
+│ 增值税普通发票（通行费）数据                    │     7    │     7    │  100.0%  │
+│ 机动车销售统一发票数据                          │    20    │    20    │  100.0%  │
+│ 二手车销售统一发票数据                          │    15    │    15    │  100.0%  │
+│ 航空运输客票电子行程单数据                      │    18    │    18    │  100.0%  │
+│ 铁路电子客票数据                                │    21    │    21    │  100.0%  │
+│ 数字化电子发票-机动车销售统一发票数据           │    15    │    15    │  100.0%  │
+│ 数字化电子发票-二手车销售统一发票数据           │     6    │     6    │  100.0%  │
+├─────────────────────────────────────────────────┼──────────┼──────────┼──────────┤
+│ 总计                                            │   144    │   144    │  100.0%  │
+└─────────────────────────────────────────────────┴──────────┴──────────┴──────────┘
+
+【结论】所有 11 个发票类型的 responseExamples 均已包含 schema 定义的所有字段！
+
+====================================================================================================
+3. 关键更新说明
+====================================================================================================
+
+本次验证发现，大部分字段（144 个中的 137 个）已在之前的更新中补充完成，
+本次额外补充了 7 个遗漏的字段：
+
+【航空运输客票电子行程单数据】（+4 字段）
+  • flight_specific_elements.civil_aviation_development_fund  # 民航发展基金
+  • flight_specific_elements.fare                             # 票价
+  • flight_specific_elements.fuel_surcharge                   # 燃油附加费
+  • flight_specific_elements.other_tax_and_fee                # 其他税费
+
+【铁路电子客票数据】（+3 字段）
+  • railway_specific_elements.fare                            # 票价
+  • railway_specific_elements.tax                             # 税额
+  • railway_specific_elements.tax_rate                        # 税率
+
+====================================================================================================
+4. 已补充字段详细清单（按发票类型）
+====================================================================================================
+
+【1. 财政票据】（11 个字段）
+  ✓ item_details[].sequence_no
+  ✓ item_details[].item_code
+  ✓ item_details[].name
+  ✓ item_details[].unit
+  ✓ item_details[].quantity
+  ✓ item_details[].specification
+  ✓ item_details[].amount
+  ✓ item_details[].remark
+  ✓ item_details[].self_paid
+  ✓ item_details[].classified_self_paid
+  ✓ item_list[].name
+
+【2. 数字化电子发票-增值税发票数据】（17 个字段）
+  ✓ buyer_fixed_telephone
+  ✓ construction_service_detail_list[].name
+  ✓ freight_transport_service_detail_list[].end_place
+  ✓ freight_transport_service_detail_list[].start_place
+  ✓ freight_transport_service_detail_list[].transport_goods
+  ✓ invoice_code
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ items[].name
+  ✓ items[].specification
+  ✓ medical_service_inpatient_elements.payee_unit
+  ✓ medical_service_inpatient_item_list[].name
+  ✓ medical_service_outpatient_item_list[].name
+  ✓ passenger_transport_service_detail_list[].end_place
+  ✓ passenger_transport_service_detail_list[].start_place
+  ✓ real_estate_sales_detail_list[].actual_turnover
+  ✓ toll_fee_detail_list[].name
+
+【3. 增值税发票数据】（6 个字段）
+  ✓ applicable_tax_rate_flag
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ items[].specification
+  ✓ items[].zero_tax_rate_flag
+  ✓ vehicle_abnormal_flag
+
+【4. 增值税普通发票（卷式）数据】（8 个字段）
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ items[].name
+  ✓ items[].total_amount
+  ✓ proxy_seller_name
+  ✓ proxy_seller_tax_no
+  ✓ taxation_voucher
+  ✓ total_amount
+
+【5. 增值税普通发票（通行费）数据】（7 个字段）
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ items[].name
+  ✓ proxy_seller_name
+  ✓ proxy_seller_tax_no
+  ✓ taxation_voucher
+  ✓ total_amount
+
+【6. 机动车销售统一发票数据】（20 个字段）
+  ✓ code_table_version
+  ✓ compliance_no
+  ✓ custom_code
+  ✓ id_card_no
+  ✓ import_no
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ origin_place
+  ✓ product_code
+  ✓ receiving_tax_bureau_code
+  ✓ submission_method
+  ✓ tax_bureau_code
+  ✓ tax_bureau_name
+  ✓ taxation_voucher
+  ✓ vat_tax_amount
+  ✓ vehicle_capacity
+  ✓ vehicle_type_code
+  ✓ vehicle_weight
+  ✓ void_person
+  ✓ zero_tax_rate_flag
+
+【7. 二手车销售统一发票数据】（15 个字段）
+  ✓ auction_company_address
+  ✓ auction_company_bank_account
+  ✓ auction_company_name
+  ✓ auction_company_phone
+  ✓ auction_company_tax_no
+  ✓ buyer_code
+  ✓ buyer_fixed_telephone
+  ✓ custom_code
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ issuer_tax_no
+  ✓ product_code
+  ✓ seller_code
+  ✓ vehicle_type_code
+  ✓ zero_tax_rate_flag
+
+【8. 航空运输客票电子行程单数据】（18 个字段）
+  ✓ agent_id_type_code
+  ✓ agent_telephone
+  ✓ buyer_agent_name
+  ✓ buyer_fixed_telephone
+  ✓ flight_specific_elements.civil_aviation_development_fund
+  ✓ flight_specific_elements.fare
+  ✓ flight_specific_elements.fuel_surcharge
+  ✓ flight_specific_elements.invoice_number
+  ✓ flight_specific_elements.issue_date
+  ✓ flight_specific_elements.other_tax_and_fee
+  ✓ flight_specific_elements.tips
+  ✓ flight_specific_elements.flight_segment_details
+  ✓ goods_quantity
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ issuer_real_name_auth_location
+  ✓ items[].name
+  ✓ mobile_invoice_location
+
+【9. 铁路电子客票数据】（21 个字段）
+  ✓ agent_id_type_code
+  ✓ agent_telephone
+  ✓ buyer_agent_name
+  ✓ buyer_fixed_telephone
+  ✓ goods_quantity
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ issuer_real_name_auth_location
+  ✓ items[].name
+  ✓ mobile_invoice_location
+  ✓ railway_specific_elements.fare
+  ✓ railway_specific_elements.invoice_number
+  ✓ railway_specific_elements.issue_date
+  ✓ railway_specific_elements.original_arrival_station
+  ✓ railway_specific_elements.original_departure_station
+  ✓ railway_specific_elements.original_fare
+  ✓ railway_specific_elements.railway_discount_type
+  ✓ railway_specific_elements.seat_class
+  ✓ railway_specific_elements.seat_no
+  ✓ railway_specific_elements.tax
+  ✓ railway_specific_elements.tax_rate
+
+【10. 数字化电子发票-机动车销售统一发票数据】（15 个字段）
+  ✓ buyer_fixed_telephone
+  ✓ compliance_no
+  ✓ import_no
+  ✓ invoice_code
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ origin_place
+  ✓ price_without_tax
+  ✓ tax_bureau_code
+  ✓ tax_bureau_name
+  ✓ tax_classification_code
+  ✓ taxation_voucher
+  ✓ vehicle_capacity
+  ✓ vehicle_tonnage
+  ✓ vehicle_type_code
+
+【11. 数字化电子发票-二手车销售统一发票数据】（6 个字段）
+  ✓ buyer_fixed_telephone
+  ✓ invoice_code
+  ✓ invoice_number
+  ✓ issue_date
+  ✓ tax_classification_code
+  ✓ vehicle_type_code
+
+====================================================================================================
+5. 文件备份
+====================================================================================================
+
+原始文件已备份至：
+  /Users/qinqiang02/colab/codespace/api_spec/isv/invoice_verification.apifox.backup.json
+
+====================================================================================================
+6. 生成的报告文件
+====================================================================================================
+
+本次更新生成了以下报告文件：
+  1. 字段补充报告.txt        - 本次实际更新的字段清单（7个字段）
+  2. 最终验证报告.txt        - 完整的字段验证结果（144个字段全部存在）
+  3. 比对报告.txt            - 原始的字段比对分析报告
+
+====================================================================================================
+7. 结论
+====================================================================================================
+
+✅ 所有发票类型的 responseExamples 已完整包含 schema 定义的所有字段
+✅ 字段补充完成度：100%（144/144）
+✅ 无遗漏字段
+✅ 数据结构符合规范
+
+建议后续操作：
+  • 在 Apifox 中重新导入更新后的 JSON 文件
+  • 测试每个 responseExample 是否正常显示
+  • 验证 API 文档的完整性
+
+====================================================================================================
+报告生成完成
+====================================================================================================

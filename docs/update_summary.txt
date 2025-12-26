@@ -1,0 +1,182 @@
+========================================================================================================================
+                              发票查验 ResponseExamples 更新总结报告
+========================================================================================================================
+
+【更新时间】2025-12-25
+
+【更新策略】
+以 Schema 定义为准，将所有 responseExamples 中的字段名称统一到 Schema 定义的标准
+
+【更新范围】
+- 总计处理 15 个 responseExamples
+- 成功更新 11 个正常响应示例
+- 跳过 4 个错误示例（error_code/error_msg）
+
+【主要字段映射关系】
+
+一、通用字段重命名
+1. 发票基础信息
+   - invoice_no → invoice_number (发票号码)
+   - invoice_date → issue_date (开票日期)
+   - paper_invoice_code → invoice_code (纸质发票代码)
+
+2. 买方信息
+   - buyer_phone → buyer_fixed_telephone (购买方固定电话)
+
+3. 金额字段
+   - amount_with_tax → total_amount (价税合计)
+
+4. 代理/经销方信息
+   - agent_seller_name → proxy_seller_name (代开销售方名称)
+   - agent_seller_tax_no → proxy_seller_tax_no (代开销售方税号)
+   - tax_payment_voucher_no → taxation_voucher (完税凭证号)
+
+5. 商品明细项 (items[])
+   - item_name → name (项目名称)
+   - spec_model → specification (规格型号)
+   - zero_rate_flag → zero_tax_rate_flag (零税率标识)
+   - amount_with_tax → total_amount (含税金额)
+
+二、增值税发票特有字段
+1. 标识字段
+   - applicable_rate_flag → applicable_tax_rate_flag (适用税率标识)
+   - motor_vehicle_abnormal_flag → vehicle_abnormal_flag (车辆异常标识)
+
+三、机动车销售统一发票特有字段
+1. 车辆信息
+   - vehicle_type → vehicle_type_code (车辆类型代码)
+   - passenger_capacity → vehicle_capacity (载客人数)
+   - deadweight_tonnage → vehicle_weight (载重吨位)
+
+2. 税收与编码
+   - commodity_tax_classification_code → product_code (商品税收分类编码)
+   - vat_amount → vat_tax_amount (增值税金额)
+
+3. 证件与机构
+   - buyer_id_number → id_card_no (买方身份证号)
+   - certificate_no → compliance_no (合格证号)
+   - import_certificate_no → import_no (进口证明书号)
+   - origin → origin_place (原产地)
+
+4. 税务机关
+   - receive_tax_authority_code → receiving_tax_bureau_code (收款税务机关代码)
+   - tax_authority_code → tax_bureau_code (税务机关代码)
+   - tax_authority_name → tax_bureau_name (税务机关名称)
+   - payment_voucher_no → taxation_voucher (完税凭证号)
+
+5. 其他
+   - voider → void_person (作废人)
+   - code_table_version_no → code_table_version (代码表版本号)
+   - self_made_code → custom_code (自编码)
+   - submission_mode → submission_method (报送方式)
+
+四、二手车销售统一发票特有字段
+1. 拍卖企业信息
+   - business_auction_company_address → auction_company_address
+   - business_auction_company_bank_account → auction_company_bank_account
+   - business_auction_company_name → auction_company_name
+   - business_auction_company_phone → auction_company_phone
+   - business_auction_company_tax_no → auction_company_tax_no
+
+2. 买卖方信息
+   - buyer_tax_no → buyer_code (买方识别号)
+   - seller_tax_no_optional → issuer_tax_no (开票方税号)
+   - seller_tax_no → seller_code (保留seller_tax_no，新增seller_code)
+
+3. 其他
+   - taxpayer_self_made_code → custom_code (纳税人自编码)
+
+五、航空运输客票电子行程单特有字段
+1. 代理人信息
+   - agent_id_type → agent_id_type_code (代理人身份证件类型代码)
+   - agent_phone → agent_telephone (代理人电话)
+   - buyer_agent → buyer_agent_name (购买方代理人姓名)
+
+2. 其他字段
+   - commodity_quantity → goods_quantity (商品数量)
+   - issuer_real_name_auth_address → issuer_real_name_auth_location (开票人实名认证地点)
+   - mobile_invoice_address → mobile_invoice_location (移动发票地址)
+
+3. 航班详情 (flight_specific_elements)
+   - prompt_message → tips (提示信息)
+   - flight_specific_detail_list → flight_segment_details (航段详情列表)
+   
+   航段详情字段:
+   - departure_time → takeoff_time (起飞时间)
+   - flight_segment → segment (航段)
+   - free_luggage_allowance → free_baggage_allowance (免费行李额)
+   - ticket_level_category → ticket_class_category (客票等级类别)
+
+六、铁路电子客票特有字段
+1. 代理人信息 (同航空票据)
+   - agent_id_type → agent_id_type_code
+   - agent_phone → agent_telephone
+   - buyer_agent → buyer_agent_name
+
+2. 铁路特定要素 (railway_specific_elements)
+   - original_ticket_arrival_station → original_arrival_station (原票到站)
+   - original_ticket_departure_station → original_departure_station (原票发站)
+   - original_ticket_fare → original_fare (原票票价)
+   - railway_ticket_preferential_type → railway_discount_type (铁路票优惠类型)
+   - seat → seat_class (座位等级)
+   - seat_berth → seat_no (席位号)
+
+七、数字化电子发票-增值税发票数据
+1. 建筑服务明细
+   - construction_service_detail_list[].item_name → name
+
+2. 货运服务明细
+   - freight_transport_service_detail_list[].departure_location → start_place
+   - freight_transport_service_detail_list[].arrival_location → end_place
+   - freight_transport_service_detail_list[].cargo_name → transport_goods
+
+3. 客运服务明细
+   - passenger_transport_service_detail_list[].departure → start_place
+   - passenger_transport_service_detail_list[].destination → end_place
+
+4. 房地产销售明细
+   - real_estate_sales_detail_list[].actual_transaction_amount → actual_turnover
+
+5. 医疗服务
+   - medical_service_inpatient_elements.payee_organization → payee_unit
+   - medical_service_inpatient_item_list[].item_name → name
+   - medical_service_outpatient_item_list[].item_name → name
+
+6. 通行费明细
+   - toll_fee_detail_list[].item_name → name
+
+八、数字化电子发票-机动车销售统一发票数据
+1. 价格与金额
+   - price_excluding_tax → price_without_tax (不含税价格)
+
+2. 税务机关
+   - competent_tax_authority_code → tax_bureau_code
+   - competent_tax_authority_name → tax_bureau_name
+
+3. 车辆参数
+   - passenger_capacity → vehicle_capacity
+   - vehicle_deadweight_tonnage → vehicle_tonnage
+
+4. 税收分类
+   - commodity_tax_classification_code → tax_classification_code
+
+九、财政票据
+1. 项目列表
+   - item_list[].item_name → name
+
+【更新结果验证】
+✓ 所有 11 个正常响应示例均已成功更新
+✓ 新字段已添加到每个示例中
+✓ 旧字段已从示例中移除
+✓ JSON 格式正确，无语法错误
+
+【注意事项】
+1. 错误示例（包含 error_code/error_msg 的示例）未作修改
+2. 部分字段是新增的（如 buyer_fixed_telephone），在原示例中不存在，已添加到对象末尾
+3. 部分字段是重命名的（如 invoice_no → invoice_number），保持了原有的示例值
+
+【文件变更统计】
+- 修改文件: invoice_verification.apifox.json
+- 变更行数: 1 file changed, 11 insertions(+), 11 deletions(-)
+
+========================================================================================================================
