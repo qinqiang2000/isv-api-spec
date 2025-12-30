@@ -20,7 +20,7 @@
 
 | 维度 | 本公司API | 长软API |
 |------|-----------|---------|
-| 定义文档 | `invoice_verification.apifox.json` | `【长软】发票查验服务调用说明V4.0.16.pdf` |
+| 定义文档 | [`/partners/invoice-verifications`](https://s.apifox.cn/2795ad32-31e7-4363-8294-578e8dc6202c/395314528e0) | `【长软】发票查验服务调用说明V4.0.16.pdf` |
 | 协议 | HTTP REST | HTTP POST |
 | 格式 | JSON | XML |
 | 发票类型数 | 19个 (01,02,03,04,08,10,11,14,15,51,61,81-88,F1) | 12个基础类型 (01,03,04,10,11,14,15,20,09,83,61,72) |
@@ -107,7 +107,7 @@
 
 本文档定义了本公司发票查验API与长软发票查验服务之间，针对"{发票类型名称}"的完整字段映射关系。
 
-- **本公司API**: invoice_verification.apifox.json (RESTful JSON格式)
+- **本公司API**: [`/partners/invoice-verifications`](https://s.apifox.cn/2795ad32-31e7-4363-8294-578e8dc6202c/395314528e0) (RESTful JSON格式)
 - **长软API**: 【长软】发票查验服务调用说明V4.0.16.pdf (XML格式)
 - **本公司发票类型代码**: {XX}
 - **长软发票类型代码**: {YY} [如果是09，需标注QDLX值]
