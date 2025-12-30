@@ -8,7 +8,8 @@
       "Bash(cat:*)",
       "Bash(python3:*)",
       "Skill(document-skills:pdf)",
-      "Bash(pdftotext:*)"
+      "Bash(pdftotext:*)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []
