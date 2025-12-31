@@ -707,7 +707,7 @@
                 "responseExamples": [
                   {
                     "name": "数字化电子发票-增值税发票数据",
-                    "data": "{\n    \"request_id\": \"req_1701937730123_48210952\",\n    \"invoice_type\": \"81\",\n    \"verification_data\": {\n        \"paper_invoice_no\": \"纸质发票号码\",\n        \"invoice_status\": \"0\",\n        \"invoice_category_code\": \"发票票种代码\",\n        \"special_element_type_code\": \"特定要素类型代码\",\n        \"is_blue_invoice\": \"是否蓝字发票\",\n        \"original_blue_invoice_no\": \"开具红字发票对应的蓝字发票号码\",\n        \"original_blue_paper_invoice_code\": \"开具红字发票对应的纸质发票代码\",\n        \"original_blue_paper_invoice_no\": \"开具红字发票对应的纸质发票号码\",\n        \"seller_tax_no\": \"销售方识别号\",\n        \"seller_name\": \"销售方名称\",\n        \"seller_address\": \"销货方地址\",\n        \"buyer_tax_no\": \"购买方识别号\",\n        \"buyer_name\": \"购买方名称\",\n        \"buyer_address\": \"购买方地址\",\n        \"total_amount\": \"价税合计\",\n        \"total_tax_amount\": \"合计税额\",\n        \"amount_with_tax_in_words\": \"价税合计(大写)\",\n        \"deduction_amount\": \"扣除额\",\n        \"settlement_method_code\": \"结算方式\",\n        \"issuer\": \"开票人\",\n        \"remark\": \"备注\",\n        \"item_count\": \"明细条数\",\n        \"vat_immediate_refund_code\": \"增值税即征即退代码\",\n        \"export_tax_refund_type_code\": \"出口退税类代码\",\n        \"reviewer\": \"复核人姓名\",\n        \"payee\": \"收款人姓名\",\n        \"seller_phone\": \"销售方电话\",\n        \"seller_bank_name\": \"销售方开户行\",\n        \"seller_account_number\": \"销售方账号\",\n        \"buyer_bank_name\": \"购买方开户行\",\n        \"buyer_account_number\": \"购买方账号\",\n        \"seller_taxpayer_type_code\": \"销方纳税人类型代码\",\n        \"refined_oil_abnormal_flag\": \"成品油异常标识\",\n        \"additional_elements\": {},\n        \"construction_service_special_elements\": {\n            \"land_value_tax_project_no\": \"土地增值税项目编号\",\n            \"cross_city_flag\": \"跨地（市）标志\"\n        },\n        \"construction_service_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"construction_service_location\": \"建筑服务发生地\",\n                \"construction_project_name\": \"建筑项目名称\",\n                \"amount\": \"金额\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"name\": \"项目名称\"\n            }\n        ],\n        \"freight_transport_service_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"transport_tool_type\": \"运输工具种类\",\n                \"transport_tool_plate_no\": \"运输工具牌号\",\n                \"start_place\": \"起运地\",\n                \"end_place\": \"到达地\",\n                \"transport_goods\": \"运输货物名称\"\n            }\n        ],\n        \"real_estate_sales_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"property_certificate_no\": \"产权证书编号\",\n                \"real_estate_unit_code\": \"不动产单位代码\",\n                \"online_contract_filing_no\": \"网签合同备案编号\",\n                \"real_estate_address\": \"不动产坐落地址\",\n                \"cross_city_flag\": \"跨地（市）标志\",\n                \"land_value_tax_project_no\": \"土地增值税项目编号\",\n                \"approved_tax_price\": \"核定计税价格\",\n                \"actual_turnover\": \"实际成交含税金额\"\n            }\n        ],\n        \"real_estate_lease_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"property_certificate_no\": \"产权证书编号\",\n                \"real_estate_address\": \"不动产坐落地址\",\n                \"lease_start_date\": \"租赁期起\",\n                \"lease_end_date\": \"租赁期止\",\n                \"cross_city_flag\": \"跨地（市）标志\"\n            }\n        ],\n        \"vehicle_vessel_tax_collection\": {\n            \"insurance_policy_no\": \"保险单号\",\n            \"vehicle_plate_or_vessel_registration_no\": \"车牌号/船舶登记号\",\n            \"tax_period\": \"税款所属期\",\n            \"vehicle_identification_no\": \"车架号\",\n            \"vehicle_vessel_tax_amount\": \"代收车船税金额\",\n            \"late_fee\": \"滞纳金\",\n            \"total_amount\": \"金额合计\"\n        },\n        \"passenger_transport_service_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"passenger_name\": \"出行人\",\n                \"passenger_id_type_code\": \"201\",\n                \"passenger_id_no\": \"身份证件号码\",\n                \"travel_date\": \"出行日期\",\n                \"seat_class\": \"座位等级\",\n                \"transport_type_code\": \"交通工具类型代码\",\n                \"start_place\": \"出发地\",\n                \"end_place\": \"到达地\"\n            }\n        ],\n        \"medical_service_inpatient_elements\": {\n            \"medical_business_serial_no\": \"医疗业务流水号\",\n            \"patient_name\": \"患者姓名\",\n            \"patient_id_type_code\": \"201\",\n            \"patient_id_no\": \"患者身份证件号码\",\n            \"medical_record_no\": \"病例号\",\n            \"inpatient_no\": \"住院号\",\n            \"inpatient_department\": \"住院科别\",\n            \"admission_date\": \"住院时间起\",\n            \"discharge_date\": \"住院时间止\",\n            \"prepaid_amount\": \"医疗预缴金额\",\n            \"supplementary_payment\": \"医疗补缴金额\",\n            \"refund_amount\": \"医疗退费金额\",\n            \"medical_institution_type_code\": \"A100\",\n            \"other_medical_institution_type\": \"其他医疗机构类型\",\n            \"health_insurance_type_code\": \"01\",\n            \"other_health_insurance_type\": \"其他医保类型\",\n            \"health_insurance_no\": \"医保编号\",\n            \"gender_code\": \"1\",\n            \"insurance_pooling_fund_payment\": \"医保统筹基金支付金额\",\n            \"other_payment\": \"其他支付金额\",\n            \"personal_account_payment\": \"个人账户支付金额\",\n            \"personal_cash_payment\": \"个人现金支付金额\",\n            \"personal_payment\": \"个人支付金额\",\n            \"personal_self_payment\": \"个人自费金额\",\n            \"payer_name\": \"交款人\",\n            \"custom_element_count\": 2,\n            \"custom_elements_json\": {},\n            \"payee_unit\": \"收款单位\"\n        },\n        \"medical_service_inpatient_item_list\": [\n            {\n                \"inpatient_invoice_detail_no\": 1,\n                \"amount\": \"金额\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"remark\": \"备注\",\n                \"name\": \"项目名称\"\n            }\n        ],\n        \"medical_service_inpatient_charge_list\": [\n            {\n                \"inpatient_charge_detail_no\": 1,\n                \"inpatient_invoice_detail_no\": 1,\n                \"charge_item_detail\": \"费用明细\",\n                \"quantity\": \"发票商品数量\",\n                \"unit\": \"单位\",\n                \"amount\": \"金额\",\n                \"tax_amount\": \"税额\",\n                \"tax_rate\": \"税率\",\n                \"medical_service_standard_code\": \"医疗服务贯标码\",\n                \"remark\": \"备注\"\n            }\n        ],\n        \"medical_service_outpatient_elements\": {\n            \"medical_business_serial_no\": \"医疗业务流水号\",\n            \"patient_name\": \"患者姓名\",\n            \"patient_id_type_code\": \"201\",\n            \"patient_id_no\": \"患者身份证件号码\",\n            \"outpatient_no\": \"门诊号\",\n            \"visit_date\": \"门诊就诊时间\",\n            \"medical_institution_type_code\": \"A100\",\n            \"other_medical_institution_type\": \"其他医疗机构类型\",\n            \"health_insurance_type_code\": \"01\",\n            \"other_health_insurance_type\": \"其他医保类型\",\n            \"health_insurance_no\": \"医保编号\",\n            \"gender_code\": \"1\",\n            \"insurance_pooling_fund_payment\": \"医保统筹基金支付金额\",\n            \"other_payment\": \"其他支付金额\",\n            \"personal_account_payment\": \"个人账户支付金额\",\n            \"personal_cash_payment\": \"个人现金支付金额\",\n            \"personal_payment\": \"个人支付金额\",\n            \"personal_self_payment\": \"个人自费金额\",\n            \"custom_element_count\": 2,\n            \"custom_elements_json\": {}\n        },\n        \"medical_service_outpatient_item_list\": [\n            {\n                \"sequence_no\": 1,\n                \"charge_item_detail\": \"费用明细\",\n                \"unit\": \"单位\",\n                \"quantity\": \"发票商品数量\",\n                \"amount\": \"金额\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"remark\": \"备注\",\n                \"medical_service_standard_code\": \"医疗服务贯标码\",\n                \"name\": \"项目名称\"\n            }\n        ],\n        \"tractor_harvester_elements\": {\n            \"engine_no\": \"发动机号码\",\n            \"chassis_certificate_no\": \"底盘合格证编号\"\n        },\n        \"used_vehicle_elements\": {\n            \"used_vehicle_invoice_no\": \"二手车销售统一发票号码\",\n            \"used_vehicle_paper_invoice_no\": \"二手车销售统一纸质发票号码\",\n            \"used_vehicle_paper_invoice_code\": \"二手车销售统一纸质发票代码\"\n        },\n        \"toll_fee_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"vehicle_plate_no\": \"车牌号码\",\n                \"vehicle_type_code\": \"车辆类型代码\",\n                \"vehicle_type_name\": \"车辆类型名称\",\n                \"toll_start_date\": \"通行日期起\",\n                \"toll_end_date\": \"通行日期止\",\n                \"amount\": \"金额\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"name\": \"项目名称\"\n            }\n        ],\n        \"items\": [\n            {\n                \"sequence_no\": 1,\n                \"item_short_name\": \"商品服务简称\",\n                \"goods_or_service_name\": \"货物或应税劳务、服务名称\",\n                \"tax_classification_code\": \"商品和服务税收分类合并编码\",\n                \"unit\": \"单位\",\n                \"quantity\": \"发票交易数量\",\n                \"unit_price\": \"发票交易单价\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"amount\": \"金额\",\n                \"deduction_amount\": \"扣除额\",\n                \"product_barcode\": \"商品条码\",\n                \"name\": \"项目名称\",\n                \"specification\": \"规格型号\"\n            },\n            {\n                \"sequence_no\": 2,\n                \"item_short_name\": \"商品服务简称\",\n                \"goods_or_service_name\": \"货物或应税劳务、服务名称\",\n                \"tax_classification_code\": \"商品和服务税收分类合并编码\",\n                \"unit\": \"单位\",\n                \"quantity\": \"发票交易数量\",\n                \"unit_price\": \"发票交易单价\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"amount\": \"金额\",\n                \"deduction_amount\": \"扣除额\",\n                \"product_barcode\": \"商品条码\",\n                \"name\": \"项目名称\",\n                \"specification\": \"规格型号\"\n            }\n        ],\n        \"invoice_number\": \"发票号码\",\n        \"issue_date\": \"开票日期\",\n        \"buyer_phone\": \"购买方电话\",\n        \"invoice_code\": \"纸质发票代码\"\n    }\n}",
+                    "data": "{\n    \"request_id\": \"req_1701937730123_48210952\",\n    \"invoice_type\": \"81\",\n    \"verification_data\": {\n        \"paper_invoice_no\": \"纸质发票号码\",\n        \"invoice_status\": \"0\",\n        \"invoice_category_code\": \"发票票种代码\",\n        \"special_element_type_code\": \"特定要素类型代码\",\n        \"is_blue_invoice\": \"是否蓝字发票\",\n        \"original_blue_invoice_no\": \"开具红字发票对应的蓝字发票号码\",\n        \"original_blue_paper_invoice_code\": \"开具红字发票对应的纸质发票代码\",\n        \"original_blue_paper_invoice_no\": \"开具红字发票对应的纸质发票号码\",\n        \"seller_tax_no\": \"销售方识别号\",\n        \"seller_name\": \"销售方名称\",\n        \"seller_address\": \"销货方地址\",\n        \"buyer_tax_no\": \"购买方识别号\",\n        \"buyer_name\": \"购买方名称\",\n        \"buyer_address\": \"购买方地址\",\n        \"amount_excluding_tax\": \"合计金额\",\n        \"tax_amount\": \"合计税额\",\n        \"amount_including_tax\": \"价税合计\",\n        \"amount_in_words\": \"价税合计(大写)\",\n        \"deduction_amount\": \"扣除额\",\n        \"settlement_method_code\": \"结算方式\",\n        \"issuer\": \"开票人\",\n        \"remark\": \"备注\",\n        \"item_count\": \"明细条数\",\n        \"vat_immediate_refund_code\": \"增值税即征即退代码\",\n        \"export_tax_refund_type_code\": \"出口退税类代码\",\n        \"reviewer\": \"复核人姓名\",\n        \"payee\": \"收款人姓名\",\n        \"seller_phone\": \"销售方电话\",\n        \"seller_bank_name\": \"销售方开户行\",\n        \"seller_account_number\": \"销售方账号\",\n        \"buyer_bank_name\": \"购买方开户行\",\n        \"buyer_account_number\": \"购买方账号\",\n        \"seller_taxpayer_type_code\": \"销方纳税人类型代码\",\n        \"refined_oil_abnormal_flag\": \"成品油异常标识\",\n        \"additional_elements\": {},\n        \"construction_service_special_elements\": {\n            \"land_value_tax_project_no\": \"土地增值税项目编号\",\n            \"cross_city_flag\": \"跨地（市）标志\"\n        },\n        \"construction_service_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"construction_service_location\": \"建筑服务发生地\",\n                \"construction_project_name\": \"建筑项目名称\",\n                \"amount\": \"金额\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"name\": \"项目名称\"\n            }\n        ],\n        \"freight_transport_service_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"transport_tool_type\": \"运输工具种类\",\n                \"transport_tool_plate_no\": \"运输工具牌号\",\n                \"start_place\": \"起运地\",\n                \"end_place\": \"到达地\",\n                \"transport_goods\": \"运输货物名称\"\n            }\n        ],\n        \"real_estate_sales_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"property_certificate_no\": \"产权证书编号\",\n                \"real_estate_unit_code\": \"不动产单位代码\",\n                \"online_contract_filing_no\": \"网签合同备案编号\",\n                \"real_estate_address\": \"不动产坐落地址\",\n                \"cross_city_flag\": \"跨地（市）标志\",\n                \"land_value_tax_project_no\": \"土地增值税项目编号\",\n                \"approved_tax_price\": \"核定计税价格\",\n                \"actual_turnover\": \"实际成交含税金额\"\n            }\n        ],\n        \"real_estate_lease_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"property_certificate_no\": \"产权证书编号\",\n                \"real_estate_address\": \"不动产坐落地址\",\n                \"lease_start_date\": \"租赁期起\",\n                \"lease_end_date\": \"租赁期止\",\n                \"cross_city_flag\": \"跨地（市）标志\"\n            }\n        ],\n        \"vehicle_vessel_tax_collection\": {\n            \"insurance_policy_no\": \"保险单号\",\n            \"vehicle_plate_or_vessel_registration_no\": \"车牌号/船舶登记号\",\n            \"tax_period\": \"税款所属期\",\n            \"vehicle_identification_no\": \"车架号\",\n            \"vehicle_vessel_tax_amount\": \"代收车船税金额\",\n            \"late_fee\": \"滞纳金\",\n            \"total_amount\": \"金额合计\"\n        },\n        \"passenger_transport_service_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"passenger_name\": \"出行人\",\n                \"passenger_id_type_code\": \"201\",\n                \"passenger_id_no\": \"身份证件号码\",\n                \"travel_date\": \"出行日期\",\n                \"seat_class\": \"座位等级\",\n                \"transport_type_code\": \"交通工具类型代码\",\n                \"start_place\": \"出发地\",\n                \"end_place\": \"到达地\"\n            }\n        ],\n        \"medical_service_inpatient_elements\": {\n            \"medical_business_serial_no\": \"医疗业务流水号\",\n            \"patient_name\": \"患者姓名\",\n            \"patient_id_type_code\": \"201\",\n            \"patient_id_no\": \"患者身份证件号码\",\n            \"medical_record_no\": \"病例号\",\n            \"inpatient_no\": \"住院号\",\n            \"inpatient_department\": \"住院科别\",\n            \"admission_date\": \"住院时间起\",\n            \"discharge_date\": \"住院时间止\",\n            \"prepaid_amount\": \"医疗预缴金额\",\n            \"supplementary_payment\": \"医疗补缴金额\",\n            \"refund_amount\": \"医疗退费金额\",\n            \"medical_institution_type_code\": \"A100\",\n            \"other_medical_institution_type\": \"其他医疗机构类型\",\n            \"health_insurance_type_code\": \"01\",\n            \"other_health_insurance_type\": \"其他医保类型\",\n            \"health_insurance_no\": \"医保编号\",\n            \"gender_code\": \"1\",\n            \"insurance_pooling_fund_payment\": \"医保统筹基金支付金额\",\n            \"other_payment\": \"其他支付金额\",\n            \"personal_account_payment\": \"个人账户支付金额\",\n            \"personal_cash_payment\": \"个人现金支付金额\",\n            \"personal_payment\": \"个人支付金额\",\n            \"personal_self_payment\": \"个人自费金额\",\n            \"payer_name\": \"交款人\",\n            \"custom_element_count\": 2,\n            \"custom_elements_json\": {},\n            \"payee_unit\": \"收款单位\"\n        },\n        \"medical_service_inpatient_item_list\": [\n            {\n                \"inpatient_invoice_detail_no\": 1,\n                \"amount\": \"金额\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"remark\": \"备注\",\n                \"name\": \"项目名称\"\n            }\n        ],\n        \"medical_service_inpatient_charge_list\": [\n            {\n                \"inpatient_charge_detail_no\": 1,\n                \"inpatient_invoice_detail_no\": 1,\n                \"charge_item_detail\": \"费用明细\",\n                \"quantity\": \"发票商品数量\",\n                \"unit\": \"单位\",\n                \"amount\": \"金额\",\n                \"tax_amount\": \"税额\",\n                \"tax_rate\": \"税率\",\n                \"medical_service_standard_code\": \"医疗服务贯标码\",\n                \"remark\": \"备注\"\n            }\n        ],\n        \"medical_service_outpatient_elements\": {\n            \"medical_business_serial_no\": \"医疗业务流水号\",\n            \"patient_name\": \"患者姓名\",\n            \"patient_id_type_code\": \"201\",\n            \"patient_id_no\": \"患者身份证件号码\",\n            \"outpatient_no\": \"门诊号\",\n            \"visit_date\": \"门诊就诊时间\",\n            \"medical_institution_type_code\": \"A100\",\n            \"other_medical_institution_type\": \"其他医疗机构类型\",\n            \"health_insurance_type_code\": \"01\",\n            \"other_health_insurance_type\": \"其他医保类型\",\n            \"health_insurance_no\": \"医保编号\",\n            \"gender_code\": \"1\",\n            \"insurance_pooling_fund_payment\": \"医保统筹基金支付金额\",\n            \"other_payment\": \"其他支付金额\",\n            \"personal_account_payment\": \"个人账户支付金额\",\n            \"personal_cash_payment\": \"个人现金支付金额\",\n            \"personal_payment\": \"个人支付金额\",\n            \"personal_self_payment\": \"个人自费金额\",\n            \"custom_element_count\": 2,\n            \"custom_elements_json\": {}\n        },\n        \"medical_service_outpatient_item_list\": [\n            {\n                \"sequence_no\": 1,\n                \"charge_item_detail\": \"费用明细\",\n                \"unit\": \"单位\",\n                \"quantity\": \"发票商品数量\",\n                \"amount\": \"金额\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"remark\": \"备注\",\n                \"medical_service_standard_code\": \"医疗服务贯标码\",\n                \"name\": \"项目名称\"\n            }\n        ],\n        \"tractor_harvester_elements\": {\n            \"engine_no\": \"发动机号码\",\n            \"chassis_certificate_no\": \"底盘合格证编号\"\n        },\n        \"used_vehicle_elements\": {\n            \"used_vehicle_invoice_no\": \"二手车销售统一发票号码\",\n            \"used_vehicle_paper_invoice_no\": \"二手车销售统一纸质发票号码\",\n            \"used_vehicle_paper_invoice_code\": \"二手车销售统一纸质发票代码\"\n        },\n        \"toll_fee_detail_list\": [\n            {\n                \"sequence_no\": 1,\n                \"vehicle_plate_no\": \"车牌号码\",\n                \"vehicle_type_code\": \"车辆类型代码\",\n                \"vehicle_type_name\": \"车辆类型名称\",\n                \"toll_start_date\": \"通行日期起\",\n                \"toll_end_date\": \"通行日期止\",\n                \"amount\": \"金额\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"name\": \"项目名称\"\n            }\n        ],\n        \"items\": [\n            {\n                \"sequence_no\": 1,\n                \"item_short_name\": \"商品服务简称\",\n                \"goods_or_service_name\": \"货物或应税劳务、服务名称\",\n                \"tax_classification_code\": \"商品和服务税收分类合并编码\",\n                \"unit\": \"单位\",\n                \"quantity\": \"发票交易数量\",\n                \"unit_price\": \"发票交易单价\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"amount\": \"金额\",\n                \"deduction_amount\": \"扣除额\",\n                \"product_barcode\": \"商品条码\",\n                \"name\": \"项目名称\",\n                \"specification\": \"规格型号\"\n            },\n            {\n                \"sequence_no\": 2,\n                \"item_short_name\": \"商品服务简称\",\n                \"goods_or_service_name\": \"货物或应税劳务、服务名称\",\n                \"tax_classification_code\": \"商品和服务税收分类合并编码\",\n                \"unit\": \"单位\",\n                \"quantity\": \"发票交易数量\",\n                \"unit_price\": \"发票交易单价\",\n                \"tax_rate\": \"税率\",\n                \"tax_amount\": \"税额\",\n                \"amount\": \"金额\",\n                \"deduction_amount\": \"扣除额\",\n                \"product_barcode\": \"商品条码\",\n                \"name\": \"项目名称\",\n                \"specification\": \"规格型号\"\n            }\n        ],\n        \"invoice_number\": \"发票号码\",\n        \"issue_date\": \"开票日期\",\n        \"buyer_phone\": \"购买方电话\",\n        \"invoice_code\": \"纸质发票代码\"\n    }\n}",
                     "responseId": "166669939",
                     "description": "",
                     "oasKey": "",
@@ -3179,17 +3179,22 @@
                       "title": "购买方地址",
                       "maxLength": 300
                     },
-                    "total_amount": {
+                    "amount_excluding_tax": {
                       "type": "number",
-                      "title": "价税合计",
-                      "description": "整数部分最大18位，保留2位小数"
+                      "title": "合计金额",
+                      "description": "合计不含税金额，DECIMAL 18,2"
                     },
-                    "total_tax_amount": {
+                    "tax_amount": {
                       "type": "number",
                       "title": "合计税额",
                       "description": "整数部分最大18位，保留2位小数"
                     },
-                    "amount_with_tax_in_words": {
+                    "amount_including_tax": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "整数部分最大18位，保留2位小数"
+                    },
+                    "amount_in_words": {
                       "type": "string",
                       "title": "价税合计(大写)",
                       "maxLength": 300
@@ -4497,9 +4502,10 @@
                     "is_blue_invoice",
                     "seller_name",
                     "buyer_name",
-                    "total_amount",
-                    "total_tax_amount",
-                    "amount_with_tax_in_words",
+                    "amount_excluding_tax",
+                    "tax_amount",
+                    "amount_including_tax",
+                    "amount_in_words",
                     "invoice_status",
                     "issue_date"
                   ],
@@ -4521,9 +4527,10 @@
                     "buyer_tax_no",
                     "buyer_name",
                     "buyer_address",
-                    "total_amount",
-                    "total_tax_amount",
-                    "amount_with_tax_in_words",
+                    "amount_excluding_tax",
+                    "tax_amount",
+                    "amount_including_tax",
+                    "amount_in_words",
                     "deduction_amount",
                     "settlement_method_code",
                     "issuer",
@@ -4692,7 +4699,7 @@
                       "maxLength": 19,
                       "description": "YYYY-MM-DD HH:mm:ss"
                     },
-                    "amount": {
+                    "amount_excluding_tax": {
                       "type": "number",
                       "title": "金额",
                       "description": "DECIMAL 18,2"
@@ -4707,7 +4714,7 @@
                       "title": "税率",
                       "description": "DECIMAL 8,5"
                     },
-                    "total_amount": {
+                    "amount_including_tax": {
                       "type": "number",
                       "title": "价税合计",
                       "description": "DECIMAL 18,2"
@@ -4955,10 +4962,10 @@
                     "proxy_seller_tax_no",
                     "proxy_seller_name",
                     "void_date",
-                    "amount",
+                    "amount_excluding_tax",
                     "tax_amount",
                     "tax_rate",
-                    "total_amount",
+                    "amount_including_tax",
                     "remark",
                     "issue_type",
                     "tax_inclusive_rate_flag",
@@ -5069,7 +5076,7 @@
                     "invoice_status_flag": {
                       "$ref": "#/definitions/231697049"
                     },
-                    "amount": {
+                    "amount_excluding_tax": {
                       "type": "number",
                       "title": "金额",
                       "description": "单位：元，DECIMAL 18,2"
@@ -5084,7 +5091,7 @@
                       "title": "税率",
                       "description": "DECIMAL 8,5"
                     },
-                    "total_amount": {
+                    "amount_including_tax": {
                       "type": "number",
                       "title": "价税合计",
                       "description": "单位：元，DECIMAL 18,2"
@@ -5227,10 +5234,10 @@
                     "void_date",
                     "special_invoice_type",
                     "invoice_status_flag",
-                    "amount",
+                    "amount_excluding_tax",
                     "tax_amount",
                     "tax_rate",
-                    "total_amount",
+                    "amount_including_tax",
                     "remark",
                     "verification_code",
                     "item_count",
@@ -5379,7 +5386,7 @@
                       "description": "YYYY-MM-DD HH:mm:ss",
                       "maxLength": 19
                     },
-                    "amount": {
+                    "amount_excluding_tax": {
                       "type": "number",
                       "title": "金额",
                       "description": "单位：元，DECIMAL 18,2"
@@ -5394,7 +5401,7 @@
                       "title": "税率",
                       "description": "DECIMAL 8,5"
                     },
-                    "total_amount": {
+                    "amount_including_tax": {
                       "type": "number",
                       "title": "价税合计",
                       "description": "单位：元，DECIMAL 18,2"
@@ -5518,8 +5525,8 @@
                     "buyer_address_phone",
                     "buyer_bank_account",
                     "void_date",
-                    "total_amount",
-                    "amount",
+                    "amount_including_tax",
+                    "amount_excluding_tax",
                     "tax_amount",
                     "tax_rate",
                     "remark",
@@ -5674,7 +5681,7 @@
                       "title": "增值税税额",
                       "description": "单位：元，DECIMAL 18,2"
                     },
-                    "total_amount": {
+                    "amount_including_tax": {
                       "type": "number",
                       "title": "价税合计",
                       "description": "单位：元，DECIMAL 18,2"
@@ -5899,7 +5906,7 @@
                     "vehicle_type_code",
                     "compliance_no",
                     "import_no",
-                    "total_amount",
+                    "amount_including_tax",
                     "vehicle_weight",
                     "vehicle_capacity",
                     "taxation_voucher"
@@ -6290,12 +6297,22 @@
                       "title": "付汇人",
                       "maxLength": 300
                     },
-                    "total_amount": {
+                    "amount_excluding_tax": {
                       "type": "number",
                       "title": "合计金额（合计不含税金额）",
                       "description": "DECIMAL 18,2"
                     },
-                    "amount_with_tax_in_words": {
+                    "tax_amount": {
+                      "type": "number",
+                      "title": "合计税额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "amount_including_tax": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "amount_in_words": {
                       "type": "string",
                       "title": "价税合计（大写）",
                       "maxLength": 100
@@ -6304,11 +6321,6 @@
                       "type": "string",
                       "title": "结算方式代码",
                       "maxLength": 2
-                    },
-                    "total_tax_amount": {
-                      "type": "number",
-                      "title": "合计税额",
-                      "description": "DECIMAL 18,2"
                     },
                     "issuer_real_name_auth_location": {
                       "type": "string",
@@ -6681,10 +6693,11 @@
                     "issuer",
                     "payee",
                     "remitter",
-                    "amount_with_tax_in_words",
+                    "amount_excluding_tax",
+                    "tax_amount",
+                    "amount_including_tax",
+                    "amount_in_words",
                     "settlement_method_code",
-                    "total_amount",
-                    "total_tax_amount",
                     "issuer_real_name_auth_location",
                     "mobile_invoice_location",
                     "contract_no",
@@ -6817,12 +6830,22 @@
                       "title": "付汇人",
                       "maxLength": 300
                     },
-                    "total_amount": {
+                    "amount_excluding_tax": {
                       "type": "number",
                       "title": "合计金额（合计不含税金额）",
                       "description": "DECIMAL 18,2"
                     },
-                    "amount_with_tax_in_words": {
+                    "tax_amount": {
+                      "type": "number",
+                      "title": "合计税额",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "amount_including_tax": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "amount_in_words": {
                       "type": "string",
                       "title": "价税合计（大写）",
                       "maxLength": 100
@@ -6831,11 +6854,6 @@
                       "type": "string",
                       "title": "结算方式代码",
                       "maxLength": 2
-                    },
-                    "total_tax_amount": {
-                      "type": "number",
-                      "title": "合计税额",
-                      "description": "DECIMAL 18,2"
                     },
                     "issuer_real_name_auth_location": {
                       "type": "string",
@@ -7164,10 +7182,11 @@
                     "issuer",
                     "payee",
                     "remitter",
-                    "amount_with_tax_in_words",
+                    "amount_excluding_tax",
+                    "tax_amount",
+                    "amount_including_tax",
+                    "amount_in_words",
                     "settlement_method_code",
-                    "total_amount",
-                    "total_tax_amount",
                     "issuer_real_name_auth_location",
                     "mobile_invoice_location",
                     "contract_no",
@@ -7315,17 +7334,22 @@
                       "title": "购买方账号",
                       "maxLength": 100
                     },
-                    "total_amount": {
+                    "amount_excluding_tax": {
                       "type": "number",
-                      "title": "价税合计",
-                      "description": "DECIMAL 18,2"
+                      "title": "合计金额",
+                      "description": "合计不含税金额，DECIMAL 18,2"
                     },
-                    "total_tax_amount": {
+                    "tax_amount": {
                       "type": "number",
                       "title": "合计税额",
                       "description": "DECIMAL 18,2"
                     },
-                    "amount_with_tax_in_words": {
+                    "amount_including_tax": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "amount_in_words": {
                       "type": "string",
                       "title": "价税合计(大写)",
                       "maxLength": 300
@@ -7385,7 +7409,7 @@
                       "title": "税率",
                       "description": "增值税税率或征收率，DECIMAL 16,6"
                     },
-                    "tax_amount": {
+                    "vat_tax_amount": {
                       "type": "number",
                       "title": "税额",
                       "description": "增值税税额，DECIMAL 18,6"
@@ -7433,13 +7457,14 @@
                     "is_blue_invoice",
                     "seller_name",
                     "buyer_name",
-                    "total_amount",
-                    "total_tax_amount",
-                    "amount_with_tax_in_words",
+                    "amount_excluding_tax",
+                    "tax_amount",
+                    "amount_including_tax",
+                    "amount_in_words",
                     "product_model",
                     "vehicle_identification_no",
                     "tax_rate",
-                    "tax_amount",
+                    "vat_tax_amount",
                     "price_without_tax",
                     "invoice_status"
                   ],
@@ -7466,9 +7491,10 @@
                     "buyer_address",
                     "buyer_bank_name",
                     "buyer_account_number",
-                    "total_amount",
-                    "total_tax_amount",
-                    "amount_with_tax_in_words",
+                    "amount_excluding_tax",
+                    "tax_amount",
+                    "amount_including_tax",
+                    "amount_in_words",
                     "issuer",
                     "remark",
                     "product_model",
@@ -7477,7 +7503,7 @@
                     "engine_no",
                     "vehicle_identification_no",
                     "tax_rate",
-                    "tax_amount",
+                    "vat_tax_amount",
                     "tax_bureau_code",
                     "tax_bureau_name",
                     "price_without_tax",
@@ -7639,17 +7665,22 @@
                       "title": "购买方账号",
                       "maxLength": 100
                     },
-                    "total_amount": {
+                    "amount_excluding_tax": {
                       "type": "number",
-                      "title": "价税合计",
-                      "description": "DECIMAL 18,2"
+                      "title": "合计金额",
+                      "description": "合计不含税金额，DECIMAL 18,2"
                     },
-                    "total_tax_amount": {
+                    "tax_amount": {
                       "type": "number",
                       "title": "合计税额",
                       "description": "DECIMAL 18,2"
                     },
-                    "amount_with_tax_in_words": {
+                    "amount_including_tax": {
+                      "type": "number",
+                      "title": "价税合计",
+                      "description": "DECIMAL 18,2"
+                    },
+                    "amount_in_words": {
                       "type": "string",
                       "title": "价税合计(大写)",
                       "maxLength": 300
@@ -7807,9 +7838,10 @@
                     "is_blue_invoice",
                     "seller_name",
                     "buyer_name",
-                    "total_amount",
-                    "total_tax_amount",
-                    "amount_with_tax_in_words",
+                    "amount_excluding_tax",
+                    "tax_amount",
+                    "amount_including_tax",
+                    "amount_in_words",
                     "license_plate_no",
                     "registration_no",
                     "vehicle_identification_no",
@@ -7842,9 +7874,10 @@
                     "buyer_address",
                     "buyer_bank_name",
                     "buyer_account_number",
-                    "total_amount",
-                    "total_tax_amount",
-                    "amount_with_tax_in_words",
+                    "amount_excluding_tax",
+                    "tax_amount",
+                    "amount_including_tax",
+                    "amount_in_words",
                     "issuer",
                     "remark",
                     "license_plate_no",

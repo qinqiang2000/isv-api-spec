@@ -10,7 +10,9 @@
       "Skill(document-skills:pdf)",
       "Bash(pdftotext:*)",
       "Bash(ls:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(awk:*)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
